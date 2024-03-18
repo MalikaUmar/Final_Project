@@ -7,19 +7,12 @@ function IndianCusine() {
     const [cusine, setCusine] = useState([]);
 
     const loadmissions = async () => {
-<<<<<<< HEAD
     
         const response = await fetch('http://www.laravel.final/api/indian-cusine');
         const data = await response.json();
         setCusine(data)   
         console.log(data)
     }
-=======
-        const response = await fetch("/api/indian-cusine");
-        const data = await response.json();
-        setCusine(data);
-    };
->>>>>>> e0f4e72c783f4650c2cd9b3547fc446a1da8ae7c
 
     useEffect(() => {
         loadmissions();
