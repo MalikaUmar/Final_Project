@@ -1,5 +1,5 @@
 import React from "react";
-import UyghurCuisine from "./UyghurCuisine";
+import App from "./App";
 
 function Main() {
     return (

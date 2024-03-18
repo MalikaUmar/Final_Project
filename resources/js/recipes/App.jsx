@@ -1,12 +1,14 @@
-import React from 'react'
-import IndianCusine from './IndianCusine'
-
+import React from "react";
+import IndianCusine from "./IndianCusine";
+import UyghurCuisine from "./UyghurCuisine";
 
 function App() {
-  return (
-   <IndianCusine/>
-   
-  )
+    return (
+        <>
+            <IndianCusine />
+            <UyghurCuisine />
+        </>
+    );
 }
 
-export default App
+export default App;
