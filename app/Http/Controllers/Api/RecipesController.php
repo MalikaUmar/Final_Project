@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 class RecipesController extends Controller
 {
     public function index() {
-        $recipes = Recipe::all();
+        $recipes = Recipe::where('category_id',3)
+                                ->get();
         return $recipes;
     }
 }
