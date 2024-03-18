@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\RecipesController;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\IndianCusineController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/uyghur-cuisine',[RecipesController::class,'index'])->name('api.uyghur');
+Route::get('/indian-cusine',[IndianCusineController::class,'Index']);
