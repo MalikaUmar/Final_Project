@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./UyghurCuisine.scss";
+import { Link } from "react-router-dom";
 
 export default function UyghurCuisine() {
     const [uyRecipes, setUyRecipes] = useState([]);
