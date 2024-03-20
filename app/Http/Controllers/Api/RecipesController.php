@@ -17,7 +17,7 @@ class RecipesController extends Controller
     {
         $search = $request->query('search');
 
-        $recipes = Recipe::where('title', 'like', "%{$search}%")
+        $recipes = Recipe::where('instruction', 'like', "%{$search}%")
             
             ->get();
 
