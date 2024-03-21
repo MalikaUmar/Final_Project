@@ -58,22 +58,15 @@ const additemsToFavourites= async(recipe_id)=>{
                     <BrowserRouter>
                         <ScrollToTop />
                         <Routes>
+                            
                             <Route path="/" element={<Homepage />} />
                             <Route path="/register" element={<Register />} />
                             <Route path="/login" element={<Login />} />
                             <Route path="/indian" element={<IndianCusine />} />
-                            <Route
-                                path="/uyghur-cuisine"
-                                element={<UyghurCuisine />}
-                            />
-                            <Route
-                                path="/cuisine/:id"
-                                element={<RecipeDetail />}
-                            />
-                            <Route
-                                path="/favourites"
-                                element={<Favourites />}
-                            />
+                            <Route  path="/uyghur-cuisine" element={<UyghurCuisine />} />
+                            <Route path="/cuisine/:id"  element={<RecipeDetail />} />
+                            <Route path="/favourites" element={<Favourites />}  />
+                                 
                         </Routes>
                     </BrowserRouter>
                 </FavouriteContext.Provider>
