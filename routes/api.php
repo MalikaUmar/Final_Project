@@ -28,3 +28,4 @@ Route::get('/indian-cusine',[IndianCusineController::class,'Index']);
 Route::get('/serbian-cusine',[SerbianCusineController::class,'index']);
 Route::get('/search-meal',[SearchFromIngredientsController::class,'index']);
 Route::get('/recipes/by-ingredients', [RecipesController::class, 'findByIngredients']);
+Route::get('/recipe/search', [RecipesController::class, 'search']);
