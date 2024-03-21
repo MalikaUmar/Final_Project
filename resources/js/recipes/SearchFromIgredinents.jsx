@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import React from 'react'
 import Select from 'react-select';
 
-export default function(){
+export default function SearchFromIgredinents(){
     const [ingredients, setIngredients] = useState();
     const [selected, setSelected] = useState([])
     

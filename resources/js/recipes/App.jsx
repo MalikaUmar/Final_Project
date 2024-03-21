@@ -35,7 +35,7 @@ function App() {
 
 
 const additemsToFavourites= async(recipe_id)=>{
-    const response = await fetch(`http://www.recipes.test/api/addToFavourites/${recipe_id}/${user.id}`);
+    const response = await fetch(`/api/addToFavourites/${recipe_id}/${user.id}`);
     const data = await response.json();
     console.log(data); 
 }
@@ -48,8 +48,23 @@ const additemsToFavourites= async(recipe_id)=>{
 
     return (
         <>
-            <IndianCusine />
-            <UyghurCuisine />
+            <UserContext.Provider value={{user,getUser}}>
+            <FavouriteContext.Provider value={{additemsToFavourites,active,setActive,userActive,setUserActive}}>
+
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Homepage/>} />
+                    <Route path="/register" element={<Register/>} />
+                    <Route path="/login" element={<Login/>} />
+                    <Route path="/indian" element={<IndianCusine/>} />
+                    <Route path="/uyghur" element={<UyghurCuisine/>} />
+                    <Route path="/favourites" element={<Favourites/>} />
+                    <Route path="/search" element={<SearchFromIgredinents />} />
+                </Routes>   
+            </BrowserRouter>
+            </FavouriteContext.Provider>
+
+        </UserContext.Provider>  
         </>
     );
 }
