@@ -9,6 +9,8 @@ import FavouriteContext from "./FavouriteContext";
 import { useState } from "react";
 import { useEffect } from "react";
 import Favourites from "./Favourites";
+import Homepage from "./Homepage";
+
 
 
 function App() {
@@ -49,6 +51,7 @@ const additemsToFavourites= async(recipe_id)=>{
 
             <BrowserRouter>
                 <Routes>
+                    <Route path="/" element={<Homepage/>} />
                     <Route path="/register" element={<Register/>} />
                     <Route path="/login" element={<Login/>} />
                     <Route path="/indian" element={<IndianCusine/>} />
