@@ -30,7 +30,7 @@ class CommentController extends Controller
     public function storeForRecipe(Request $request, $recipe_id)
     {
         $comment = new Comment();
-        $comment->user_id = 1; // TODO: after authentication works: Auth::id();
+        $comment->user_id = Auth::id();
         $comment->recipe_id = $recipe_id;
         $comment->rating = $request->input('rating');
         $comment->comment = $request->input('comment');
