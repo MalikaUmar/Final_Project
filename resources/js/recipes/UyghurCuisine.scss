@@ -1,16 +1,12 @@
-body {
+.ugcontainer {
+  max-width: 1200px;
+  margin: 0 auto;
   font-family: Arial, sans-serif;
   background-color: #f8f8f8;
-  margin: 0;
   padding: 0;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.img_box {
+.ugimg_box {
   padding: 0 5%;
 }
 
@@ -27,14 +23,14 @@ body {
   padding: 20px 0;
 }
 
-.menu_container {
+.ugmenu_container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
   padding: 0 5%;
 }
 
-.menu_item {
+.ugmenu_item {
   background-color: #f4f4f4;
   display: flex;
   flex-direction: column;
@@ -43,24 +39,24 @@ body {
 }
 
 
-.menu_img {
+.ugmenu_img {
   width: 100%;
   height: 300px;
 
   object-fit: cover;
 }
 
-.menu_content {
+.ugmenu_content {
   flex-grow: 1;
   padding: 20px;
   text-align: center;
 }
 
-.menu_title {
+.ugmenu_title {
   margin: 10px 0;
 }
 
-.heart-iconDiv {
+.ugheart-iconDiv {
   right: 5px;
   top: 5px;
   width: 40px;
@@ -74,6 +70,6 @@ body {
 
 }
 
-.heart-icon {
+.ugheart-icon {
   color: white;
 }
