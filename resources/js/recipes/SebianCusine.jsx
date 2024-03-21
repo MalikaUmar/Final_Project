@@ -8,7 +8,7 @@ function SerbianCusine() {
 
     const loadmissions = async () => {
     
-        const response = await fetch('http://www.laravel.final/api/serbian-cusine');
+        const response = await fetch('/api/serbian-cusine');
         const data = await response.json();
         setCusine(data)   
         console.log(data)
