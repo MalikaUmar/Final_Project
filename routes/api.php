@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\IndianCusineController;
 use App\Http\Controllers\Api\RatingController;
+use App\Http\Controllers\Api\SerbianCusineController;
+use App\Http\Controllers\Api\SearchFromIngredientsController;
 use App\Http\Controllers\Api\FavouriteController;
 
 /*
@@ -39,4 +41,7 @@ Route::get('/showFavourites/{user_id}',[FavouriteController::class,'show']);
 Route::get('/removeFavourites/{user_id}/{recipe_id}',[FavouriteController::class,'remove']);
 
 
+Route::get('/serbian-cusine',[SerbianCusineController::class,'index']);
+Route::get('/search-meal',[SearchFromIngredientsController::class,'index']);
+Route::get('/recipes/by-ingredients', [RecipesController::class, 'findByIngredients']);
 Route::get('/recipe/search', [RecipesController::class, 'search']);
