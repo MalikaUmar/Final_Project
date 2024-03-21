@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\IndianCusineController;
 use App\Http\Controllers\Api\SerbianCusineController;
 use App\Http\Controllers\Api\SearchFromIngredientsController;
+use App\Http\Controllers\Api\FavouriteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/uyghur-cuisine',[RecipesController::class,'index'])->name('api.uyghur');
 Route::get('/indian-cusine',[IndianCusineController::class,'Index']);
+
+Route::get('/addToFavourites/{recipe_id}/{user_id}',[FavouriteController::class,'index']);
+Route::get('/showFavourites/{user_id}',[FavouriteController::class,'show']);
+Route::get('/removeFavourites/{user_id}/{recipe_id}',[FavouriteController::class,'remove']);
+
+
 Route::get('/serbian-cusine',[SerbianCusineController::class,'index']);
 Route::get('/search-meal',[SearchFromIngredientsController::class,'index']);
 Route::get('/recipes/by-ingredients', [RecipesController::class, 'findByIngredients']);

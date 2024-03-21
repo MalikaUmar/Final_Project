@@ -1,19 +1,22 @@
-import './App.scss'
+import './Homepage.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { useState } from 'react';
+import { useEffect } from 'react';
+
 export default function Homepage() {
 
     const [dish, setDish] = useState([]);
 
-    const loadDishes = async () => {
-        const response = await fetch("");
-        const data = await response.json();
-        setDish(data);
-    };
+    // const loadDishes = async () => {
+    //     const response = await fetch("");
+    //     const data = await response.json();
+    //     setDish(data);
+    // };
 
-    useEffect(() => {
-        loadDishes();
-    }, []);
+    // useEffect(() => {
+    //     loadDishes();
+    // }, []);
 
     return (
         <>

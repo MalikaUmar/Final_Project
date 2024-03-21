@@ -1,0 +1,129 @@
+// body{
+//     background-color: whitesmoke;
+    
+// }
+.favourites-container{
+    margin-inline: auto;
+    width: 95%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+.favourites-container_heading{
+    position: relative;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    border-top: 0.1px solid grey;
+    border-bottom: 0.1px solid grey;
+    color: #fb641b;
+}
+.favourites-container_list{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 120px;
+    margin-top: 20px;
+    gap: 50px;
+}
+.cards{
+    width: 270px;
+    height: 350px;
+    border: 0.1px solid gray;
+    position: relative;
+}
+.cards_imageContainer{
+    height: 60%;
+}
+img{
+    width: 100%;
+    height: 100%;
+}
+.cards_content{
+    height: 40%;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+.card-remove{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    right: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 2px solid #fb641b;
+
+}
+.user-info{
+    position: absolute;
+    left: 20px;
+    font-size: 40px;
+    color: black;
+}
+.user-name{
+    font-size: 15px;
+    color: black;
+}
+
+
+.favouritsSecond-container{
+    margin: auto;
+    width: 80%;
+    height: 650px;
+    display: flex;    
+}
+.favouritsSecond-container_content{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 30px;
+   border: 0.1px solid gray;
+   text-align: center;
+   color: #fb641b;
+  background-color: white;
+   
+}
+.favouritsSecond-container_link{
+    width: 200px;
+    height: 30px;
+    font-size: 20px;
+    border: 0.1px solid gray;
+    color: white;
+    background-color: #2874f0;
+    text-decoration: none;
+    
+}
+.ifthereIs-noRecipes{
+    margin-top: 10px;
+    margin-right: 105px;
+    width: 1400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    font-size: 15px;
+    background-image: url(https://marketplace.canva.com/BY2-s/MAD1vuBY2-s/1/s2/canva-food-on-black-plate-MAD1vuBY2-s.jpg);
+    background-size: cover;
+    color: white;
+   
+}
+.ifthereIs-noRecipes_links{
+    font-size: 20px;
+    color: #2874f0;
+}
+

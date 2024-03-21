@@ -4,13 +4,27 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 30px;
+}
+.category-image-container{
+    width: 100%;
+    margin-top: 50px;
+}
+.category-image{
+
+    height: 400px;   
+}
+.container-cardsList_heading{
+    margin-top: 40px;
+    border-bottom: 2px solid black;
 }
 .container-cardsList{
+    
     display: flex;
     flex-wrap: wrap;
     // justify-content: center;
     gap: 40px;
-    margin-top: 20px;
+    margin-top: 50px;
     margin-left: 120px; //making cards in to center
 }
 .cards{
@@ -29,6 +43,10 @@ img{
 .cards_content{
     height: 40%;
     padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
 }
 .heart-iconDiv{
     right: 5px;
