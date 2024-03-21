@@ -7,6 +7,8 @@
     <title>Document</title>
 </head>
 <body>
+   <div id="homepage">
+        @vite('resources/js/recipes/homepage.jsx') </div> 
     
 </body>
 </html>

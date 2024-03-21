@@ -1,30 +1,30 @@
-import './App.scss'
+import "./Homepage.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 export default function Homepage() {
 
-    const [dish, setDish] = useState([]);
+    // const [dish, setDish] = useState([]);
 
-    const loadDishes = async () => {
-        const response = await fetch("");
-        const data = await response.json();
-        setDish(data);
-    };
+    // const loadDishes = async () => {
+    //     const response = await fetch("");
+    //     const data = await response.json();
+    //     setDish(data);
+    // };
 
-    useEffect(() => {
-        loadDishes();
-    }, []);
+    // useEffect(() => {
+    //     loadDishes();
+    // }, []);
 
     return (
         <>
             <div className='upper_navigation'>
 
-                <label forHtml="name">Username</label>
+                <label forhtml="name">Username</label>
                 &nbsp;
                 <input type="text" id="name" name="name" />
                 &emsp;
 
-                <label forHtml="name">Password</label>
+                <label forhtml="name">Password</label>
                 &nbsp;
                 <input type="text" id="name" name="name" />
 

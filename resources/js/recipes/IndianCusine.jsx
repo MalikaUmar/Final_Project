@@ -7,10 +7,10 @@ function IndianCusine() {
     const [cusine, setCusine] = useState([]);
 
     const loadmissions = async () => {
-    
-        const response = await fetch('http://www.laravel.final/api/indian-cusine');
+
+        const response = await fetch('/api/indian-cusine');
         const data = await response.json();
-        setCusine(data)   
+        setCusine(data)
         console.log(data)
     }
 
@@ -25,28 +25,26 @@ function IndianCusine() {
             </div>
             <div className="container-cardsList">
                 {cusine
-                    ? cusine.map((item) => {
-                          return (
-                              <>
-                                  <div className="cards">
-                                      <div className="heart-iconDiv">
-                                          <FontAwesomeIcon
-                                              icon={faHeart}
-                                              className="heart-icon"
-                                          />
-                                      </div>
-                                      <div className="cards_imageContainer">
-                                          <img src={item.image} alt="" />
-                                      </div>
-                                      <div className="cards_content">
-                                          <p>{item.title}</p>
-                                          <h2>{item.title}</h2>
-                                          <p>{item.preparation_time}</p>
-                                      </div>
-                                  </div>
-                              </>
-                          );
-                      })
+                    ? cusine.map((item, index) => {
+                        return (
+                            <div className="cards" key={index}>
+                                <div className="heart-iconDiv">
+                                    <FontAwesomeIcon
+                                        icon={faHeart}
+                                        className="heart-icon"
+                                    />
+                                </div>
+                                <div className="cards_imageContainer">
+                                    <img src={item.image} alt="" />
+                                </div>
+                                <div className="cards_content">
+                                    <p>{item.title}</p>
+                                    <h2>{item.title}</h2>
+                                    <p>{item.preparation_time}</p>
+                                </div>
+                            </div>
+                        );
+                    })
                     : ""}
 
                 {/* <div className="cards">
