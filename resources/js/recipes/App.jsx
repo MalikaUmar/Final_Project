@@ -33,7 +33,7 @@ function App() {
 
 
 const additemsToFavourites= async(recipe_id)=>{
-    const response = await fetch(`http://www.recipes.test/api/addToFavourites/${recipe_id}/${user.id}`);
+    const response = await fetch(`/api/addToFavourites/${recipe_id}/${user.id}`);
     const data = await response.json();
     console.log(data); 
 }
