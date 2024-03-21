@@ -13,7 +13,7 @@ export default function InsertNewRecipe() {
     });
 
     const handleRecipeChange = (event) => {
-        console.log(event.target.name, event.target.value);
+
         setRecipe(previous_recipe => {
             return ({
                 ...previous_recipe,
