@@ -11,7 +11,7 @@ class IndianCusineController extends Controller
     //
     public function Index()
     {
-        $recipes = Recipe::all();
+        $recipes = Recipe::where('category_id',1)->get();
         return $recipes;
 
     }

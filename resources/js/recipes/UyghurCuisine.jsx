@@ -8,7 +8,7 @@ export default function UyghurCuisine() {
     const [uyRecipes, setUyRecipes] = useState([]);
 
     const loadRecipes = async () => {
-        const response = await fetch("/api/uyghur-cuisine");
+        const response = await fetch("http://www.recipes.test/api/uyghur-cuisine");
         const data = await response.json();
 
         setUyRecipes(data);
