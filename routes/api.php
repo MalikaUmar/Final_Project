@@ -32,3 +32,4 @@ Route::get('/comments/{recipe_id}', [CommentController::class, 'commentsForRecip
 Route::post('/comments/{recipe_id}',[CommentController::class, 'storeForRecipe']);
 
 // Route::get('/ratings/{recipe_id}', [RatingController::class, 'ratingsForRecipe']);
+Route::get('/recipe/search', [RecipesController::class, 'search']);

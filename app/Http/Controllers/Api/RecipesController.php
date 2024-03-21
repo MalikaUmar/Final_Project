@@ -28,4 +28,16 @@ class RecipesController extends Controller
             'ingredients'=> $ingre->pluck('ingredient')
         ];
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->query('search');
+
+        $recipes = Recipe::where('instruction', 'like', "%{$search}%")
+            
+            ->get();
+
+        return $recipes;
+    }
 }
+
