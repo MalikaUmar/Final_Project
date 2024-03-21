@@ -29,3 +29,5 @@ Route::get('/addToFavourites/{recipe_id}/{user_id}',[FavouriteController::class,
 Route::get('/showFavourites/{user_id}',[FavouriteController::class,'show']);
 Route::get('/removeFavourites/{user_id}/{recipe_id}',[FavouriteController::class,'remove']);
 
+
+Route::get('/recipe/search', [RecipesController::class, 'search']);

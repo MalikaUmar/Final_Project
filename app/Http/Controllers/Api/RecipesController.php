@@ -12,4 +12,16 @@ class RecipesController extends Controller
         $recipes = Recipe::all();
         return $recipes;
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->query('search');
+
+        $recipes = Recipe::where('instruction', 'like', "%{$search}%")
+            
+            ->get();
+
+        return $recipes;
+    }
 }
+

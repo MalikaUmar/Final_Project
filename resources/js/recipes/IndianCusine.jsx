@@ -17,10 +17,12 @@ function IndianCusine() {
     const { additemsToFavourites,active,setActive,userActive,setUserActive } = useContext(FavouriteContext)
 
     const loadmissions = async () => {
-        const response = await fetch("/api/indian-cusine");
+    
+        const response = await fetch('http://www.laravel.final/api/indian-cusine');
         const data = await response.json();
-        setCusine(data);
-    };
+        setCusine(data)   
+        console.log(data)
+    }
 
     useEffect(() => {
         loadmissions();
