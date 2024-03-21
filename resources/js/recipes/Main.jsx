@@ -4,7 +4,6 @@ import App from "./App";
 function Main() {
     return (
         <div>
-            
             <App />
         </div>
     );
