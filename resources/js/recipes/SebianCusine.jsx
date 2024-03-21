@@ -3,12 +3,12 @@ import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
-function IndianCusine() {
+function SerbianCusine() {
     const [cusine, setCusine] = useState([]);
 
     const loadmissions = async () => {
     
-        const response = await fetch('http://www.laravel.final/api/indian-cusine');
+        const response = await fetch('http://www.laravel.final/api/serbian-cusine');
         const data = await response.json();
         setCusine(data)   
         console.log(data)
@@ -19,16 +19,20 @@ function IndianCusine() {
     }, []);
 
     return (
+        <>
+        <img className="homepic" src="/img/serbianFoodMain.jpg" alt="Table with served serbian food" />
         <div className="IndianRecepie-container">
             <div className="container-heading">
                 <h1>Explore Indian Recipes</h1>
             </div>
+            
+            
             <div className="container-cardsList">
                 {cusine
-                    ? cusine.map((item) => {
+                    ? cusine.map((item ) => {
                           return (
                               <>
-                                  <div className="cards">
+                                  <div className="cards" key={item.id}>
                                       <div className="heart-iconDiv">
                                           <FontAwesomeIcon
                                               icon={faHeart}
@@ -52,7 +56,8 @@ function IndianCusine() {
                
             </div>
         </div>
+        </>
     );
 }
 
-export default IndianCusine;
+export default SerbianCusine;

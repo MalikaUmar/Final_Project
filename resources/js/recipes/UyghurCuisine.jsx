@@ -28,6 +28,8 @@ export default function UyghurCuisine() {
             <div className="menu_container">
                 {uyRecipes.map((uyRecipe, i) => {
                     return (
+                        
+                        
                         <div className="menu_item" key={i}>
                             <img src={uyRecipe.image} className="menu_img" />
                             <div className="menu_content">
@@ -40,6 +42,7 @@ export default function UyghurCuisine() {
                                 </p>
                             </div>
                         </div>
+                        
                     );
                 })}
                 <div className="menu_item"></div>
