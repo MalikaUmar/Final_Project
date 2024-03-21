@@ -1,6 +1,9 @@
-import "./Homepage.scss";
+import './Homepage.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { useState } from 'react';
+import { useEffect } from 'react';
+
 export default function Homepage() {
 
     // const [dish, setDish] = useState([]);

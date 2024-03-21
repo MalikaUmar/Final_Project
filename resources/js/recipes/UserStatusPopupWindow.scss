@@ -1,0 +1,45 @@
+.userStatus-popup_window{
+    width: 400px;
+    height: 550px;
+    background-color:aliceblue;
+    position: fixed;
+    top: 100px;
+    left: 600px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+    font-size: 25px;
+    background-image: url(https://marketplace.canva.com/FOYQE/MADyQ0FOYQE/1/s2/canva-man-decorating-food-MADyQ0FOYQE.jpg);
+    background-size: cover;
+    color: white;
+}
+.close-window_icon{
+    cursor: pointer;
+    font-size: 40px;
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    
+}
+.userStatus-popup_window-heading{
+    color: #fb641b;
+    position: absolute;
+    top: 30px;
+   
+}
+.userStatus-popup_window-link{
+    
+    color: #2874f0;
+    font-size: 30px;
+    text-decoration: none;
+    border-bottom: 2px solid white;
+   
+}
+.userStatus-popup_window-links{
+    display: flex;
+    gap: 10px;
+}
