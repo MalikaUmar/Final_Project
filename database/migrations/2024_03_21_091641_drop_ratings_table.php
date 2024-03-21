@@ -11,11 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('measurements', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->timestamps();
-        });
+        Schema::dropIfExists('ratings');
     }
 
     /**
@@ -23,6 +19,12 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('measurements');
+                Schema::create('ratings', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId("user_id");
+            $table->foreignId("recipe_id");
+            $table->integer('rating');
+            $table->timestamps();
+        });
     }
 };

@@ -1,7 +1,8 @@
-* {
-  padding: 0;
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
   margin: 0;
-  box-sizing: border-box;
+  padding: 0;
 }
 
 .container {
@@ -37,7 +38,10 @@
   background-color: #f4f4f4;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+  position: relative;
 }
+
 
 .menu_img {
   width: 100%;
@@ -54,4 +58,22 @@
 
 .menu_title {
   margin: 10px 0;
+}
+
+.heart-iconDiv {
+  right: 5px;
+  top: 5px;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  background-color: red;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.heart-icon {
+  color: white;
 }

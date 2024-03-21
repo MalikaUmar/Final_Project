@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "./UyghurCuisine.scss";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 export default function UyghurCuisine() {
     const [uyRecipes, setUyRecipes] = useState([]);
@@ -30,13 +32,24 @@ export default function UyghurCuisine() {
                 {uyRecipes.map((uyRecipe, i) => {
                     return (
                         <div className="menu_item" key={i}>
-                            <img src={uyRecipe.image} className="menu_img" />
+                            <div className="heart-iconDiv">
+                                <FontAwesomeIcon
+                                    icon={faHeart}
+                                    className="heart-icon"
+                                />
+                            </div>
+                            <Link to={`/cuisine/${uyRecipe.id}`}>
+                                <img
+                                    src={uyRecipe.image}
+                                    className="menu_img"
+                                />
+                            </Link>
                             <div className="menu_content">
                                 <p className="category">
                                     {uyRecipe.difficulty_level}
                                 </p>
                                 <h2 className="menu_title">{uyRecipe.title}</h2>
-                                <p className="rating">
+                                <p className="cooking_time">
                                     {uyRecipe.cooking_time}
                                 </p>
                             </div>
