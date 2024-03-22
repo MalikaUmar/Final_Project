@@ -21,6 +21,9 @@ export default function Comment({ recipe_id, rating }) {
             headers: {
                 Accept: "application/json",
                 "Content-type": "application/json",
+                "X-CSRF-TOKEN": document
+                    .querySelector('meta[name="csrf-token"]')
+                    .getAttribute("content"),
             },
         });
 

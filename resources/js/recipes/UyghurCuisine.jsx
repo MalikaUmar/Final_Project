@@ -56,6 +56,7 @@ export default function UyghurCuisine() {
                                 </p>
                             </div>
                         </div>
+                        
                     );
                 })}
                 <div className="menu_item"></div>
