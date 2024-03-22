@@ -66,7 +66,11 @@ body {
   margin-top: 10px;
 }
 
-.actions {
+
+.info {
+  display: flex;
+  width: 55%;
+  justify-content: space-between;
   margin-top: 20px;
 }
 

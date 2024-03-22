@@ -33,19 +33,28 @@ export default function RecipeDetail() {
                     alt="polo"
                     className="polo"
                 ></img>
-                <div className="actions">
-                    <button id="favoriteBtn"> 💙 save </button>
+
+                <div className="info">
+                    <div className="left">
+                        <h3 className="difficulty_level">Difficulty level:</h3>
+                        <p>🌟 {detailPage.recipe?.difficulty_level}</p>
+                        <h3 className="cooking_time"> Cooking time:</h3>
+                        <p className="time">
+                            ⌛️ {detailPage.recipe?.cooking_time}
+                        </p>
+                        <h3 className="preparation_time">Preparation time:</h3>
+                        <p className="time">
+                            ⏰ {detailPage.recipe?.preparation_time}
+                        </p>
+                    </div>
+                    <div className="right">
+                        <h3>Ingredients 🌶</h3>
+                        {detailPage.ingredients?.map((ingredient) => {
+                            return <p key={ingredient.id}>{ingredient.name}</p>;
+                        })}
+                    </div>
                 </div>
-                <h3 className="difficulty_level">Difficulty level:</h3>
-                <p>{detailPage.recipe?.difficulty_level}</p>
-                <h3 className="cooking_time">Cooking time:</h3>
-                <p className="time">{detailPage.recipe?.cooking_time}</p>
-                <h3 className="preparation_time">Preparation time:</h3>
-                <p className="time">{detailPage.recipe?.preparation_time}</p>
-                <h3>Ingredients</h3>
-                {detailPage.ingredients?.map((ingredient) => {
-                    return <p key={ingredient.id}>{ingredient.name}</p>;
-                })}
+                <hr />
                 <h3>Instruction</h3>
                 <p className="instruction">{detailPage.recipe?.instruction}</p>
                 <div className="servings">

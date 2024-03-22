@@ -80,10 +80,10 @@ export default function Comment({ recipe_id, rating }) {
                     {displayComment.map((comment) => {
                         return (
                             <div className="comment" key={comment.id}>
-                                <CommentRating score={comment.rating} />
                                 <p className="user_name">
                                     {comment.user.name}:
                                 </p>
+                                <CommentRating score={comment.rating} />
                                 <p className="comment_content">
                                     {comment.comment}
                                 </p>
