@@ -7,7 +7,7 @@ import Header from './Header';
 
 export default function Homepage() {
 
-    const [dish, setDish] = useState([]);
+    // const [dish, setDish] = useState([]);
 
     // const loadDishes = async () => {
     //     const response = await fetch("");
@@ -24,12 +24,12 @@ export default function Homepage() {
         <Header/>
             <div className='upper_navigation'>
 
-                <label forHtml="name">Username</label>
+                <label forhtml="name">Username</label>
                 &nbsp;
                 <input type="text" id="name" name="name" />
                 &emsp;
 
-                <label forHtml="name">Password</label>
+                <label forhtml="name">Password</label>
                 &nbsp;
                 <input type="text" id="name" name="name" />
 
