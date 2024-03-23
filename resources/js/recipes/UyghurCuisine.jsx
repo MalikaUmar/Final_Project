@@ -45,7 +45,9 @@ export default function UyghurCuisine() {
                         className="uyghur_img"
                     />
                 </div>
-                <h1 className="uyghur_title">Uyghur Cuisine</h1>
+                <div className="title_box">
+                    <h1 className="uyghur_title">Uyghur Cuisine</h1>
+                </div>
                 <div className="ugmenu_container">
                     {uyRecipes.map((uyRecipe) => {
                         return (
