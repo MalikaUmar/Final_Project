@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
 import axios from "axios";
 import "./Register.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import UserContext from "./UserContext";
+import Header from "./Header";
 
 function Register(props) {
     const[errors,setErrors] = useState([])
@@ -15,6 +16,8 @@ function Register(props) {
     })
 
     const { getUser } = useContext(UserContext)
+
+    const navigate = useNavigate()
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -32,8 +35,9 @@ function Register(props) {
  
        
         const response_data = await response.json();
-        console.log(response_data);
+        // console.log(response_data);
         getUser();
+        navigate('/')
  
         
         if (Math.floor(response.status / 100) !== 2) {
@@ -64,11 +68,13 @@ function Register(props) {
 
 
   return (
-    <div className="container">
+    <>
+      <Header/>
+      <div className="container">
 
          <div className='container-content'>
-            <h2>Looks like you are new here!</h2>
-            <h5>Signup to get started</h5>
+            {/* <h2>Looks like you are new here!</h2>
+            <h5>Signup to get started</h5> */}
             {/* <button><Link to="/login">existing user?Login</Link></button> */}
           </div>
 
@@ -95,10 +101,17 @@ function Register(props) {
             </div>
 
             <button className="register-button">Register</button>
+             
+             <div>
+            <p>Already have an account!</p>
+            <Link to={"/login"}>LOGIN</Link>
+            </div>
 
             </form>
 
             </div>
+
+        </>
    
   )
 }

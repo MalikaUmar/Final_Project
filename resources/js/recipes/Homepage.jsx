@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { useState } from 'react';
 import { useEffect } from 'react';
+import Header from './Header';
 
 export default function Homepage() {
 
@@ -20,6 +21,7 @@ export default function Homepage() {
 
     return (
         <>
+        <Header/>
             <div className='upper_navigation'>
 
                 <label forHtml="name">Username</label>

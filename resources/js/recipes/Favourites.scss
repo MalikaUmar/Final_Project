@@ -4,6 +4,7 @@
 // }
 .favourites-container{
     margin-inline: auto;
+    margin-top: 50px;
     width: 95%;
     height: 100%;
     display: flex;
@@ -15,7 +16,7 @@
 .favourites-container_heading{
     position: relative;
     width: 100%;
-    height: 200px;
+    height: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,6 +25,7 @@
     border-top: 0.1px solid grey;
     border-bottom: 0.1px solid grey;
     color: #fb641b;
+    text-align: center;
 }
 .favourites-container_list{
     display: flex;
@@ -80,11 +82,17 @@ img{
 
 .favouritsSecond-container{
     margin: auto;
-    width: 80%;
-    height: 650px;
-    display: flex;    
+    margin-top: 50px;
+    width: 50%;
+    height: 500px;
+    display: flex;   
+    // flex-direction: column; 
+}
+.favouritsSecond-container_image{
+    width: 50%;
 }
 .favouritsSecond-container_content{
+    width: 50%;
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -109,21 +117,23 @@ img{
 .ifthereIs-noRecipes{
     margin-top: 10px;
     margin-right: 105px;
-    width: 1400px;
-    height: 400px;
+    width: 1200px;
+    height: 300px;
+    // background-color: aliceblue;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 50px;
-    font-size: 15px;
-    background-image: url(https://marketplace.canva.com/BY2-s/MAD1vuBY2-s/1/s2/canva-food-on-black-plate-MAD1vuBY2-s.jpg);
-    background-size: cover;
-    color: white;
+    gap: 30px;
+    font-size: 10px;
+    // background-image: url(https://marketplace.canva.com/85mio/MADyQ985mio/1/s2/canva-man-cooking-food-MADyQ985mio.jpg);
+    // background-size: cover;
+    color: black;
    
 }
 .ifthereIs-noRecipes_links{
-    font-size: 20px;
+    font-size: 15px;
+    text-decoration: none;
     color: #2874f0;
 }
 

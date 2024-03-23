@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import "./Login.scss";
 import axios from "axios";
 import UserContext from "./UserContext";
+import { Link, useNavigate } from "react-router-dom";
+import Header from "./Header";
 
 function Login() {
     const [loginErrors, setLoginErrors] = useState([]);
@@ -12,6 +14,8 @@ function Login() {
 
     const { getUser } = useContext(UserContext);
 
+    const navigate = useNavigate()
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -20,6 +24,8 @@ function Login() {
             const response_data = response.data;
             console.log(response_data);
             getUser();
+            navigate('/')
+            
         } catch (error) {
             switch (error.response.status) {
                 case 422:
@@ -71,10 +77,12 @@ function Login() {
     };
 
     return (
+        <>
+        <Header/>
         <div className="login-container">
             <div className="Login-content">
-                <h2>Already have an accout!</h2>
-                <h5>Login to get started</h5>
+                {/* <h2>Already have an accout!</h2>
+                <h5>Login to get started</h5> */}
             </div>
 
             <form
@@ -108,8 +116,16 @@ function Login() {
                 </div>
 
                 <button className="login-button">Login</button>
+                
+                <div>
+                    <p>Looks loke you are new here!</p>
+                    <Link to={"/register"}>SIGNUP</Link>
+                </div>
+        
             </form>
         </div>
+
+     </>
     );
 }
 

@@ -8,7 +8,7 @@ export default function SearchFromIgredinents(){
     
     const fetchdata = async() =>
     {
-        const response = await fetch('http://www.laravel.final/api/search-meal');
+        const response = await fetch('/api/search-meal');
         const data = await response.json();
         
         setIngredients(data.map(ingredient=>({ value: ingredient.id, label: ingredient.name })));

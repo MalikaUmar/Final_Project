@@ -8,18 +8,13 @@ import { useContext } from "react";
 import Popupwindow from "./Popupwindow";
 import UserContext from "./UserContext";
 import UserStatusPoppupWindow from "./UserStatusPoppupWindow";
+import Header from "./Header";
 
 function IndianCusine() {
     const [cusine, setCusine] = useState([]);
 
     const { user } = useContext(UserContext);
-    const {
-        additemsToFavourites,
-        active,
-        setActive,
-        userActive,
-        setUserActive,
-    } = useContext(FavouriteContext);
+    const {additemsToFavourites,active,setActive,userActive,setUserActive,} = useContext(FavouriteContext);
 
     const loadmissions = async () => {
         const response = await fetch("/api/indian-cusine");
@@ -34,6 +29,7 @@ function IndianCusine() {
 
     return (
         <>
+         <Header/>
             {active == true ? <Popupwindow /> : ""}
 
             {userActive == false ? <UserStatusPoppupWindow /> : ""}
@@ -58,29 +54,18 @@ function IndianCusine() {
                               return (
                                   <>
                                       <div className="cards">
-                                          <div
-                                              className="heart-iconDiv"
-                                              onClick={() => {
-                                                  additemsToFavourites(item.id),
-                                                      user
-                                                          ? setActive(true)
-                                                          : setUserActive(
-                                                                false
-                                                            );
-                                              }}
-                                          >
-                                              <FontAwesomeIcon
-                                                  icon={faHeart}
-                                                  className="heart-icon"
-                                              />
+                                          <div className="heart-iconDiv" onClick={() => {additemsToFavourites(item.id),user ? setActive(true) : setUserActive(false)}}>
+        
+                                              <FontAwesomeIcon icon={faHeart} className="heart-icon" />
+                                                  
                                           </div>
 
                                           <div className="cards_imageContainer">
-                                              <img src={item.image} alt="" />
+                                              <img className="cards_imageContainer-image" src={item.image} alt="" />
                                           </div>
                                           <div className="cards_content">
                                               <p>{item.title}</p>
-                                              <h2>{item.title}</h2>
+                                              <h3>{item.title}</h3>
                                               <p>{item.preparation_time}</p>
                                           </div>
                                       </div>

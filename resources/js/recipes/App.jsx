@@ -13,6 +13,10 @@ import { useEffect } from "react";
 import Favourites from "./Favourites";
 import Homepage from "./Homepage";
 import SerbianCusine from "./SebianCusine";
+import Home from "./Home";
+import Footer from "./Footer";
+
+
 // import SearchFromIgredinents from "./SearchFromIgredinents";
 
 function App() {
@@ -30,15 +34,17 @@ function App() {
         if (response.status == 200) {
             const data = await response.json();
             setUser(data)   
-        } 
+        } else {
+            setUser(null)
+        }
     }
 
 
-const additemsToFavourites= async(recipe_id)=>{
-    const response = await fetch(`/api/addToFavourites/${recipe_id}/${user.id}`);
-    const data = await response.json();
-    console.log(data); 
-}
+    const additemsToFavourites= async(recipe_id)=>{
+        const response = await fetch(`/api/addToFavourites/${recipe_id}/${user.id}`);
+        const data = await response.json();
+        console.log(data); 
+    }
 
 
     useEffect(() => {
@@ -62,7 +68,8 @@ const additemsToFavourites= async(recipe_id)=>{
                         <ScrollToTop />
                         <Routes>
                             
-                            <Route path="/" element={<Homepage />} />
+                            {/* <Route path="/" element={<Homepage />} /> */}
+                            <Route path="/" element={<Home />} />
                             <Route path="/register" element={<Register />} />
                             <Route path="/login" element={<Login />} />
                             <Route path="/indian" element={<IndianCusine />} />
@@ -76,6 +83,7 @@ const additemsToFavourites= async(recipe_id)=>{
                     </BrowserRouter>
                 </FavouriteContext.Provider>
             </UserContext.Provider>
+            {/* <Footer/> */}
         </>
     );
 }
