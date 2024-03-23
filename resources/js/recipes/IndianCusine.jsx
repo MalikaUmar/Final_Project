@@ -22,7 +22,8 @@ function IndianCusine() {
     } = useContext(FavouriteContext);
 
     const loadmissions = async () => {
-        const response = await fetch("/api/indian-cusine");
+
+        const response = await fetch('/api/indian-cusine');
         const data = await response.json();
         setCusine(data);
         console.log(data);
@@ -40,7 +41,7 @@ function IndianCusine() {
 
             <div className="IndianRecepie-container">
                 <div className="container-heading">
-                    <h1>INDIAN CUSINE</h1>
+                    <h1>Explore Indian Recipes</h1>
                 </div>
                 <div className="category-image-container">
                     <img
@@ -55,38 +56,38 @@ function IndianCusine() {
                 <div className="container-cardsList">
                     {cusine
                         ? cusine.map((item) => {
-                              return (
-                                  <>
-                                      <div className="cards">
-                                          <div
-                                              className="heart-iconDiv"
-                                              onClick={() => {
-                                                  additemsToFavourites(item.id),
-                                                      user
-                                                          ? setActive(true)
-                                                          : setUserActive(
-                                                                false
-                                                            );
-                                              }}
-                                          >
-                                              <FontAwesomeIcon
-                                                  icon={faHeart}
-                                                  className="heart-icon"
-                                              />
-                                          </div>
+                            return (
+                                <>
+                                    <div className="cards">
+                                        <div
+                                            className="heart-iconDiv"
+                                            onClick={() => {
+                                                additemsToFavourites(item.id),
+                                                    user
+                                                        ? setActive(true)
+                                                        : setUserActive(
+                                                            false
+                                                        );
+                                            }}
+                                        >
+                                            <FontAwesomeIcon
+                                                icon={faHeart}
+                                                className="heart-icon"
+                                            />
+                                        </div>
 
-                                          <div className="cards_imageContainer">
-                                              <img src={item.image} alt="" />
-                                          </div>
-                                          <div className="cards_content">
-                                              <p>{item.title}</p>
-                                              <h2>{item.title}</h2>
-                                              <p>{item.preparation_time}</p>
-                                          </div>
-                                      </div>
-                                  </>
-                              );
-                          })
+                                        <div className="cards_imageContainer">
+                                            <img src={item.image} alt="" />
+                                        </div>
+                                        <div className="cards_content">
+                                            <p>{item.title}</p>
+                                            <h2>{item.title}</h2>
+                                            <p>{item.preparation_time}</p>
+                                        </div>
+                                    </div>
+                                </>
+                            );
+                        })
                         : ""}
                 </div>
             </div>
