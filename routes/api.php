@@ -27,14 +27,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/uyghur-cuisine',[RecipesController::class,'index'])->name('api.uyghur');
-Route::get('/indian-cusine',[IndianCusineController::class,'Index']);
+// Route::get('/indian-cusine',[IndianCusineController::class,'Index']);
+Route::get('/trending-cusine',[RecipesController::class,'display']);
+
 
 Route::get('/uyghur-cuisine/{recipe_id}',[RecipesController::class,'show']);
 
 Route::get('/comments/{recipe_id}', [CommentController::class, 'commentsForRecipe']);
 Route::post('/comments/{recipe_id}',[CommentController::class, 'storeForRecipe']);
 
-// Route::get('/ratings/{recipe_id}', [RatingController::class, 'ratingsForRecipe']);
 
 Route::get('/addToFavourites/{recipe_id}/{user_id}',[FavouriteController::class,'index']);
 Route::get('/showFavourites/{user_id}',[FavouriteController::class,'show']);

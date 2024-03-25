@@ -21,8 +21,10 @@ export default function Homepage() {
 
     return (
         <>
-            <div className="upper_navigation">
-                <label forHtml="name">Username</label>
+        <Header/>
+            <div className='upper_navigation'>
+
+                <label forhtml="name">Username</label>
                 &nbsp;
                 <input type="text" id="name" name="name" />
                 &emsp;
