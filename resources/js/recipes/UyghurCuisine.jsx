@@ -48,45 +48,50 @@ export default function UyghurCuisine() {
                 <div className="title_box">
                     <h1 className="uyghur_title">Uyghur Cuisine</h1>
                 </div>
+
                 <div className="ugmenu_container">
                     {uyRecipes.map((uyRecipe) => {
-                        return (
-                            <>
-                                <div className="ugmenu_item">
-                                    <div
-                                        className="ugheart-iconDiv"
-                                        onClick={() => {
-                                            additemsToFavourites(uyRecipe.id),
-                                                user
-                                                    ? setActive(true)
-                                                    : setUserActive(false);
-                                        }}
-                                    >
-                                        <FontAwesomeIcon
-                                            icon={faHeart}
-                                            className="ugheart-icon"
-                                        />
+                        if (uyRecipe.category_id === 3) {
+                            return (
+                                <>
+                                    <div className="ugmenu_item">
+                                        <div
+                                            className="ugheart-iconDiv"
+                                            onClick={() => {
+                                                additemsToFavourites(
+                                                    uyRecipe.id
+                                                ),
+                                                    user
+                                                        ? setActive(true)
+                                                        : setUserActive(false);
+                                            }}
+                                        >
+                                            <FontAwesomeIcon
+                                                icon={faHeart}
+                                                className="ugheart-icon"
+                                            />
+                                        </div>
+                                        <Link to={`/cuisine/${uyRecipe.id}`}>
+                                            <img
+                                                src={uyRecipe.image}
+                                                className="ugmenu_img"
+                                            />
+                                        </Link>
+                                        <div className="ugmenu_content">
+                                            <p className="category">
+                                                {uyRecipe.difficulty_level}
+                                            </p>
+                                            <h2 className="ugmenu_title">
+                                                {uyRecipe.title}
+                                            </h2>
+                                            <p className="ugcooking_time">
+                                                {uyRecipe.cooking_time}
+                                            </p>
+                                        </div>
                                     </div>
-                                    <Link to={`/cuisine/${uyRecipe.id}`}>
-                                        <img
-                                            src={uyRecipe.image}
-                                            className="ugmenu_img"
-                                        />
-                                    </Link>
-                                    <div className="ugmenu_content">
-                                        <p className="category">
-                                            {uyRecipe.difficulty_level}
-                                        </p>
-                                        <h2 className="ugmenu_title">
-                                            {uyRecipe.title}
-                                        </h2>
-                                        <p className="ugcooking_time">
-                                            {uyRecipe.cooking_time}
-                                        </p>
-                                    </div>
-                                </div>
-                            </>
-                        );
+                                </>
+                            );
+                        }
                     })}
                 </div>
             </div>
