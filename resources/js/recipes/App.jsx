@@ -13,10 +13,7 @@ import ScrollToTop from "./ScrollToTop";
 import UserContext from "./UserContext";
 import FavouriteContext from "./FavouriteContext";
 
-
-
 import InsertNewRecipe from "./InsertNewRecipe";
-
 
 function App() {
     const [user, setUser] = useState(null);
@@ -37,7 +34,9 @@ function App() {
     };
 
     const additemsToFavourites = async (recipe_id) => {
-        const response = await fetch(`/api/addToFavourites/${recipe_id}/${user.id}`);
+        const response = await fetch(
+            `/api/addToFavourites/${recipe_id}/${user.id}`
+        );
         const data = await response.json();
         console.log(data);
     };
@@ -48,23 +47,9 @@ function App() {
 
     return (
         <>
-            <UserContext.Provider value={{user,getUser}}>
-            <FavouriteContext.Provider value={{additemsToFavourites,active,setActive,userActive,setUserActive}}>
-
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/" element={<Homepage/>} />
-                    <Route path="/register" element={<Register/>} />
-                    <Route path="/login" element={<Login/>} />
-                    <Route path="/indian" element={<IndianCusine/>} />
-                    <Route path="/uyghur" element={<UyghurCuisine/>} />
-                    <Route path="/favourites" element={<Favourites/>} />
-                    <Route path="/search" element={<SearchFromIgredinents />} />
-                </Routes>   
-            </BrowserRouter>
-            </FavouriteContext.Provider>
-
-        </UserContext.Provider>  
+            <UserContext.Provider
+                value={{ user, getUser }}
+            ></UserContext.Provider>
             <UserContext.Provider value={{ user, getUser }}>
                 <FavouriteContext.Provider
                     value={{
@@ -93,13 +78,15 @@ function App() {
                             <Route
                                 path="/favourites"
                                 element={<Favourites />}
-                                
                             />
-                              <Route
+                            <Route
                                 path="/add-recipe"
                                 element={<InsertNewRecipe />}
                             />
-                            <Route path="/serbian" element={<SerbianCusine />} /> 
+                            <Route
+                                path="/serbian"
+                                element={<SerbianCusine />}
+                            />
                         </Routes>
                     </BrowserRouter>
                 </FavouriteContext.Provider>
