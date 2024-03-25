@@ -23,7 +23,7 @@ class RecipesController extends Controller
         //     ->get();
 
         $recipe = Recipe::with('ingredients')->findOrFail($recipe_id);
-        dd($recipe->ingredients->pivot->measure);
+        // dd($recipe[0]->pivot->measure);
 
         // $measures = RecipeIngredients::pluck('measure');
                      
