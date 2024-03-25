@@ -9,7 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('recipe_ingredients', function (Blueprint $table) {
-            $table->string('measure');
+            $table->string('measure')->after('ingredient_id');
         });
     }
 
