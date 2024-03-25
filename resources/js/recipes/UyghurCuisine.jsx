@@ -88,7 +88,6 @@ export default function UyghurCuisine() {
                             </>
                         );
                     })}
-                    <div className="menu_item"></div>
                 </div>
             </div>
         </>

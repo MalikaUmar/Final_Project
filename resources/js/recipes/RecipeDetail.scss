@@ -16,6 +16,7 @@ body {
 
 .detail_page {
   margin-bottom: 20px;
+  position: relative;
 }
 
 .detail_page .polo {
@@ -72,6 +73,30 @@ body {
   width: 55%;
   justify-content: space-between;
   margin-top: 20px;
+}
+
+
+.ugheart-iconDiv {
+  right: 5px;
+  // top: 5px;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  background-color: red;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+}
+
+.ugheart-icon {
+  color: white;
+}
+
+.description {
+  padding-top: 10px;
 }
 
 // #commentInput {
