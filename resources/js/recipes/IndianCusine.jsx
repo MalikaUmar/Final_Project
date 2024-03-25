@@ -35,10 +35,10 @@ function IndianCusine() {
 
             {userActive == false ? <UserStatusPoppupWindow /> : ""}
 
-            <div className="IndianRecepie-container">
-                <div className="category-image-container">
+            <div className="ugcontainer">
+                <div className="ugimg_box">
                     <img
-                        className="category-image"
+                        className="uyghur_img"
                         src="https://marketplace.canva.com/NqqlA/MAFmARNqqlA/1/s2/canva-indian-food-MAFmARNqqlA.jpg"
                         alt=""
                     />
@@ -72,11 +72,13 @@ function IndianCusine() {
                                           </div>
 
                                           <div className="cards_imageContainer">
-                                              <img
-                                                  src={item.image}
-                                                  alt=""
-                                                  className="ugmenu_img"
-                                              />
+                                              <Link to={`/cuisine/${item.id}`}>
+                                                  <img
+                                                      src={item.image}
+                                                      alt=""
+                                                      className="ugmenu_img"
+                                                  />
+                                              </Link>
                                           </div>
                                           <div className="ugmenu_content">
                                               <p>{item.title}</p>

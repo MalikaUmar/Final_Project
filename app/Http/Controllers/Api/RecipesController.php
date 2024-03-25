@@ -11,8 +11,9 @@ use Illuminate\Support\Facades\DB;
 class RecipesController extends Controller
 {
     public function index() {
-        $recipes = Recipe::where('category_id',3)
-                                ->get();
+        // $recipes = Recipe::where('category_id',3)
+        //                         ->get();
+        $recipes = Recipe::all();
         return $recipes;
     }
 
