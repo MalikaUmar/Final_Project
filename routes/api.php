@@ -41,7 +41,7 @@ Route::get('/showFavourites/{user_id}',[FavouriteController::class,'show']);
 Route::get('/removeFavourites/{user_id}/{recipe_id}',[FavouriteController::class,'remove']);
 
 
-Route::get('/serbian-cusine',[SerbianCusineController::class,'index']);
+Route::get('//uyghur-cuisine',[SerbianCusineController::class,'index']);
 Route::get('/search-meal',[SearchFromIngredientsController::class,'index']);
 Route::get('/recipes/by-ingredients', [RecipesController::class, 'findByIngredients']);
 Route::get('/recipes/search', [RecipesController::class, 'search']);

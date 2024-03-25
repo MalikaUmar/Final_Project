@@ -7,7 +7,7 @@ import IndianCusine from "./IndianCusine";
 import UyghurCuisine from "./UyghurCuisine";
 import SerbianCusine from "./SerbianCusine"; // Note: There's a typo in your component name - should it be "SerbianCuisine"?
 import Favourites from "./Favourites";
-import SearchFromIgredinents from "./SearchFromIngredients"; // Note: There's a typo - should it be "SearchFromIngredients"?
+import SearchFromIngredients from "./SearchFromIngredients"; // Note: There's a typo - should it be "SearchFromIngredients"?
 import RecipeDetail from "./RecipeDetail";
 import ScrollToTop from "./ScrollToTop";
 import UserContext from "./UserContext";
@@ -87,6 +87,11 @@ function App() {
                                 path="/serbian"
                                 element={<SerbianCusine />}
                             />
+                            <Route
+                                path="/search"
+                                element={<SearchFromIngredients />}
+                            />
+
                         </Routes>
                     </BrowserRouter>
                 </FavouriteContext.Provider>

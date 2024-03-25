@@ -4,95 +4,71 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Recipe;
-// use App\Models\RecipeIngredients;
+use App\Models\RecipeIngredients;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Builder;
 
 class RecipesController extends Controller
 {
     public function index() {
-        // $recipes = Recipe::where('category_id',3)
-        //                         ->get();
-        $recipes = Recipe::all();
+        $recipes = Recipe::where('category_id', 3)
+                         ->get();
         return $recipes;
     }
 
     public function show($recipe_id) {
+        $ingre = RecipeIngredients::with('ingredient')
+                  ->where('recipe_id', $recipe_id)
+                  ->get();
 
-        // $ingre = RecipeIngredients::with('ingredient')
-        //     ->where('recipe_id', $recipe_id)
-        //     ->get();
-
-        $recipe = Recipe::with('ingredients')->findOrFail($recipe_id);
-        // dd($recipe[0]->pivot->measure);
-
-        // $measures = RecipeIngredients::pluck('measure');
-                     
+        $recipe = Recipe::findOrFail($recipe_id);
 
         return [
             'recipe' => $recipe,
-            // 'ingredients'=> $ingre->pluck('ingredient'),
-            // 'measure'=>$measures
-            
+            'ingredients' => $ingre->pluck('ingredient')
         ];
     }
 
-    public function search(Request $request)
-    {
+    public function search(Request $request) {
         $search = $request->query('search');
 
         $recipes = Recipe::where('instruction', 'like', "%{$search}%")
-            
-            ->get();
+                         ->get();
 
         return $recipes;
     }
 
-
-
     public function findByIngredients(Request $request) {
         try {
             $ingredientIdsString = $request->query('ingredients');
-    
+
             if ($ingredientIdsString) {
                 $ingredientIds = explode(',', $ingredientIdsString);
-    
-                $recipes = DB::table('recipes')
-                    ->select('recipes.id', 'recipes.title', DB::raw("GROUP_CONCAT(ingredients.name SEPARATOR ', ') AS ingredients_list"))
-                    ->join('recipe_ingredients', 'recipes.id', '=', 'recipe_ingredients.recipe_id')
-                    ->join('ingredients', 'recipe_ingredients.ingredient_id', '=', 'ingredients.id')
-                    ->whereIn('recipe_ingredients.ingredient_id', $ingredientIds)
-                    ->groupBy('recipes.id', 'recipes.title')
-                    ->get();
-    
+
+                $recipes = Recipe::whereHas('ingredients', function($q) use($ingredientIds) {
+                    $q->whereIn('ingredients.id', $ingredientIds);
+                })->get();
+
                 $maxIngredientsCount = 0;
-                $recipesWithMostIngredients = [];
-    
+                $recipeWithMostIngredients = null;
+
                 foreach ($recipes as $recipe) {
-                    $ingredientsArray = explode(', ', $recipe->ingredients_list);
-                    $numberOfIngredients = count($ingredientsArray);
-    
-                    if ($numberOfIngredients > $maxIngredientsCount) {
-                        $maxIngredientsCount = $numberOfIngredients;
-                        $recipesWithMostIngredients = [$recipe]; // Start a new array with this recipe as the only element
-                    } elseif ($numberOfIngredients === $maxIngredientsCount) {
-                        $recipesWithMostIngredients[] = $recipe; // Add this recipe to the array
+                    $matchingIngredientsCount = $recipe->ingredients()->whereIn('ingredients.id', $ingredientIds)->count();
+
+                    if ($matchingIngredientsCount > $maxIngredientsCount) {
+                        $maxIngredientsCount = $matchingIngredientsCount;
+                        $recipeWithMostIngredients = $recipe->id;
                     }
                 }
-    
-                // Convert ingredients_list for all recipes in the result to arrays
-                foreach ($recipesWithMostIngredients as &$recipe) {
-                    $recipe->ingredients_list = explode(', ', $recipe->ingredients_list);
-                }
-                unset($recipe); // Break the reference with the last element
-    
-                // Return the recipes with the most ingredients
-                if (!empty($recipesWithMostIngredients)) {
-                    return response()->json($recipesWithMostIngredients);
+
+                if ($recipeWithMostIngredients !== null) {
+                    $recipe = Recipe::with('ingredients')->find($recipeWithMostIngredients);
+
+                    return response()->json($recipe);
                 } else {
                     return response()->json(['message' => 'No recipes found with the given ingredients'], 404);
                 }
-    
+
             } else {
                 return response()->json(['message' => 'No ingredient IDs provided'], 400);
             }

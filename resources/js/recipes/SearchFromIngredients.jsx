@@ -4,7 +4,7 @@ import Select from "react-select";
 import "./SearchFromIngredients.scss";
 // import chroma from 'chroma.js';
 
-export default function SearchFromIgredinents() {
+export default function SearchFromIngredients() {
     const [ingredients, setIngredients] = useState();
     const [selected, setSelected] = useState([]);
     const [meal, setMeal] = useState(null);
