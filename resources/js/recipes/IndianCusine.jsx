@@ -36,9 +36,6 @@ function IndianCusine() {
             {userActive == false ? <UserStatusPoppupWindow /> : ""}
 
             <div className="IndianRecepie-container">
-                <div className="container-heading">
-                    <h1>Explore Indian Recipes</h1>
-                </div>
                 <div className="category-image-container">
                     <img
                         className="category-image"
@@ -46,35 +43,52 @@ function IndianCusine() {
                         alt=""
                     />
                 </div>
-                <h1 className="container-cardsList_heading">
-                    Explore Indian Recipes
-                </h1>
-                <div className="container-cardsList">
+                <div className="title_box">
+                    <h1 className="uyghur_title">Explore Indian Recipes</h1>
+                </div>
+                <div className="ugmenu_container">
                     {cusine
                         ? cusine.map((item) => {
                             if(item.category_id == 1){
                               return (
                                   <>
-                                      <div className="cards">
-                                          <div className="heart-iconDiv" onClick={() => {additemsToFavourites(item.id),user ? setActive(true) : setUserActive(false)}}>
-        
-                                              <FontAwesomeIcon icon={faHeart} className="heart-icon" />
-                                                  
+                            
+                                      <div className="ugmenu_item">
+                                          <div
+                                              className="heart-iconDiv"
+                                              onClick={() => {
+                                                  additemsToFavourites(item.id),
+                                                      user
+                                                          ? setActive(true)
+                                                          : setUserActive(
+                                                                false
+                                                            );
+                                              }}
+                                          >
+                                              <FontAwesomeIcon
+                                                  icon={faHeart}
+                                                  className="heart-icon"
+                                              />
                                           </div>
 
                                           <div className="cards_imageContainer">
-                                              <img className="cards_imageContainer-igitmage" src={item.image} alt="" />
+                                              <img
+                                                  src={item.image}
+                                                  alt=""
+                                                  className="ugmenu_img"
+                                              />
                                           </div>
-                                          <div className="cards_content">
+                                          <div className="ugmenu_content">
                                               <p>{item.title}</p>
-                                              <h3>{item.title}</h3>
+                                              <h2 className="ugmenu_title">
+                                                  {item.title}
+                                              </h2>
                                               <p>{item.preparation_time}</p>
                                           </div>
                                       </div>
                                   </>
                               );
-
-                            }
+                        }
                           })
                         : ""}
                 </div>

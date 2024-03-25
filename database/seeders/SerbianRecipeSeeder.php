@@ -25,7 +25,7 @@ class SerbianRecipeSeeder extends Seeder
                                     Pour beans into baking pan. 
                                     On a pre heated and pre oiled frying pan fry chopped onions until they get the golden brown color. Add cayeene pepper to the onions. Stir well and add it to the beans.
                                     Mix it and add salt. Add pepper. Bake at 180°C for about 15-20 minutes until you get nice, golden crust. ",
-                'image' =>  'https://www.canva.com/photos/MADFkuJr_Ig-prebranac-balkan-baked-beans/'               
+                'image' =>  'recipes-final-project\public\img\prebranac.jpg'               
             ],
             [
                 'title' => 'Balkan-Style Stuffed Peppers',
@@ -43,7 +43,7 @@ class SerbianRecipeSeeder extends Seeder
                 Place your stuffed peppers into a baking dish and pour in just enough water to cover the bottom. This prevents the peppers from sticking before they get a chance to release their juice.
                 Cover your baking dish with aluminum foil and transfer to the oven. Bake for 45 minutes, then uncover and bake for an additional 10 minutes or until the tops are nicely charred.
                 Serve hot.",
-                'image' =>  'https://www.canva.com/photos/MAFmLoB5Wn8-baked-bell-peppers-stuffed-with-meat-onions-and-rice/' 
+                'image' =>  'recipes-final-project/public/img/punjenaPaprika.jpg' 
             ],
             [
                 'title' => 'Muckalica',
@@ -57,7 +57,7 @@ class SerbianRecipeSeeder extends Seeder
                 Dice bacon into larger cubes and bake separately.
                 The mućkalica should not be stirred, but only occasionally shaken. Add spices to taste - it should be spicy.
                 Peppers, hot and sweet smoked, are added at the end. Before serving, sprinkle with parsley.",
-                'image' =>  'https://www.canva.com/photos/MAFTj3QQETc-serving-of-serbian-leskovacka-muckalica-in-a-tavern/' 
+                'image' =>  'recipes-final-project\public\img\s2.jpg' 
             ],
             [
                 'title' => 'Gulash',
@@ -70,7 +70,7 @@ class SerbianRecipeSeeder extends Seeder
                 'instruction' => "Tracing its origins back to the 9th century, Goulash is a thick stew-like dish made of vegetables, meat, and various spices such as paprika. The original recipe hails from Hungary, a small country located in Central Europe, right next to Serbia. It has since then been adopted by many cultures, and today it is a popular meal throughout Central and Eastern Europe. While similar in texture, the Serbian version of this hearty meal is quite different.
                                   Serbian goulash ingredients are somewhat simpler, yet when prepared right, they yield a dish with complex aromas and flavor notes. You just need a few things perfectly paired with each other to create this comfort food delight. If you are already familiar with traditional Serbian food, you’ll probably be able to guess that this version of Goulash incorporates more meat than any other version. Yes, Serbian people love their meals full of meat, and Goulash is no different. Forget about using an excessive amount of vegetables; it’s all about meat, onions, and spices, served over creamy mashed potatoes.               
                                   Here is the recipe together with the instructions for making genuine Serbian goulash.",
-                                  'image' => "https://www.canva.com/photos/MADesOeY9jo-goulash-beef-stew/",
+                                  'image' => "recipes-final-project\public\img\gulash.jpg",
             ],
             [
                 'title' => 'Musaka',
@@ -92,7 +92,7 @@ class SerbianRecipeSeeder extends Seeder
                                     Prepare the egg custard. In a medium bowl, combine the eggs, sour cream, milk, and a pinch of salt and pepper. Whisk until all ingredients are combined. Pour this mixture over the Musaka making sure it is distributed evenly.
                                     Cover baking dish with aluminum foil and bake 30 minutes. At the 30 minute mark, remove the aluminum foil and bake for another 20-25 minutes or until the potatoes on top turn a golden brown. Test for doneness by using a fork and ensure potatoes in the Musaka are soft.
                                     When fully cooked, let the Musaka rest for 15-20 minutes before serving.",
-                'image' => "https://www.canva.com/photos/MAExYWSy798-greek-dish-moussaka-made-in-traditional-ceramic-pot-vertical/"
+                'image' => "recipes-final-project\public\img\musaka.jpg"
             ],
             [
                 'title' => 'Lovacke snicle',

@@ -8,6 +8,17 @@ export default function Comment({ recipe_id, rating }) {
     const [comment, setComment] = useState("");
     const [displayComment, setDisplayComment] = useState([]);
 
+    const getCommentTime = (datetime) => {
+        const date = new Date(datetime);
+        const [month, day, year] = [
+            date.getMonth(),
+            date.getDate(),
+            date.getFullYear(),
+        ];
+
+        return day + "-" + month + "-" + year;
+    };
+
     const handleCommentChange = (ev) => {
         setComment(ev.target.value);
     };
@@ -69,12 +80,16 @@ export default function Comment({ recipe_id, rating }) {
                     {displayComment.map((comment) => {
                         return (
                             <div className="comment" key={comment.id}>
-                                {/* <p className="rating">{comment.rating}</p> */}
+                                <p className="user_name">
+                                    {comment.user.name}:
+                                </p>
                                 <CommentRating score={comment.rating} />
-                                <p>{comment.comment}</p>
+                                <p className="comment_content">
+                                    {comment.comment}
+                                </p>
                                 <hr />
                                 <p className="create_at">
-                                    {comment.created_at}
+                                    {getCommentTime(comment.created_at)}
                                 </p>
                             </div>
                         );

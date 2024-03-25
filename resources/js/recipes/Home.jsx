@@ -78,22 +78,40 @@ function Home() {
          trendingCusine.map(item=>{
             return(
             <>
-              <div className="cards">                            
-                    <div className="heart-iconDiv" onClick={() => {additemsToFavourites(item.id), user ? setActive(true) : setUserActive(false)}}>
-                        
-                        <FontAwesomeIcon icon={faHeart} className="heart-icon"/>
-        
-                    </div>
+             
+             <div className="ugmenu_item">
+                                          <div
+                                              className="heart-iconDiv"
+                                              onClick={() => {
+                                                  additemsToFavourites(item.id),
+                                                      user
+                                                          ? setActive(true)
+                                                          : setUserActive(
+                                                                false
+                                                            );
+                                              }}
+                                          >
+                                              <FontAwesomeIcon
+                                                  icon={faHeart}
+                                                  className="heart-icon"
+                                              />
+                                          </div>
 
-                    <div className="cards_imageContainer">
-                        <img className="cards_imageContainer-image" src={item.image} alt="" />
-                    </div>
-                    <div className="cards_content">
-                        <p>{item.title}</p>
-                        <h3>{item.title}</h3>
-                        <p>{item.preparation_time}</p>
-                    </div>
-              </div>
+                                          <div className="cards_imageContainer">
+                                              <img
+                                                  src={item.image}
+                                                  alt=""
+                                                  className="ugmenu_img"
+                                              />
+                                          </div>
+                                          <div className="ugmenu_content">
+                                              <p>{item.title}</p>
+                                              <h2 className="ugmenu_title">
+                                                  {item.title}
+                                              </h2>
+                                              <p>{item.preparation_time}</p>
+                                          </div>
+                                      </div>
             </>
             )
          })

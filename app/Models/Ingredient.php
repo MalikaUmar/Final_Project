@@ -9,7 +9,6 @@ use App\Models\Recipe;
 class Ingredient extends Model
 {
     use HasFactory;
-
   
         public function recipes()
 {
