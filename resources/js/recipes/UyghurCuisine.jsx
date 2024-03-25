@@ -8,17 +8,12 @@ import UserContext from "./UserContext";
 import FavouriteContext from "./FavouriteContext";
 import Popupwindow from "./Popupwindow";
 import UserStatusPoppupWindow from "./UserStatusPoppupWindow";
+import Header from "./Header";
 
 export default function UyghurCuisine() {
     const [uyRecipes, setUyRecipes] = useState([]);
     const { user } = useContext(UserContext);
-    const {
-        additemsToFavourites,
-        active,
-        setActive,
-        userActive,
-        setUserActive,
-    } = useContext(FavouriteContext);
+    const {additemsToFavourites,active,setActive,userActive,setUserActive, setBurgericon,burgericon} = useContext(FavouriteContext);
 
     const loadRecipes = async () => {
         const response = await fetch("/api/uyghur-cuisine");
@@ -33,11 +28,12 @@ export default function UyghurCuisine() {
 
     return (
         <>
+        <Header/>
             {active == true ? <Popupwindow /> : ""}
 
             {userActive == false ? <UserStatusPoppupWindow /> : ""}
 
-            <div className="ugcontainer">
+            <div className="ugcontainer" style={{opacity: active== true || userActive == false || burgericon== true ? 0.3 : '',backgroundColor: active== true || userActive == false ? "darkgrey" : ''}}>
                 <div className="ugimg_box">
                     <img
                         src="/img/uyghurcuisine-bg.jpeg"

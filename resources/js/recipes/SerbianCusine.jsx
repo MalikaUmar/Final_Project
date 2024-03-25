@@ -1,4 +1,5 @@
 import "./SerbianCusine.scss";
+import "./UyghurCuisine.scss";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
@@ -8,18 +9,14 @@ import Popupwindow from "./Popupwindow";
 import UserContext from "./UserContext";
 import UserStatusPoppupWindow from "./UserStatusPoppupWindow";
 import { Link } from "react-router-dom";
+import Header from "./Header";
 
 function SerbianCusine() {
     const [cusine, setCusine] = useState([]);
+    const {additemsToFavourites,active,setActive,userActive,setUserActive, setBurgericon,burgericon} = useContext(FavouriteContext);
 
     const { user } = useContext(UserContext);
-    const {
-        additemsToFavourites,
-        active,
-        setActive,
-        userActive,
-        setUserActive,
-    } = useContext(FavouriteContext);
+ 
 
     const loadmissions = async () => {
         const response = await fetch("/api/uyghur-cuisine");
@@ -35,9 +32,10 @@ function SerbianCusine() {
 
     return (
         <>
+        <Header/>
             {active == true ? <Popupwindow /> : ""}
             {userActive == false ? <UserStatusPoppupWindow /> : ""}
-            <div className="ugcontainer">
+            <div className="ugcontainer" style={{opacity: active== true || userActive == false || burgericon== true ? 0.3 : '',backgroundColor: active== true || userActive == false ? "darkgrey" : ''}}>
                 <div className="ugimg_box">
                     <img
                         className="uyghur_img"

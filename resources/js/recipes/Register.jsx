@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
 import axios from "axios";
 import "./Register.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import UserContext from "./UserContext";
+import Header from "./Header";
 
 function Register(props) {
     const[errors,setErrors] = useState([])
@@ -15,6 +16,8 @@ function Register(props) {
     })
 
     const { getUser } = useContext(UserContext)
+
+    const navigate = useNavigate()
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -32,8 +35,9 @@ function Register(props) {
  
        
         const response_data = await response.json();
-        console.log(response_data);
+        // console.log(response_data);
         getUser();
+        navigate('/')
  
         
         if (Math.floor(response.status / 100) !== 2) {
@@ -64,41 +68,51 @@ function Register(props) {
 
 
   return (
-    <div className="container">
+    <>
+      <Header/>
+      <div className="register-container">
 
          <div className='container-content'>
-            <h2>Looks like you are new here!</h2>
-            <h5>Signup to get started</h5>
-            {/* <button><Link to="/login">existing user?Login</Link></button> */}
+            <h2>Delicious</h2>
+             <p>Dive in to the world of recipes</p>
+          
           </div>
 
           
 
-            <form className="form" action="/register" method="post" onSubmit={ handleSubmit }>
-             <div>
+            <form className="register-form" action="/register" method="post" onSubmit={ handleSubmit }>
+                <h2>Sign Up</h2>
+             <div className="register-form-inputContainer">
             {errors.name ? <p>{errors.name}</p> : ''}
             <input className="input" type="text" name="name" value={ values.name } onChange={ handleChange } placeholder='name'/> <br /><br />
             </div>
              
-            <div>
+            <div className="register-form-inputContainer">
             {errors.email ? <p>{errors.email}</p> : ''} 
             <input className="input" type="email" name="email" value={ values.email } onChange={ handleChange } placeholder='email'/>  <br /><br />
             </div>
 
-            <div>
+            <div className="register-form-inputContainer">
             {errors.password ? <p>{errors.password}</p> : ''} 
             <input className="input" type="password" name="password" value={ values.password } onChange={ handleChange } placeholder='password'/> <br /><br />
             </div>
 
-            <div>
+            <div className="register-form-inputContainer">
             <input className="input" type="password" name="password_confirmation" value={ values.password_confirmation } onChange={ handleChange } placeholder='confirm-password'/> <br /><br />
             </div>
 
             <button className="register-button">Register</button>
+             
+             <div className="form-foot">
+            <p>Already have an account !</p>
+            <Link className="register-foot-loginLink" to={"/login"}>Login here</Link>
+            </div>
 
             </form>
 
             </div>
+
+        </>
    
   )
 }

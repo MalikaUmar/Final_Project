@@ -48,6 +48,12 @@ class RecipesController extends Controller
         return $recipes;
     }
 
+    public function display()
+    {
+        $trending = Recipe::limit(10)->get();
+        return ($trending);
+    }
+
 
 
     public function findByIngredients(Request $request) {

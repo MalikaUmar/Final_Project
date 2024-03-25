@@ -1,81 +1,81 @@
-@import url(https://fonts.googleapis.com/css2?family=Bad+Script&display=swap);
+// @import url(https://fonts.googleapis.com/css2?family=Bad+Script&display=swap);
 
 
-;
+// ;
 
-* {
-    box-sizing: border-box;
-}
+// * {
+//     box-sizing: border-box;
+// }
 
-*,
-*:before,
-*:after {
-    box-sizing: inherit;
-}
+// *,
+// *:before,
+// *:after {
+//     box-sizing: inherit;
+// }
 
-.main {
-    font-size: 1.3rem;
-    line-height: 1.75rem;
-    background-color: #EED6D3;
-    width: 100%;
-    display: flex;
+// .main {
+//     font-size: 1.3rem;
+//     line-height: 1.75rem;
+//     background-color: #EED6D3;
+//     width: 100%;
+//     display: flex;
 
-}
+// }
 
-.upper_navigation {
-    display: flex;
-    justify-content: right;
-    margin-top: 2%;
-}
+// .upper_navigation {
+//     display: flex;
+//     justify-content: right;
+//     margin-top: 2%;
+// }
 
-.upper_heading {
-    background-color: #987284;
-    border: 1px solid white;
-    width: 100%;
-    height: 1%;
-    margin: 1%;
-    padding: 1rem;
-    // animation: 3s linear 1s infinite running slidein;
-    font-size: 2rem;
-    text-align: center;
-    font-family: 'Bad Script', Arial, Helvetica, sans-serif;
-    font-style: italic;
-}
+// .upper_heading {
+//     background-color: #987284;
+//     border: 1px solid white;
+//     width: 100%;
+//     height: 1%;
+//     margin: 1%;
+//     padding: 1rem;
+//     // animation: 3s linear 1s infinite running slidein;
+//     font-size: 2rem;
+//     text-align: center;
+//     font-family: 'Bad Script', Arial, Helvetica, sans-serif;
+//     font-style: italic;
+// }
 
-.main_heading {
-    font-size: 2rem;
-    text-align: center;
-    border: 1px solid white;
-    width: 100%;
-    margin-top: 0%;
-    height: 1%;
-    padding: 1%;
+// .main_heading {
+//     font-size: 2rem;
+//     text-align: center;
+//     border: 1px solid white;
+//     width: 100%;
+//     margin-top: 0%;
+//     height: 1%;
+//     padding: 1%;
 
 
-}
+// }
 
-.navigation_column {
-    display: flex;
-    left: 10%;
-    flex-direction: column;
-    padding-left: 1%;
-    border: 1px solid #987284;
-    width: 50%;
-    height: 80vh;
-    font-size: 1.5rem;
-    line-height: 4;
+// .navigation_column {
+//     display: flex;
+//     left: 10%;
+//     flex-direction: column;
+//     padding-left: 1%;
+//     border: 1px solid #987284;
+//     width: 50%;
+//     height: 80vh;
+//     font-size: 1.5rem;
+//     line-height: 4;
 
-}
+// }
 
-.navigation_cuisine {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-    font-size: 1.5rem;
-}
+// .navigation_cuisine {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     gap: 1rem;
+//     flex-wrap: wrap;
+//     font-size: 1.5rem;
+// }
 
 
 // h1 {
@@ -83,36 +83,36 @@
 //     font-style: italic;
 // }
 
-.cuisines_wrapper {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-}
+// .cuisines_wrapper {
+//     display: flex;
+//     width: 100%;
+//     align-items: center;
+//     justify-content: center;
+// }
 
-.icons_navigation {
-    flex-wrap: wrap;
-    width: 90%;
-    gap: 1rem;
-    margin: 2rem;
-    border-radius: 10px;
-}
+// .icons_navigation {
+//     flex-wrap: wrap;
+//     width: 90%;
+//     gap: 1rem;
+//     margin: 2rem;
+//     border-radius: 10px;
+// }
 
-.trending_recipes {
-    width: 100%;
-    text-align: justify;
-    align-items: center;
-    padding: 5px;
-    justify-content: center;
-}
+// .trending_recipes {
+//     width: 100%;
+//     text-align: justify;
+//     align-items: center;
+//     padding: 5px;
+//     justify-content: center;
+// }
 
-.trending_photos {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 1rem;
-    border: 3px;
-    border-radius: 50%;
-}
+// .trending_photos {
+//     display: flex;
+//     flex-wrap: nowrap;
+//     gap: 1rem;
+//     border: 3px;
+//     border-radius: 50%;
+// }
 
 
 // h2 {
@@ -120,6 +120,6 @@
 //     font-size: 1.6rem;
 // }
 
-footer {
-    font-size: 1.5rem;
-}
+// footer {
+//     font-size: 1.5rem;
+// }

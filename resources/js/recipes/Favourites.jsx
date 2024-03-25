@@ -5,11 +5,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import Header from "./Header";
 
 function Favourites() {
     const [favourites, setFavourites] = useState([]);
     const { user } = useContext(UserContext);
-    console.log(user);
+
+    console.log(favourites);
+   
 
     const displayFavourites = async () => {
         const response = await fetch(`/api/showFavourites/${user.id}`);
@@ -33,43 +36,40 @@ function Favourites() {
 
     return (
         <>
+        <Header/>
             {user ? (
                 <div className="favourites-container">
                     <div className="favourites-container_heading">
-                        <div className="user-info">
-                            <FontAwesomeIcon
-                                icon={faUser}
-                                className="user-icon"
-                            />
+                        {/* <div className="user-info">
+                            <FontAwesomeIcon icon={faUser} className="user-icon"  />
                             <br />
                             <p className="user-name">Hello {user.name}</p>
+                        </div> */}
+                        
+                        <div>
+                            <h1>All Saved Items</h1>
+                            <p>All your Favourite Content In One Place</p>
                         </div>
-
-                        <h1>All Saved Items</h1>
-                        <p>All your Favourite Content In One Place</p>
                     </div>
 
                     <div className="favourites-container_list">
                         {
-                            //  favourites.id ?
+                             favourites.length > 0 ?
 
                             favourites.map((item) => {
                                 return (
                                     <>
                                         <div className="cards">
-                                            <div
-                                                className="card-remove"
-                                                onClick={() => {
+                                            <div className="card-remove" onClick={() => {
                                                     removeRecipe(item.id);
-                                                }}
-                                            >
-                                                <FontAwesomeIcon
-                                                    icon={faMinus}
-                                                />
+                                                }}>
+                                                
+                                                <FontAwesomeIcon icon={faMinus}/>
+ 
                                             </div>
 
                                             <div className="cards_imageContainer">
-                                                <img src={item.image} alt="" />
+                                                <img className="cards_imageContainer-image" src={item.image} alt="" />
                                             </div>
                                             <div className="cards_content">
                                                 <p>{item.title}</p>
@@ -80,24 +80,28 @@ function Favourites() {
                                     </>
                                 );
                             })
-                            // :
-                            // <div className="ifthereIs-noRecipes">
-                            //   <h1>There is no saved Recipes in you Favourites </h1>
-                            //   <Link className="ifthereIs-noRecipes_links" to={'/indian'}>View All Recipes</Link>
-                            // </div>
+
+                            :
+                            <div className="ifthereIs-noRecipes">
+                              <h1>There is no saved Recipes in your Favourites </h1>
+                              <Link className="ifthereIs-noRecipes_links" to={'/'}>Add you recipes</Link>
+                            </div>
                         }
+
                     </div>
                 </div>
+
             ) : (
+
                 <div className="favouritsSecond-container">
                     <div className="favouritsSecond-container_image">
-                        <img
+                        <img className="favouritsSecond-container_image_image"
                             src="https://marketplace.canva.com/NqqlA/MAFmARNqqlA/1/s2/canva-indian-food-MAFmARNqqlA.jpg"
                             alt=""
                         />
                     </div>
                     <div className="favouritsSecond-container_content">
-                        <h1>Login or Signup to see your Favourites Recipes</h1>
+                        <h3>Login or Signup to see your Favourites Recipes</h3>
                         <Link
                             to={"/login"}
                             className="favouritsSecond-container_link"
