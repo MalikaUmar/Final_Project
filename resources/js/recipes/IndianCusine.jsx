@@ -22,8 +22,7 @@ function IndianCusine() {
     } = useContext(FavouriteContext);
 
     const loadmissions = async () => {
-
-        const response = await fetch('/api/indian-cusine');
+        const response = await fetch("/api/indian-cusine");
         const data = await response.json();
         setCusine(data);
         console.log(data);
@@ -40,9 +39,6 @@ function IndianCusine() {
             {userActive == false ? <UserStatusPoppupWindow /> : ""}
 
             <div className="IndianRecepie-container">
-                <div className="container-heading">
-                    <h1>Explore Indian Recipes</h1>
-                </div>
                 <div className="category-image-container">
                     <img
                         className="category-image"
@@ -50,44 +46,50 @@ function IndianCusine() {
                         alt=""
                     />
                 </div>
-                <h1 className="container-cardsList_heading">
-                    Explore Indian Recipes
-                </h1>
-                <div className="container-cardsList">
+                <div className="title_box">
+                    <h1 className="uyghur_title">Explore Indian Recipes</h1>
+                </div>
+                <div className="ugmenu_container">
                     {cusine
                         ? cusine.map((item) => {
-                            return (
-                                <>
-                                    <div className="cards">
-                                        <div
-                                            className="heart-iconDiv"
-                                            onClick={() => {
-                                                additemsToFavourites(item.id),
-                                                    user
-                                                        ? setActive(true)
-                                                        : setUserActive(
-                                                            false
-                                                        );
-                                            }}
-                                        >
-                                            <FontAwesomeIcon
-                                                icon={faHeart}
-                                                className="heart-icon"
-                                            />
-                                        </div>
+                              return (
+                                  <>
+                                      <div className="ugmenu_item">
+                                          <div
+                                              className="heart-iconDiv"
+                                              onClick={() => {
+                                                  additemsToFavourites(item.id),
+                                                      user
+                                                          ? setActive(true)
+                                                          : setUserActive(
+                                                                false
+                                                            );
+                                              }}
+                                          >
+                                              <FontAwesomeIcon
+                                                  icon={faHeart}
+                                                  className="heart-icon"
+                                              />
+                                          </div>
 
-                                        <div className="cards_imageContainer">
-                                            <img src={item.image} alt="" />
-                                        </div>
-                                        <div className="cards_content">
-                                            <p>{item.title}</p>
-                                            <h2>{item.title}</h2>
-                                            <p>{item.preparation_time}</p>
-                                        </div>
-                                    </div>
-                                </>
-                            );
-                        })
+                                          <div className="cards_imageContainer">
+                                              <img
+                                                  src={item.image}
+                                                  alt=""
+                                                  className="ugmenu_img"
+                                              />
+                                          </div>
+                                          <div className="ugmenu_content">
+                                              <p>{item.title}</p>
+                                              <h2 className="ugmenu_title">
+                                                  {item.title}
+                                              </h2>
+                                              <p>{item.preparation_time}</p>
+                                          </div>
+                                      </div>
+                                  </>
+                              );
+                          })
                         : ""}
                 </div>
             </div>
