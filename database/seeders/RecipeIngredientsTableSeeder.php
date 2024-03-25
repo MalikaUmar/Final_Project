@@ -73,7 +73,6 @@ class RecipeIngredientsTableSeeder extends Seeder
                 'title' => 'Musaka',
                 'ingredients' => [
                     'ground meat' => '800 g',
-                    
                     'onion' => '1 pcs',
                     'potato' => '5-8 pcs',
                     'vegeta' => '3 tbsp (30 g)',
@@ -87,34 +86,15 @@ class RecipeIngredientsTableSeeder extends Seeder
                     'milk'=>'1 cup ',
                 ],
             ],
-            [
-                'title' => 'Musaka',
-                'ingredients' => [
-                    'veal' => '400-500g',
-                    
-                    'paprika' => '1 teaspoon',
-                    'flour' => '4 teaspoons',
-                    'water' => '600 ml',
-                    'garlic' => '3 cloves',
-                    'paprika' => '1 tbsp (10 g)',
-                    'Oil ' => '100 ml ',
-                    'mustard' => '5 level teaspoon',
-                    'Salt' => '1 tablesppon ',
-                    'black pepper' => '1/2 tsp (5 g)',
-                    'wine' => '100 ml',
-                    'parsley'=>'1 tablespoon',
-                ],
-            ],
+          
             [
                 'title' => 'Lovacke snicle',
                 'ingredients' => [
                     'veal' => '400-500g',
-                    
                     'paprika' => '1 teaspoon',
                     'flour' => '4 teaspoons',
                     'water' => '600 ml',
                     'garlic' => '3 cloves',
-                    'paprika' => '1 tbsp (10 g)',
                     'Oil ' => '100 ml ',
                     'mustard' => '5 level teaspoon',
                     'Salt' => '1 tablesppon ',

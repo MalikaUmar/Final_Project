@@ -6,18 +6,23 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /**
+     * Run the migrations.
+     */
     public function up(): void
     {
-        Schema::table('recipe_ingredients', function (Blueprint $table) {
-            $table->string('measure')->after('ingredient_id');
+        Schema::table('comments', function (Blueprint $table) {
+            
         });
     }
 
-    
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
-        Schema::table('recipe_ingredients', function (Blueprint $table) {
-            $table->dropColumn('measure');
+        Schema::table('comments', function (Blueprint $table) {
+            //
         });
     }
 };
