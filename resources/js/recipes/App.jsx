@@ -12,6 +12,13 @@ import RecipeDetail from "./RecipeDetail";
 import ScrollToTop from "./ScrollToTop";
 import UserContext from "./UserContext";
 import FavouriteContext from "./FavouriteContext";
+import { useState } from "react";
+import { useEffect } from "react";
+import Favourites from "./Favourites";
+import Homepage from "./Homepage";
+import InsertNewRecipe from "./InsertNewRecipe";
+import SerbianCusine from "./SebianCusine";
+import SearchFromIgredinents from "./SearchFromIgredinents";
 
 function App() {
     const [user, setUser] = useState(null);
@@ -42,24 +49,64 @@ function App() {
     }, []);
 
     return (
-        <UserContext.Provider value={{ user, getUser }}>
-            <FavouriteContext.Provider value={{ additemsToFavourites, active, setActive, userActive, setUserActive }}>
-                <BrowserRouter>
-                    <ScrollToTop />
-                    <Routes>
-                        <Route path="/" element={<Homepage />} />
-                        <Route path="/register" element={<Register />} />
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/indian" element={<IndianCusine />} />
-                        <Route path="/uyghur-cuisine" element={<UyghurCuisine />} />
-                        <Route path="/serbian" element={<SerbianCusine />} /> 
-                        <Route path="/favourites" element={<Favourites />} />
-                        <Route path="/search" element={<SearchFromIgredinents />} /> 
-                        <Route path="/cuisine/:id" element={<RecipeDetail />} />
-                    </Routes>
-                </BrowserRouter>
+        <>
+            <UserContext.Provider value={{user,getUser}}>
+            <FavouriteContext.Provider value={{additemsToFavourites,active,setActive,userActive,setUserActive}}>
+
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Homepage/>} />
+                    <Route path="/register" element={<Register/>} />
+                    <Route path="/login" element={<Login/>} />
+                    <Route path="/indian" element={<IndianCusine/>} />
+                    <Route path="/uyghur" element={<UyghurCuisine/>} />
+                    <Route path="/favourites" element={<Favourites/>} />
+                    <Route path="/search" element={<SearchFromIgredinents />} />
+                </Routes>   
+            </BrowserRouter>
             </FavouriteContext.Provider>
-        </UserContext.Provider>
+
+        </UserContext.Provider>  
+            <UserContext.Provider value={{ user, getUser }}>
+                <FavouriteContext.Provider
+                    value={{
+                        additemsToFavourites,
+                        active,
+                        setActive,
+                        userActive,
+                        setUserActive,
+                    }}
+                >
+                    <BrowserRouter>
+                        <ScrollToTop />
+                        <Routes>
+                            <Route path="/" element={<Homepage />} />
+                            <Route path="/register" element={<Register />} />
+                            <Route path="/login" element={<Login />} />
+                            <Route path="/indian" element={<IndianCusine />} />
+                            <Route
+                                path="/uyghur-cuisine"
+                                element={<UyghurCuisine />}
+                            />
+                            <Route
+                                path="/cuisine/:id"
+                                element={<RecipeDetail />}
+                            />
+                            <Route
+                                path="/favourites"
+                                element={<Favourites />}
+                                
+                            />
+                              <Route
+                                path="/add-recipe"
+                                element={<InsertNewRecipe />}
+                            />
+                            <Route path="/serbian" element={<SerbianCusine />} /> 
+                        </Routes>
+                    </BrowserRouter>
+                </FavouriteContext.Provider>
+            </UserContext.Provider>
+        </>
     );
 }
 

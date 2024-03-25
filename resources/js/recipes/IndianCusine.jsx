@@ -39,9 +39,6 @@ function IndianCusine() {
             {userActive == false ? <UserStatusPoppupWindow /> : ""}
 
             <div className="IndianRecepie-container">
-                <div className="container-heading">
-                    <h1>INDIAN CUSINE</h1>
-                </div>
                 <div className="category-image-container">
                     <img
                         className="category-image"
@@ -49,15 +46,15 @@ function IndianCusine() {
                         alt=""
                     />
                 </div>
-                <h1 className="container-cardsList_heading">
-                    Explore Indian Recipes
-                </h1>
-                <div className="container-cardsList">
+                <div className="title_box">
+                    <h1 className="uyghur_title">Explore Indian Recipes</h1>
+                </div>
+                <div className="ugmenu_container">
                     {cusine
                         ? cusine.map((item) => {
                               return (
                                   <>
-                                      <div className="cards">
+                                      <div className="ugmenu_item">
                                           <div
                                               className="heart-iconDiv"
                                               onClick={() => {
@@ -76,11 +73,17 @@ function IndianCusine() {
                                           </div>
 
                                           <div className="cards_imageContainer">
-                                              <img src={item.image} alt="" />
+                                              <img
+                                                  src={item.image}
+                                                  alt=""
+                                                  className="ugmenu_img"
+                                              />
                                           </div>
-                                          <div className="cards_content">
+                                          <div className="ugmenu_content">
                                               <p>{item.title}</p>
-                                              <h2>{item.title}</h2>
+                                              <h2 className="ugmenu_title">
+                                                  {item.title}
+                                              </h2>
                                               <p>{item.preparation_time}</p>
                                           </div>
                                       </div>
