@@ -21,7 +21,10 @@ function Footer() {
             <div className="foot-right">
                 <p>follow us</p>
                 <div className="foot-social_links">
-                  {/* <i class="fa-brands fa-instagram" className="foot-icon"></i> */}
+                   <img className="foot-social_links-link" src="/img/instagram.svg" alt="" />
+                   <img className="foot-social_links-link" src="/img/twitter.svg" alt="" />
+                   <img className="foot-social_links-link" src="/img/square-facebook.svg" alt="" />
+                   <img className="foot-social_links-link" src="/img/youtube.svg" alt="" />
                  
                 </div>
 

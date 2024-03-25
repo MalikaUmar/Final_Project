@@ -21,11 +21,21 @@
     display: flex;
     justify-content: space-between;
     margin-inline: 20px;
+    
 }
 .foot-social_links{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding-bottom: 10px;
+    cursor: pointer;
 }
-// .foot-icon{
-//     font-size: 15px;
-//     color: white;
-// }
+.foot-social_links-link{
+    // color: white;
+   
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: darkgray;
+}

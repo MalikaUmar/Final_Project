@@ -1,12 +1,14 @@
 import Header from "./Header"
 import "./Home.scss";
-import "./IndianCusine.scss";
+import "./UyghurCuisine.scss";
+// import "./IndianCusine.scss";
 import { useState } from "react";
 import { useEffect } from "react";
 import UserContext from "./UserContext";
 import FavouriteContext from "./FavouriteContext";
 import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Popupwindow from "./Popupwindow";
@@ -68,11 +70,21 @@ function Home() {
                 </Link>
             </div>
         </div>
+        
        
        <div className="home-container-content">
-          <h1>Trending Recipes</h1>
 
-          <div className="container-cardsList">
+             <div className="home-container_searchForMeal">
+                <h3 className="home-container_searchForMeal_head">Make some meal from the ingredients you have</h3>
+               <div className="navbar-mealSearch_container">
+                 <input type="text" className='navbar_search' placeholder='search for meals with ingredients you have'/>
+                  <FontAwesomeIcon icon={faMagnifyingGlass} className="search-icon"/>
+               </div>
+            
+            </div>
+          <h1 className="home-container-content-head">Trending Recipes</h1>
+
+          <div className="ugmenu_container">
 
          {  
          trendingCusine.map(item=>{

@@ -1,4 +1,5 @@
 import "./IndianCusine.scss";
+import "./UyghurCuisine.scss";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
@@ -14,11 +15,11 @@ function IndianCusine() {
     const [cusine, setCusine] = useState([]);
 
     const { user } = useContext(UserContext);
-    const {additemsToFavourites,active,setActive,userActive,setUserActive,} = useContext(FavouriteContext);
+    const {additemsToFavourites,active,setActive,userActive,setUserActive, setBurgericon,burgericon} = useContext(FavouriteContext);
 
     const loadmissions = async () => {
 
-        const response = await fetch('/api/serbian-cusine');
+        const response = await fetch('/api/uyghur-cuisine');
         const data = await response.json();
         setCusine(data);
         console.log(data);
@@ -35,7 +36,7 @@ function IndianCusine() {
 
             {userActive == false ? <UserStatusPoppupWindow /> : ""}
 
-            <div className="ugcontainer">
+            <div className="ugcontainer" style={{opacity: active== true || userActive == false || burgericon== true ? 0.3 : '',backgroundColor: active== true || userActive == false ? "darkgrey" : ''}}>
                 <div className="ugimg_box">
                     <img
                         className="uyghur_img"
