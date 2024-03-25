@@ -41,30 +41,7 @@ function Login() {
             }
         }
 
-        // const response = await fetch('/login', {
-        //     method: 'POST',
-        //     body: JSON.stringify(values),
-        //     headers: {
-        //         'Accept': 'application/json',
-        //         'Content-type': 'application/json',
-        //         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-        //     }
-        // });
-
-        // const response_data = await response.json();
-
-        // if (Math.floor(response.status / 100) !== 2) {
-        //     switch (response.status) {
-        //         case 422:
-        //             // handle validation errors here
-        //             console.log('VALIDATION FAILED:', response_data.errors);
-        //             setLoginErrors(response_data.errors)
-        //             break;
-        //         default:
-        //             console.log('UNKNOWN ERROR', response_data);
-        //             break;
-        //     }
-        // }
+      
     };
 
     const handleChange = (event) => {
@@ -79,10 +56,12 @@ function Login() {
     return (
         <>
         <Header/>
+        
         <div className="login-container">
             <div className="Login-content">
-                {/* <h2>Already have an accout!</h2>
-                <h5>Login to get started</h5> */}
+              <h2>Delicious</h2>
+             <p>Dive in to the world of recipes</p>
+                
             </div>
 
             <form
@@ -91,7 +70,8 @@ function Login() {
                 method="post"
                 onSubmit={handleSubmit}
             >
-                <div>
+                <h2>Login</h2>
+                <div className="login-input-contaoner">
                     {loginErrors.email ? <p>{loginErrors.email}</p> : ""}
                     <input
                         className="login_input"
@@ -103,7 +83,7 @@ function Login() {
                     />
                 </div>
 
-                <div>
+                <div className="login-input-contaoner">
                     {loginErrors.password ? <p>{loginErrors.password}</p> : ""}
                     <input
                         className="login_input"
@@ -117,13 +97,14 @@ function Login() {
 
                 <button className="login-button">Login</button>
                 
-                <div>
-                    <p>Looks loke you are new here!</p>
-                    <Link to={"/register"}>SIGNUP</Link>
+                <div className="login-foot">
+                    <p>Looks like you are new here !</p>
+                    <Link className="login-foot-link" to={"/register"}>Sign up here</Link>
                 </div>
         
             </form>
         </div>
+        
 
      </>
     );

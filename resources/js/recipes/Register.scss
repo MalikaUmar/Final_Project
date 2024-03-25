@@ -1,16 +1,18 @@
-.container{
+.register-container{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-inline: auto;
-    margin-top: 50px;
+    margin-top: 100px;
     width: 50%;
-    height: 600px;
+    height: 570px;
     border: 0.1px solid grey;
+    box-shadow: 0 0 3px 3px grey;
     
 }
 .container-content{
-    background-image: url(https://marketplace.canva.com/NqqlA/MAFmARNqqlA/1/s2/canva-indian-food-MAFmARNqqlA.jpg);
+    // background-image: url(https://marketplace.canva.com/NqqlA/MAFmARNqqlA/1/s2/canva-indian-food-MAFmARNqqlA.jpg);
+    background-image: url(https://e1.pxfuel.com/desktop-wallpaper/511/370/desktop-wallpaper-design-food-backgrounds-black-food.jpg);
     background-size: cover;
     width: 50%;
     height: 100%;
@@ -18,19 +20,23 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    color: white;
+    
 }
-.form{
+.register-form{
     width: 50%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 40px;
+    gap: 30px;
+}
+.register-form-inputContainer{
+    width: 80%;
 }
 .input{
-    width: 300px;
+    width: 100%;
     height: 30px;
     background-color:whitesmoke;
 }
@@ -38,4 +44,49 @@
     background-color: #fb641b;
     width: 150px;
     height: 35px;
+    cursor: pointer;
+}
+.form-foot{
+    align-self: flex-end;
+    text-align: right;
+    margin-right: 15px;
+    font-size: 13px;
+    
+}
+.register-foot-loginLink{
+    text-decoration: none;
+}
+
+
+@media only screen and (max-width: 900px) {
+    .register-container {
+        display: flex;
+        flex-direction: column;
+        height: 750px;
+        width: 50%;
+       
+    }
+    .container-content {
+        width: 100%; 
+        height: 40%;  
+    }
+    .register-form {
+        width: 100%;
+        height: 60%;
+        gap: 16px;
+       
+    }  
+    .form-foot{
+        margin-bottom: 10px;
+        
+    }
+    
+}
+
+@media only screen and (max-width: 600px) {
+    .register-container {
+        width: 70%;
+       
+    }  
+    
 }

@@ -25,6 +25,7 @@ function Popupwindow() {
         <p><Link to={'/favourites'}>View All Saved Items</Link> </p>
     </div>
    
+   
   )
 }
 

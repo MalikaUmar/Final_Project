@@ -7,10 +7,13 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import ProfileDropdown from "./ProfileDropdown";
+import FavouriteContext from "./FavouriteContext";
+import BurgerIconWindow from "./BurgerIconWindow";
 
 function Header() {
   const[dropdown,setDropdown] = useState(false)
   const { user, getUser } = useContext(UserContext);
+  const {additemsToFavourites,active,setActive,userActive,setUserActive, setBurgericon,burgericon} = useContext(FavouriteContext);
   const navigate = useNavigate()
 
   const logout = async (event) => {
@@ -37,7 +40,14 @@ function Header() {
       :
       ""
     }
-    <div className="navbar">
+    {
+      burgericon == true ?
+
+      <BurgerIconWindow logout={logout} setBurgericon={setBurgericon}/>
+      :
+      ""
+    }
+    <div className="navbar" style={{opacity: active== true || userActive == false || burgericon== true ? 0.3 : '',backgroundColor: active== true || userActive == false ? "darkgrey" : ''}}>
         <div className="navbar-content">
             <h3>DELICIOUS</h3>
             <div className="navbar-search_container">
@@ -48,7 +58,7 @@ function Header() {
     
     <div className="header-links">
         <Link className="header-link" to="/">Home</Link>|
-        <Link className="header-link" to="addyourRecipe">Add your recipe</Link>|
+        <Link className="header-link" to="/">Add your recipe</Link>|
         <Link className="header-link" to="/favourites">Favourite</Link>|
 
         {
@@ -75,6 +85,12 @@ function Header() {
         
         }
         
+    </div>
+
+    <div className="burger-icon" onClick={()=>{setBurgericon(true)}}>
+      <div className="burger-icon_line"></div>
+      <div className="burger-icon_line"></div>
+      <div className="burger-icon_line"></div>
     </div>
    
 </div>

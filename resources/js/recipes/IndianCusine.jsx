@@ -18,7 +18,7 @@ function IndianCusine() {
 
     const loadmissions = async () => {
 
-        const response = await fetch('/api/indian-cusine');
+        const response = await fetch('/api/serbian-cusine');
         const data = await response.json();
         setCusine(data);
         console.log(data);
@@ -52,6 +52,7 @@ function IndianCusine() {
                 <div className="container-cardsList">
                     {cusine
                         ? cusine.map((item) => {
+                            if(item.category_id == 1){
                               return (
                                   <>
                                       <div className="cards">
@@ -72,6 +73,8 @@ function IndianCusine() {
                                       </div>
                                   </>
                               );
+
+                            }
                           })
                         : ""}
                 </div>

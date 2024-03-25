@@ -69,7 +69,7 @@ function Favourites() {
                                             </div>
 
                                             <div className="cards_imageContainer">
-                                                <img src={item.image} alt="" />
+                                                <img className="cards_imageContainer-image" src={item.image} alt="" />
                                             </div>
                                             <div className="cards_content">
                                                 <p>{item.title}</p>
@@ -95,7 +95,7 @@ function Favourites() {
 
                 <div className="favouritsSecond-container">
                     <div className="favouritsSecond-container_image">
-                        <img
+                        <img className="favouritsSecond-container_image_image"
                             src="https://marketplace.canva.com/NqqlA/MAFmARNqqlA/1/s2/canva-indian-food-MAFmARNqqlA.jpg"
                             alt=""
                         />

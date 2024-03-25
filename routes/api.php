@@ -27,7 +27,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/uyghur-cuisine',[RecipesController::class,'index'])->name('api.uyghur');
-Route::get('/indian-cusine',[IndianCusineController::class,'Index']);
+// Route::get('/indian-cusine',[IndianCusineController::class,'Index']);
 Route::get('/trending-cusine',[RecipesController::class,'display']);
 
 

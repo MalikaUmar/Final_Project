@@ -48,3 +48,28 @@
     border-top: 0.1px solid grey;
     margin-top: 70px;
 }
+
+
+@media only screen and (max-width: 760px) {
+    .home-container_cusins-list{
+        gap: 40px;
+       
+    }
+    .home-container_cusins{
+        width: 120px;
+        height: 120px;    
+    }
+    .home-container_cusins-img{
+        width: 120px;
+        height: 120px;
+       
+    }
+    .home-container_cusins-name{
+        position: absolute;
+        left: 20px;
+        top: 40px;
+        font-size: 18px;     
+    }
+   
+  }
+  

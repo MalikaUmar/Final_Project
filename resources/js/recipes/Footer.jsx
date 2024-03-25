@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import "./Footer.scss"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
 
 
 
@@ -19,10 +19,10 @@ function Footer() {
                <h6>@2024 delicious.com</h6>
             </div>
             <div className="foot-right">
-                <p>Follow us</p>
+                <p>follow us</p>
                 <div className="foot-social_links">
-                    {/* <FontAwesomeIcon icon={faInstagram} />
-                    <FontAwesomeIcon icon={faFacebook} /> */}
+                  {/* <i class="fa-brands fa-instagram" className="foot-icon"></i> */}
+                 
                 </div>
 
             </div>

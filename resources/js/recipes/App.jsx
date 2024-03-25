@@ -17,12 +17,15 @@ import Home from "./Home";
 import Footer from "./Footer";
 
 
+
+
 // import SearchFromIgredinents from "./SearchFromIgredinents";
 
 function App() {
     const [user, setUser] = useState(null);
     const [active, setActive] = useState(false); // state to display popwindow when adding recipes to favourites
     const [userActive, setUserActive] = useState(true);
+    const [burgericon,setBurgericon] = useState(false);
 
     const getUser = async () => {
         const response = await fetch("/api/user", {
@@ -45,7 +48,8 @@ function App() {
         const data = await response.json();
         console.log(data); 
     }
-
+     
+    
 
     useEffect(() => {
         getUser();
@@ -53,7 +57,10 @@ function App() {
 
     return (
         <>
+        
+   
 
+        
             <UserContext.Provider value={{ user, getUser }}>
                 <FavouriteContext.Provider
                     value={{
@@ -62,6 +69,8 @@ function App() {
                         setActive,
                         userActive,
                         setUserActive,
+                        setBurgericon,
+                        burgericon
                     }}
                 >
                     <BrowserRouter>
@@ -83,7 +92,10 @@ function App() {
                     </BrowserRouter>
                 </FavouriteContext.Provider>
             </UserContext.Provider>
-            {/* <Footer/> */}
+            <Footer/>
+
+            
+
         </>
     );
 }

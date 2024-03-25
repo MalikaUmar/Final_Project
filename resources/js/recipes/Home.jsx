@@ -10,12 +10,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Popupwindow from "./Popupwindow";
+import UserStatusPoppupWindow from "./UserStatusPoppupWindow";
 
 
 function Home() {
 
     const { user } = useContext(UserContext);
-    const {additemsToFavourites,active,setActive,userActive,setUserActive,} = useContext(FavouriteContext);
+    const {additemsToFavourites,active,setActive,userActive,setUserActive, setBurgericon,burgericon} = useContext(FavouriteContext);
     const[trendingCusine,setTrendingCusine] = useState([])
 
     const displayTrendingCusines = async () => {
@@ -27,6 +28,8 @@ function Home() {
 
     useEffect(() => {
         displayTrendingCusines();
+        setUserActive(true)
+        setActive(false)
     }, []);
 
   return (
@@ -37,7 +40,7 @@ function Home() {
 
    {userActive == false ? <UserStatusPoppupWindow /> : ""}  
 
-    <div className="home-container">
+    <div className="home-container" style={{opacity: active== true || userActive == false || burgericon== true ? 0.3 : '',backgroundColor: active== true || userActive == false ? "darkgrey" : ''}}>
 
         <div className="home-container_head">
             <h1 className="home-container_head-title">What's Your Favourite Cusine</h1>
@@ -83,7 +86,7 @@ function Home() {
                     </div>
 
                     <div className="cards_imageContainer">
-                        <img src={item.image} alt="" />
+                        <img className="cards_imageContainer-image" src={item.image} alt="" />
                     </div>
                     <div className="cards_content">
                         <p>{item.title}</p>
