@@ -13,9 +13,9 @@ import UserContext from "./UserContext";
 import FavouriteContext from "./FavouriteContext";
 import { useState } from "react";
 import { useEffect } from "react";
-import Favourites from "./Favourites";
+
 import Homepage from "./Homepage";
-import SerbianCusine from "./SerbianCusine";
+
 import Home from "./Home";
 import Footer from "./Footer";
 
