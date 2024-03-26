@@ -134,7 +134,7 @@ function Home() {
                                                   className="heart-icon"
                                               />
                                           </div>
-
+                                          <Link to={`/cuisine/${item.id}`}>
                                           <div className="cards_imageContainer">
                                               <img
                                                   src={item.image}
@@ -142,6 +142,7 @@ function Home() {
                                                   className="ugmenu_img"
                                               />
                                           </div>
+                                          </Link>
                                           <div className="ugmenu_content">
                                               <p>{item.title}</p>
                                               <h2 className="ugmenu_title">
