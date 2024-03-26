@@ -17,11 +17,12 @@ class RecipesController extends Controller
     }
 
     public function show($recipe_id) {
-        $recipe = Recipe::with(‘ingredients’)
+        $recipe = Recipe::with('ingredients')
             ->findOrFail($recipe_id);
+
         return [
-            ‘recipe’ => $recipe,
-            
+            'recipe' => $recipe,
+            // 'ingredients' => $ingre->pluck('ingredient')
         ];
     }
 

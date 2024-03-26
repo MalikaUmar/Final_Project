@@ -35,7 +35,7 @@ Route::get('/trending-cusine',[RecipesController::class,'display']);
 Route::get('/uyghur-cuisine/{recipe_id}',[RecipesController::class,'show']);
 
 Route::get('/comments/{recipe_id}', [CommentController::class, 'commentsForRecipe']);
-Route::post('/commentss/{recipe_id}',[CommentController::class, 'storeForRecipe']);
+Route::post('/comments_post/{recipe_id}',[CommentController::class, 'storeForRecipe']);
 
 
 Route::get('/addToFavourites/{recipe_id}/{user_id}',[FavouriteController::class,'index']);

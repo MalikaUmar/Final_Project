@@ -12,8 +12,6 @@ import Popupwindow from "./Popupwindow";
 import UserStatusPoppupWindow from "./UserStatusPoppupWindow";
 import Header from "./Header";
 
-
-
 export default function RecipeDetail() {
     const [detailPage, setDetailPage] = useState([]);
     const [rating, setRating] = useState(null);
@@ -34,107 +32,119 @@ export default function RecipeDetail() {
     const detailData = async () => {
         const response = await fetch(`/api/uyghur-cuisine/${id}`);
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
 
         setDetailPage(data);
     };
 
     useEffect(() => {
         detailData();
-        // console.log(detailPage);
+        console.log(detailPage);
     }, []);
 
     return (
         <>
-        
-           <Header/>
+            {console.log(rating)}
+            <Header />
             {active == true ? <Popupwindow /> : ""}
 
             {userActive == false ? <UserStatusPoppupWindow /> : ""}
-           
-
-           
-            
-            <div className="detail_container" style={{opacity: active== true || userActive == false || burgericon== true ? 0.3 : '',backgroundColor: active== true || userActive == false ? "black" : ''}}>
-                <div className="detail_page">
-                    <h1 className="title">{detailPage.recipe?.title}</h1>
-                    <div
-                        className="ugheart-iconDiv"
-                        onClick={() => {
-                            additemsToFavourites(detailPage.recipe.id),
-                                user ? setActive(true) : setUserActive(false);
-                        }}
-                    >
-                        <FontAwesomeIcon
-                            icon={faHeart}
-                            className="ugheart-icon"
-                        />
-                    </div>
-
-                    <p className="description">
-                        {detailPage.recipe?.description}
-                    </p>
-                    <img
-                        src={detailPage.recipe?.image}
-                        alt="polo"
-                        className="polo"
-                    ></img>
-
-                    <div className="info">
-                        <div className="left">
-                            <h3 className="difficulty_level">
-                                Difficulty level:
-                            </h3>
-                            <p>🌟 {detailPage.recipe?.difficulty_level}</p>
-                            <h3 className="cooking_time"> Cooking time:</h3>
-                            <p className="time">
-                                ⌛️ {detailPage.recipe?.cooking_time}
-                            </p>
-                            <h3 className="preparation_time">
-                                Preparation time:
-                            </h3>
-                            <p className="time">
-                                ⏰ {detailPage.recipe?.preparation_time}
-                            </p>
+            {detailPage && detailPage.recipe ? (
+                <div
+                    className="detail_container"
+                    style={{
+                        opacity:
+                            active == true ||
+                            userActive == false ||
+                            burgericon == true
+                                ? 0.3
+                                : "",
+                        backgroundColor:
+                            active == true || userActive == false
+                                ? "black"
+                                : "",
+                    }}
+                >
+                    <div className="detail_page">
+                        <h1 className="title">{detailPage.recipe?.title}</h1>
+                        <div
+                            className="ugheart-iconDiv"
+                            onClick={() => {
+                                additemsToFavourites(detailPage.recipe.id),
+                                    user
+                                        ? setActive(true)
+                                        : setUserActive(false);
+                            }}
+                        >
+                            <FontAwesomeIcon
+                                icon={faHeart}
+                                className="ugheart-icon"
+                            />
                         </div>
-                        <div className="right">
-                            <h3>Ingredients 🌶</h3>
-                           
-                            {detailPage.recipe?.ingredients.map(
-                                (ingredient) => {
-                                    return (
-                                        <p key={ingredient.id}>
-                                            {ingredient.name}: &nbsp;&nbsp;
-                                            {ingredient.pivot.measure}
-                                        </p>
-                                    );
-                                }
-                            )}
-                        </div>
-                    </div>
-                    <hr />
-                    <h3>Instruction</h3>
-                    <p className="instruction">
-                        {detailPage.recipe?.instruction}
-                    </p>
-                    <div className="servings">
-                        <p>Servings: 3-4</p>
-                    </div>
-                    <div className="side_dish">
-                        <p>
-                            Recommended Side Dish: Vinegary Salad or Eggplant
-                            Salad
+
+                        <p className="description">
+                            {detailPage.recipe?.description}
                         </p>
+                        <img
+                            src={detailPage.recipe?.image}
+                            alt="polo"
+                            className="polo"
+                        ></img>
+
+                        <div className="info">
+                            <div className="left">
+                                <h3 className="difficulty_level">
+                                    Difficulty level:
+                                </h3>
+                                <p>🌟 {detailPage.recipe?.difficulty_level}</p>
+                                <h3 className="cooking_time"> Cooking time:</h3>
+                                <p className="time">
+                                    ⌛️ {detailPage.recipe?.cooking_time}
+                                </p>
+                                <h3 className="preparation_time">
+                                    Preparation time:
+                                </h3>
+                                <p className="time">
+                                    ⏰ {detailPage.recipe?.preparation_time}
+                                </p>
+                            </div>
+                            <div className="right">
+                                <h3>Ingredients 🌶</h3>
+                                {detailPage.recipe?.ingredients.map(
+                                    (ingredient) => {
+                                        return (
+                                            <p key={ingredient.id}>
+                                                {ingredient.name}: &nbsp;&nbsp;
+                                                {ingredient.pivot.measure}
+                                            </p>
+                                        );
+                                    }
+                                )}
+                            </div>
+                        </div>
+                        <hr />
+                        <h3>Instruction</h3>
+                        <p className="instruction">
+                            {detailPage.recipe?.instruction}
+                        </p>
+                        <div className="servings">
+                            <p>Servings: 3-4</p>
+                        </div>
+                        <div className="side_dish">
+                            <p>
+                                Recommended Side Dish: Vinegary Salad or
+                                Eggplant Salad
+                            </p>
+                        </div>
                     </div>
+
+                    <Rating setRating={setRating} rating={rating} />
+
+                    <Comment recipe_id={id} rating={rating} />
                 </div>
-            
-                <Rating setRating={setRating} />
-
-                <Comment recipe_id={id} rating={rating} />
-            </div>
-           
-                
-
+            ) : (
+                ""
+            )}
         </>
     );
 }
