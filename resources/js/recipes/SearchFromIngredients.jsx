@@ -8,7 +8,7 @@ export default function SearchFromIngredients() {
     const [ingredients, setIngredients] = useState();
     const [selected, setSelected] = useState([]);
     const [meal, setMeal] = useState(null);
-    const [recipeIngredients, setRecipeIngredients] = useState([]);
+    
 
     const fetchdata = async () => {
         const response = await fetch("/api/search-meal");
@@ -31,32 +31,34 @@ export default function SearchFromIngredients() {
         // console.log(option);
         if (action === "select-option") {
             setSelected(value);
+            
             console.log(value);
         }
     };
 
     const handleSubmit = async () => {
+        if (selected.length === 0) {
+            
+            console.log("No ingredients selected. Please select at least one ingredient.");
+            
+            return; 
+        }
+    
         const selectedIds = selected.map((option) => option.value).join(",");
-        // console.log(selectedIds);
-
-        // s
-        const response = await fetch(
-            `/api/recipes/by-ingredients?ingredients=${selectedIds}`
-        );
-        const data = await response.json();
-        console.log(data);
-        console.log("hello");
-        setMeal(data);
-        // console.log('hello')
-    };
-
+        console.log(selectedIds);
+    
+        
+            const response = await fetch(`/api/recipes/by-ingredients?ingredients=${selectedIds}`);
+            const data = await response.json();
+            console.log(data);
+            setMeal(data);
+       
+    }
     // useEffect(() => {
     //     handleSubmit();
     // }, [selected])
 
-    const getIngredientsWithMesures = async () => {
-        const response = await fetch("http://www.laravel.final");
-    };
+  
 
     // const missing items = selectd
 
