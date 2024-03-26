@@ -122,7 +122,7 @@ class RecipesController extends Controller
         $recipe->cooking_time = $request->input('cooking_time');
         $recipe->preparation_time= $request->input('preparation_time');
         $recipe->difficulty_level = $request->input('difficulty_level');
-        $recipe->image = 'uploads/uploaded_files/' . $request->file('image')[0]->getClientOriginalName();
+        $recipe->image = '/uploads/uploaded_files/' . $request->file('image')[0]->getClientOriginalName();
         $recipe->save();
 
        $ingredients = $request->input('ingredients');
