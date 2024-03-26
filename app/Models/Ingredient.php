@@ -9,9 +9,13 @@ use App\Models\Recipe;
 class Ingredient extends Model
 {
     use HasFactory;
-
-    public function recipes()
-    {
-        return $this->belongsToMany(Recipe::class, 'recipe_ingredients');
+  
+        public function recipes()
+{
+    return $this->belongsToMany(Recipe::class, 'recipe_ingredients') // And here as well
+                ->withPivot('measure');
+}
+                    
     }
+
 }

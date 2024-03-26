@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\IndianCusineController;
 use App\Http\Controllers\Api\RatingController;
-use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\SerbianCusineController;
+use App\Http\Controllers\Api\SearchFromIngredientsController;
 use App\Http\Controllers\Api\FavouriteController;
+use App\Http\Controllers\Api\RecipeIngredientsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,18 +28,23 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/uyghur-cuisine',[RecipesController::class,'index'])->name('api.uyghur');
-Route::get('/indian-cusine',[IndianCusineController::class,'Index']);
+// Route::get('/indian-cusine',[IndianCusineController::class,'Index']);
+Route::get('/trending-cusine',[RecipesController::class,'display']);
+
 
 Route::get('/uyghur-cuisine/{recipe_id}',[RecipesController::class,'show']);
 
 Route::get('/comments/{recipe_id}', [CommentController::class, 'commentsForRecipe']);
 Route::post('/comments/{recipe_id}',[CommentController::class, 'storeForRecipe']);
 
-// Route::get('/ratings/{recipe_id}', [RatingController::class, 'ratingsForRecipe']);
 
 Route::get('/addToFavourites/{recipe_id}/{user_id}',[FavouriteController::class,'index']);
 Route::get('/showFavourites/{user_id}',[FavouriteController::class,'show']);
 Route::get('/removeFavourites/{user_id}/{recipe_id}',[FavouriteController::class,'remove']);
-Route::get('/recipe/search', [RecipesController::class, 'search']);
-Route::get('/recipe/categories', [CategoryController::class, 'index']);
-Route::post('/recipe/add', [RecipesController::class, 'store']);
+
+
+Route::get('/serbian-cusine',[SerbianCusineController::class,'index']);
+Route::get('/search-meal',[SearchFromIngredientsController::class,'index']);
+Route::get('/recipes/by-ingredients', [RecipesController::class, 'findByIngredients']);
+Route::get('/recipes/search', [RecipesController::class, 'search']);
+Route::get('/ingredients-measures', [RecipeIngredientsController::class,'index']);
