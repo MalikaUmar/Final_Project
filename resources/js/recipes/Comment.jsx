@@ -15,13 +15,7 @@ export default function Comment({ recipe_id, rating }) {
     const [displayComment, setDisplayComment] = useState([]);
 
     const { user } = useContext(UserContext);
-    const {
-        additemsToFavourites,
-        active,
-        setActive,
-        userActive,
-        setUserActive,
-    } = useContext(FavouriteContext);
+    const { userActive, setUserActive } = useContext(FavouriteContext);
 
     const getCommentTime = (datetime) => {
         const date = new Date(datetime);
