@@ -98,7 +98,14 @@
   background-color: white;
  }
 
-
+ @media only screen and (max-width: 1300px) {
+  .navbar-content{
+    gap: 10px;
+   
+  }
+  
+ }
+ 
  @media only screen and (max-width: 1000px) {
   
   .burger-icon{
@@ -124,11 +131,11 @@
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 550px) {
   .burger-icon{
     width: 20%;
     margin-right: 180px;
-    margin-top: -70px;
+    margin-top: -65px;
 
    }
    .navbar-content{

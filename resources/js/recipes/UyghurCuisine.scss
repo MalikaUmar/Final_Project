@@ -89,3 +89,12 @@
 .ugheart-icon {
   color: white;
 }
+
+@media only screen and (max-width: 600px) {
+  .ugmenu_item {
+    width: 70%;
+    margin-inline: auto;
+  }
+  
+  
+}

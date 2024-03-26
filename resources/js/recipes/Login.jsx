@@ -70,9 +70,10 @@ function Login() {
                 method="post"
                 onSubmit={handleSubmit}
             >
-                <h2>Login</h2>
+                <h2 className="loginForm-title">Login</h2>
+                
                 <div className="login-input-contaoner">
-                    {loginErrors.email ? <p>{loginErrors.email}</p> : ""}
+                    {loginErrors.email ? <p className="login-input-contaoner_error">{loginErrors.email}</p> : ""}
                     <input
                         className="login_input"
                         type="email"
@@ -84,7 +85,7 @@ function Login() {
                 </div>
 
                 <div className="login-input-contaoner">
-                    {loginErrors.password ? <p>{loginErrors.password}</p> : ""}
+                    {loginErrors.password ? <p className="login-input-contaoner_error">{loginErrors.password}</p> : ""}
                     <input
                         className="login_input"
                         type="password"
@@ -94,6 +95,7 @@ function Login() {
                         placeholder="Password"
                     />
                 </div>
+                
 
                 <button className="login-button">Login</button>
                 

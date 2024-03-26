@@ -37,10 +37,13 @@ function Register(props) {
         const response_data = await response.json();
         // console.log(response_data);
         getUser();
-        navigate('/')
+        if(Math.floor(response.status / 100) == 2){
+          navigate('/')
+        }
  
         
         if (Math.floor(response.status / 100) !== 2) {
+    
             switch (response.status) {
                 case 422:
                     // handle validation errors here
@@ -83,21 +86,22 @@ function Register(props) {
             <form className="register-form" action="/register" method="post" onSubmit={ handleSubmit }>
                 <h2>Sign Up</h2>
              <div className="register-form-inputContainer">
-            {errors.name ? <p>{errors.name}</p> : ''}
+            {errors.name ? <p className="register-form-inputContainer_error">{errors.name}</p> : ''}
             <input className="input" type="text" name="name" value={ values.name } onChange={ handleChange } placeholder='name'/> <br /><br />
             </div>
              
             <div className="register-form-inputContainer">
-            {errors.email ? <p>{errors.email}</p> : ''} 
+            {errors.email ? <p className="register-form-inputContainer_error">{errors.email}</p> : ''} 
             <input className="input" type="email" name="email" value={ values.email } onChange={ handleChange } placeholder='email'/>  <br /><br />
             </div>
 
             <div className="register-form-inputContainer">
-            {errors.password ? <p>{errors.password}</p> : ''} 
+            {errors.password ? <p className="register-form-inputContainer_error">{errors.password}</p> : ''} 
             <input className="input" type="password" name="password" value={ values.password } onChange={ handleChange } placeholder='password'/> <br /><br />
             </div>
 
             <div className="register-form-inputContainer">
+            {/* {errors.password ? <p className="register-form-inputContainer_error">{errors.password}</p> : ''}  */}
             <input className="input" type="password" name="password_confirmation" value={ values.password_confirmation } onChange={ handleChange } placeholder='confirm-password'/> <br /><br />
             </div>
 
