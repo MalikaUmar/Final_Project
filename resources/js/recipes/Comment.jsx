@@ -36,7 +36,7 @@ export default function Comment({ recipe_id, rating }) {
         event.preventDefault();
 
         const response = await axios.post(
-            "/api/comments/" + recipe_id,
+            "/api/commentss/" + recipe_id,
             JSON.stringify({ comment, rating })
         );
 
@@ -55,7 +55,10 @@ export default function Comment({ recipe_id, rating }) {
     };
 
     useEffect(() => {
-        displayData();
+        
+            displayData();
+      
+        
     }, []);
 
     return (

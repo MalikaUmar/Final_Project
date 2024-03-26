@@ -46,10 +46,14 @@ export default function RecipeDetail() {
 
     return (
         <>
+        
            <Header/>
             {active == true ? <Popupwindow /> : ""}
 
             {userActive == false ? <UserStatusPoppupWindow /> : ""}
+           
+
+           
             
             <div className="detail_container" style={{opacity: active== true || userActive == false || burgericon== true ? 0.3 : '',backgroundColor: active== true || userActive == false ? "black" : ''}}>
                 <div className="detail_page">
@@ -95,6 +99,7 @@ export default function RecipeDetail() {
                         </div>
                         <div className="right">
                             <h3>Ingredients 🌶</h3>
+                           
                             {detailPage.recipe?.ingredients.map(
                                 (ingredient) => {
                                     return (
@@ -122,11 +127,14 @@ export default function RecipeDetail() {
                         </p>
                     </div>
                 </div>
-
+            
                 <Rating setRating={setRating} />
 
                 <Comment recipe_id={id} rating={rating} />
             </div>
+           
+                
+
         </>
     );
 }
