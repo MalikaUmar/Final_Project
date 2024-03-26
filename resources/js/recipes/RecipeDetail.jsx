@@ -11,7 +11,7 @@ import FavouriteContext from "./FavouriteContext";
 import Popupwindow from "./Popupwindow";
 import UserStatusPoppupWindow from "./UserStatusPoppupWindow";
 import Header from "./Header";
-import Header from "./Header";
+
 
 
 export default function RecipeDetail() {

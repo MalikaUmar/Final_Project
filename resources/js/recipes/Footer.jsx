@@ -3,6 +3,7 @@ import "./Footer.scss";
 
 function Footer() {
   return (
+  
     <div className="footer-container">
         <h3>DELICIOUS</h3>
         <div className="footer-content">
@@ -26,7 +27,9 @@ function Footer() {
                 </div>
             </div>
         </div>
-    );
+    </div>
+    )
+    
 }
 
 export default Footer;
