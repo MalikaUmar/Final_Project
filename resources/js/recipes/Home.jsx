@@ -13,9 +13,17 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Popupwindow from "./Popupwindow";
 import UserStatusPoppupWindow from "./UserStatusPoppupWindow";
+import React from "react";
+import Select from "react-select";
+import { library } from "@fortawesome/fontawesome-svg-core";
+// import "./SearchFromIngredients.scss";
+
+
+
 
 
 function Home() {
+
 
     const { user } = useContext(UserContext);
     const {additemsToFavourites,active,setActive,userActive,setUserActive, setBurgericon,burgericon} = useContext(FavouriteContext);
@@ -25,7 +33,7 @@ function Home() {
         const response = await fetch("/api/trending-cusine");
         const data = await response.json();
         setTrendingCusine(data);
-        console.log(data);
+        // console.log(data);
     };
 
     useEffect(() => {
@@ -33,6 +41,11 @@ function Home() {
         setUserActive(true)
         setActive(false)
     }, []);
+
+
+
+
+
 
   return (
     <>
@@ -42,7 +55,7 @@ function Home() {
 
    {userActive == false ? <UserStatusPoppupWindow /> : ""}  
 
-    <div className="home-container" style={{opacity: active== true || userActive == false || burgericon== true ? 0.3 : '',backgroundColor: active== true || userActive == false ? "darkgrey" : ''}}>
+    <div className="home-container" style={{opacity: active== true || userActive == false || burgericon== true ? 0.3 : '',backgroundColor: active== true || userActive == false ? "black" : ''}}>
 
         <div className="home-container_head">
             <h1 className="home-container_head-title">What's Your Favourite Cusine</h1>
@@ -75,14 +88,14 @@ function Home() {
        <div className="home-container-content">
 
              <div className="home-container_searchForMeal">
-                <h3 className="home-container_searchForMeal_head">Make some meal from the ingredients you have</h3>
-               <div className="navbar-mealSearch_container">
-                 <input type="text" className='navbar_search' placeholder='search for meals with ingredients you have'/>
-                  <FontAwesomeIcon icon={faMagnifyingGlass} className="search-icon"/>
-               </div>
+                <h3 className="home-container_searchForMeal_head">Ready to turn your ingredients into a masterpiece?</h3>
+               
+
+               <p><Link className="home-container_searchForMeal-link" to={"/search"}> Click here for instant meal ideas and let's create something incredible today!"</Link></p>
+
             
             </div>
-          <h1 className="home-container-content-head">Trending Recipes</h1>
+         <h1 className="home-container-content-head">Trending Recipes</h1>
 
           <div className="ugmenu_container">
 

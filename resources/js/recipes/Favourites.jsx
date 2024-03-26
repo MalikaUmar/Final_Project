@@ -6,6 +6,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Header from "./Header";
+import "./UyghurCuisine.scss";
 
 function Favourites() {
     const [favourites, setFavourites] = useState([]);
@@ -40,15 +41,10 @@ function Favourites() {
             {user ? (
                 <div className="favourites-container">
                     <div className="favourites-container_heading">
-                        {/* <div className="user-info">
-                            <FontAwesomeIcon icon={faUser} className="user-icon"  />
-                            <br />
-                            <p className="user-name">Hello {user.name}</p>
-                        </div> */}
-                        
-                        <div>
+                       
+                        <div className="favourites-container_heading-title">
                             <h1>All Saved Items</h1>
-                            <p>All your Favourite Content In One Place</p>
+                            <p className="favourites-container_heading-tailor">All your Favourite Content In One Place</p>
                         </div>
                     </div>
 
@@ -59,22 +55,24 @@ function Favourites() {
                             favourites.map((item) => {
                                 return (
                                     <>
-                                        <div className="cards">
+                                        <div className="card-favorites">
                                             <div className="card-remove" onClick={() => {
                                                     removeRecipe(item.id);
                                                 }}>
                                                 
-                                                <FontAwesomeIcon icon={faMinus}/>
+                                                <FontAwesomeIcon className="card-remove_minusIcon" icon={faMinus}/>
  
                                             </div>
+                                               <div className="favouritesContainer-imageContainer">
+                                           
+                                                <img className="ugmenu_img" src={item.image} alt="" />
 
-                                            <div className="cards_imageContainer">
-                                                <img className="cards_imageContainer-image" src={item.image} alt="" />
-                                            </div>
-                                            <div className="cards_content">
-                                                <p>{item.title}</p>
-                                                <h2>{item.title}</h2>
-                                                <p>{item.cooking_time}</p>
+                                                </div>
+                                            
+                                            <div className="ugmenu_content">
+                                                <p className="category">{item.title}</p>
+                                                <h2 className="ugmenu_title">{item.title}</h2>
+                                                <p className="ugcooking_time">{item.cooking_time}</p>
                                             </div>
                                         </div>
                                     </>

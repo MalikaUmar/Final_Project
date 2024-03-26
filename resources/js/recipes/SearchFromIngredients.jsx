@@ -2,13 +2,23 @@ import { useEffect, useState } from "react";
 import React from "react";
 import Select from "react-select";
 import "./SearchFromIngredients.scss";
+import { useParams } from "react-router-dom";
+import Header from "./Header";
 // import chroma from 'chroma.js';
 
-export default function SearchFromIgredinents() {
+
+export default function SearchFromIngredients() {
     const [ingredients, setIngredients] = useState();
     const [selected, setSelected] = useState([]);
     const [meal, setMeal] = useState(null);
     const [recipeIngredients, setRecipeIngredients] = useState([]);
+
+     let {id} = useParams();
+     console.log(id);
+
+
+
+
 
     const fetchdata = async () => {
         const response = await fetch("/api/search-meal");
@@ -31,7 +41,7 @@ export default function SearchFromIgredinents() {
         // console.log(option);
         if (action === "select-option") {
             setSelected(value);
-            console.log(value);
+            // console.log(value);
         }
     };
 
@@ -45,7 +55,7 @@ export default function SearchFromIgredinents() {
         );
         const data = await response.json();
         console.log(data);
-        console.log("hello");
+        // console.log("hello");
         setMeal(data);
         // console.log('hello')
     };
@@ -54,14 +64,17 @@ export default function SearchFromIgredinents() {
     //     handleSubmit();
     // }, [selected])
 
-    const getIngredientsWithMesures = async () => {
-        const response = await fetch("http://www.laravel.final");
-    };
+    // const getIngredientsWithMesures = async () => {
+    //     const response = await fetch("http://www.laravel.final");
+    // };
 
     // const missing items = selectd
 
     return (
+        <>
+        <Header/>
         <main className="search_main">
+            <div className="search_main-inputField">
             <Select
                 className="search_select"
                 options={ingredients}
@@ -71,6 +84,7 @@ export default function SearchFromIgredinents() {
             <button className="search_button" onClick={handleSubmit}>
                 Submit
             </button>
+            </div>
 
             {meal ? (
                 <>
@@ -109,8 +123,9 @@ export default function SearchFromIgredinents() {
                     </div>
                 </>
             ) : (
-                ""
+                <div className="empty-container"></div>
             )}
         </main>
+        </>
     );
 }

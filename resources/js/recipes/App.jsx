@@ -11,10 +11,11 @@ import FavouriteContext from "./FavouriteContext";
 import { useState } from "react";
 import { useEffect } from "react";
 import Favourites from "./Favourites";
-import Homepage from "./Homepage";
 import SerbianCusine from "./SerbianCusine";
 import Home from "./Home";
 import Footer from "./Footer";
+import SearchFromIngredients from "./SearchFromIngredients";
+
 
 
 
@@ -86,7 +87,7 @@ function App() {
                             <Route  path="/uyghur-cuisine" element={<UyghurCuisine />} />
                             <Route path="/cuisine/:id"  element={<RecipeDetail />} />
                             <Route path="/favourites" element={<Favourites />}  />
-                            {/* <Route path="/search" element={<SearchFromIgredinents />}  /> */}
+                            <Route path="/search" element={<SearchFromIngredients />}  />
                             <Route path="/serbian" element={<SerbianCusine />}  />
                                  
                         </Routes>
