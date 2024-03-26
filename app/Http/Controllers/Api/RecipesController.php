@@ -17,15 +17,12 @@ class RecipesController extends Controller
     }
 
     public function show($recipe_id) {
-        $ingre = RecipeIngredients::with('ingredient')
-                  ->where('recipe_id', $recipe_id)
-                  ->get();
-
-        $recipe = Recipe::findOrFail($recipe_id);
+        $recipe = Recipe::with('ingredients')
+            ->findOrFail($recipe_id);
 
         return [
             'recipe' => $recipe,
-            'ingredients' => $ingre->pluck('ingredient')
+            // 'ingredients' => $ingre->pluck('ingredient')
         ];
     }
 
