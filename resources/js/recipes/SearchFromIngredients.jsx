@@ -2,13 +2,23 @@ import { useEffect, useState } from "react";
 import React from "react";
 import Select from "react-select";
 import "./SearchFromIngredients.scss";
+import { useParams } from "react-router-dom";
+import Header from "./Header";
 // import chroma from 'chroma.js';
+
 
 export default function SearchFromIngredients() {
     const [ingredients, setIngredients] = useState();
     const [selected, setSelected] = useState([]);
     const [meal, setMeal] = useState(null);
-    
+    const [recipeIngredients, setRecipeIngredients] = useState([]);
+
+     let {id} = useParams();
+     console.log(id);
+
+
+
+
 
     const fetchdata = async () => {
         const response = await fetch("/api/search-meal");
@@ -31,8 +41,7 @@ export default function SearchFromIngredients() {
         // console.log(option);
         if (action === "select-option") {
             setSelected(value);
-            
-            console.log(value);
+            // console.log(value);
         }
     };
 
@@ -45,25 +54,34 @@ export default function SearchFromIngredients() {
         }
     
         const selectedIds = selected.map((option) => option.value).join(",");
-        console.log(selectedIds);
-    
-        
-            const response = await fetch(`/api/recipes/by-ingredients?ingredients=${selectedIds}`);
-            const data = await response.json();
-            console.log(data);
-            setMeal(data);
-       
-    }
+        // console.log(selectedIds);
+
+        // s
+        const response = await fetch(
+            `/api/recipes/by-ingredients?ingredients=${selectedIds}`
+        );
+        const data = await response.json();
+        console.log(data);
+        // console.log("hello");
+        setMeal(data);
+        // console.log('hello')
+    };
+
     // useEffect(() => {
     //     handleSubmit();
     // }, [selected])
 
-  
+    // const getIngredientsWithMesures = async () => {
+    //     const response = await fetch("http://www.laravel.final");
+    // };
 
     // const missing items = selectd
 
     return (
+        <>
+        <Header/>
         <main className="search_main">
+            <div className="search_main-inputField">
             <Select
                 className="search_select"
                 options={ingredients}
@@ -73,6 +91,7 @@ export default function SearchFromIngredients() {
             <button className="search_button" onClick={handleSubmit}>
                 Submit
             </button>
+            </div>
 
             {meal ? (
                 <>
@@ -111,8 +130,9 @@ export default function SearchFromIngredients() {
                     </div>
                 </>
             ) : (
-                ""
+                <div className="empty-container"></div>
             )}
         </main>
+        </>
     );
 }

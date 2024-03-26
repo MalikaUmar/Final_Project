@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\RatingController;
 use App\Http\Controllers\Api\SerbianCusineController;
 use App\Http\Controllers\Api\SearchFromIngredientsController;
 use App\Http\Controllers\Api\FavouriteController;
+use App\Http\Controllers\Api\RecipeIngredientsController;
 
 /*
 |--------------------------------------------------------------------------

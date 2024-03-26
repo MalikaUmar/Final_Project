@@ -62,6 +62,8 @@
     text-align: left;
     // padding-left: 20px;
     gap: 30px;
+    
+
 }
 .home-container-content-head{
     border-top: 0.1px solid grey;
@@ -93,6 +95,12 @@
     color: #fb641b; 
     
    }
+   .home-container_searchForMeal-link{
+    text-decoration: none;
+   }
+   .home-container_searchForMeal-link:hover{
+    opacity: 0.5;
+   }
 
 @media only screen and (max-width: 760px) {
     .home-container_cusins-list{
@@ -114,6 +122,9 @@
         top: 40px;
         font-size: 18px;     
     }
-   
+   .home-container_searchForMeal{
+    width: 90%;
+    text-align: center;
+   }
   }
   

@@ -10,6 +10,9 @@ import UserContext from "./UserContext";
 import FavouriteContext from "./FavouriteContext";
 import Popupwindow from "./Popupwindow";
 import UserStatusPoppupWindow from "./UserStatusPoppupWindow";
+import Header from "./Header";
+
+
 
 export default function RecipeDetail() {
     const [detailPage, setDetailPage] = useState([]);
@@ -24,6 +27,8 @@ export default function RecipeDetail() {
         setActive,
         userActive,
         setUserActive,
+        setBurgericon,
+        burgericon,
     } = useContext(FavouriteContext);
 
     const detailData = async () => {
@@ -41,10 +46,12 @@ export default function RecipeDetail() {
 
     return (
         <>
+           <Header/>
             {active == true ? <Popupwindow /> : ""}
 
             {userActive == false ? <UserStatusPoppupWindow /> : ""}
-            <div className="detail_container">
+            
+            <div className="detail_container" style={{opacity: active== true || userActive == false || burgericon== true ? 0.3 : '',backgroundColor: active== true || userActive == false ? "black" : ''}}>
                 <div className="detail_page">
                     <h1 className="title">{detailPage.recipe?.title}</h1>
                     <div

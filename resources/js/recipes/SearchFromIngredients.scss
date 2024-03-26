@@ -1,3 +1,4 @@
+
 .search_headings{
     color: #fb641b;
     text-align: center;
@@ -17,23 +18,45 @@
 }
 
 .search_main{
-    margin: 5% 10%;
+ width: 70%;
+ margin-inline: auto;
+  
+    
+}
+.search_main-inputField{
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ margin-inline: auto;
+ margin-top: 5%;
+    width: 70%;
+}
+.empty-container{
+    width: 100%;
+    height: 400px;
 }
 
 .search_select{
     color: #fb641b;
     border-color: #fb641b;
+    width: 100%;
     
 }
 
 .search_meal{
     display: flex;
     align-items: center;
+    margin-left: 5%;
+    
 }
 
 .search_description{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // margin-left: 5%
    
     
 }

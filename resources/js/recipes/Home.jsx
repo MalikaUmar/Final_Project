@@ -1,4 +1,4 @@
-import Header from "./Header"
+import Header from "./Header";
 import "./Home.scss";
 import "./UyghurCuisine.scss";
 // import "./IndianCusine.scss";
@@ -13,36 +13,56 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Popupwindow from "./Popupwindow";
 import UserStatusPoppupWindow from "./UserStatusPoppupWindow";
+import React from "react";
+import Select from "react-select";
+import { library } from "@fortawesome/fontawesome-svg-core";
+// import "./SearchFromIngredients.scss";
+
+
 
 
 function Home() {
 
+
     const { user } = useContext(UserContext);
-    const {additemsToFavourites,active,setActive,userActive,setUserActive, setBurgericon,burgericon} = useContext(FavouriteContext);
-    const[trendingCusine,setTrendingCusine] = useState([])
+    const {
+        additemsToFavourites,
+        active,
+        setActive,
+        userActive,
+        setUserActive,
+        setBurgericon,
+        burgericon,
+    } = useContext(FavouriteContext);
+    const [trendingCusine, setTrendingCusine] = useState([]);
 
     const displayTrendingCusines = async () => {
         const response = await fetch("/api/trending-cusine");
         const data = await response.json();
         setTrendingCusine(data);
-        console.log(data);
+        // console.log(data);
     };
 
     useEffect(() => {
         displayTrendingCusines();
-        setUserActive(true)
-        setActive(false)
+        setUserActive(true);
+        setActive(false);
     }, []);
+
+
+
+
+
 
   return (
     <>
     <Header/>
 
-    {active == true ? <Popupwindow /> : ""}
+            {active == true ? <Popupwindow /> : ""}
 
-   {userActive == false ? <UserStatusPoppupWindow /> : ""}  
+            {userActive == false ? <UserStatusPoppupWindow /> : ""}
 
-    <div className="home-container" style={{opacity: active== true || userActive == false || burgericon== true ? 0.3 : '',backgroundColor: active== true || userActive == false ? "darkgrey" : ''}}>
+    <div className="home-container" style={{opacity: active== true || userActive == false || burgericon== true ? 0.3 : '',backgroundColor: active== true || userActive == false ? "black" : ''}}>
 
         <div className="home-container_head">
             <h1 className="home-container_head-title">What's Your Favourite Cusine</h1>
@@ -55,12 +75,18 @@ function Home() {
                 </div>
                 </Link>
 
-                <Link to={"/serbian"}>
-                <div className="home-container_cusins">
-                   <img className="home-container_cusins-img" src="https://marketplace.canva.com/xGduU/MADyRBxGduU/1/s/canva-food-in-a-bowl-MADyRBxGduU.jpg" alt="" />
-                   <p className="home-container_cusins-name">SERBIAN</p>
-                </div>
-                </Link>
+                        <Link to={"/serbian"}>
+                            <div className="home-container_cusins">
+                                <img
+                                    className="home-container_cusins-img"
+                                    src="https://marketplace.canva.com/xGduU/MADyRBxGduU/1/s/canva-food-in-a-bowl-MADyRBxGduU.jpg"
+                                    alt=""
+                                />
+                                <p className="home-container_cusins-name">
+                                    SERBIAN
+                                </p>
+                            </div>
+                        </Link>
 
                 <Link to={"/uyghur-cuisine"}>
                 <div className="home-container_cusins">
@@ -75,14 +101,14 @@ function Home() {
        <div className="home-container-content">
 
              <div className="home-container_searchForMeal">
-                <h3 className="home-container_searchForMeal_head">Make some meal from the ingredients you have</h3>
-               <div className="navbar-mealSearch_container">
-                 <input type="text" className='navbar_search' placeholder='search for meals with ingredients you have'/>
-                  <FontAwesomeIcon icon={faMagnifyingGlass} className="search-icon"/>
-               </div>
+                <h3 className="home-container_searchForMeal_head">Ready to turn your ingredients into a masterpiece?</h3>
+               
+
+               <p><Link className="home-container_searchForMeal-link" to={"/search"}> Click here for instant meal ideas and let's create something incredible today!"</Link></p>
+
             
             </div>
-          <h1 className="home-container-content-head">Trending Recipes</h1>
+         <h1 className="home-container-content-head">Trending Recipes</h1>
 
           <div className="ugmenu_container">
 
@@ -108,7 +134,7 @@ function Home() {
                                                   className="heart-icon"
                                               />
                                           </div>
-
+                                          <Link to={`/cuisine/${item.id}`}>
                                           <div className="cards_imageContainer">
                                               <img
                                                   src={item.image}
@@ -116,6 +142,7 @@ function Home() {
                                                   className="ugmenu_img"
                                               />
                                           </div>
+                                          </Link>
                                           <div className="ugmenu_content">
                                               <p>{item.title}</p>
                                               <h2 className="ugmenu_title">
@@ -141,4 +168,4 @@ function Home() {
   )
 }
 
-export default Home
+export default Home;

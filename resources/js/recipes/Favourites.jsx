@@ -6,13 +6,13 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Header from "./Header";
+import "./UyghurCuisine.scss";
 
 function Favourites() {
     const [favourites, setFavourites] = useState([]);
     const { user } = useContext(UserContext);
 
     console.log(favourites);
-   
 
     const displayFavourites = async () => {
         const response = await fetch(`/api/showFavourites/${user.id}`);
@@ -36,66 +36,65 @@ function Favourites() {
 
     return (
         <>
-        <Header/>
+            <Header />
             {user ? (
                 <div className="favourites-container">
                     <div className="favourites-container_heading">
-                        {/* <div className="user-info">
-                            <FontAwesomeIcon icon={faUser} className="user-icon"  />
-                            <br />
-                            <p className="user-name">Hello {user.name}</p>
-                        </div> */}
-                        
-                        <div>
+                       
+                        <div className="favourites-container_heading-title">
                             <h1>All Saved Items</h1>
-                            <p>All your Favourite Content In One Place</p>
+                            <p className="favourites-container_heading-tailor">All your Favourite Content In One Place</p>
                         </div>
                     </div>
 
                     <div className="favourites-container_list">
-                        {
-                             favourites.length > 0 ?
-
+                        {favourites.length > 0 ? (
                             favourites.map((item) => {
                                 return (
                                     <>
-                                        <div className="cards">
+                                        <div className="card-favorites">
                                             <div className="card-remove" onClick={() => {
                                                     removeRecipe(item.id);
                                                 }}>
                                                 
-                                                <FontAwesomeIcon icon={faMinus}/>
+                                                <FontAwesomeIcon className="card-remove_minusIcon" icon={faMinus}/>
  
                                             </div>
+                                               <div className="favouritesContainer-imageContainer">
+                                           
+                                                <img className="ugmenu_img" src={item.image} alt="" />
 
-                                            <div className="cards_imageContainer">
-                                                <img className="cards_imageContainer-image" src={item.image} alt="" />
-                                            </div>
-                                            <div className="cards_content">
-                                                <p>{item.title}</p>
-                                                <h2>{item.title}</h2>
-                                                <p>{item.cooking_time}</p>
+                                                </div>
+                                            
+                                            <div className="ugmenu_content">
+                                                <p className="category">{item.title}</p>
+                                                <h2 className="ugmenu_title">{item.title}</h2>
+                                                <p className="ugcooking_time">{item.cooking_time}</p>
                                             </div>
                                         </div>
                                     </>
                                 );
                             })
-
-                            :
+                        ) : (
                             <div className="ifthereIs-noRecipes">
-                              <h1>There is no saved Recipes in your Favourites </h1>
-                              <Link className="ifthereIs-noRecipes_links" to={'/'}>Add you recipes</Link>
+                                <h1>
+                                    There is no saved Recipes in your Favourites{" "}
+                                </h1>
+                                <Link
+                                    className="ifthereIs-noRecipes_links"
+                                    to={"/"}
+                                >
+                                    Add you recipes
+                                </Link>
                             </div>
-                        }
-
+                        )}
                     </div>
                 </div>
-
             ) : (
-
                 <div className="favouritsSecond-container">
                     <div className="favouritsSecond-container_image">
-                        <img className="favouritsSecond-container_image_image"
+                        <img
+                            className="favouritsSecond-container_image_image"
                             src="https://marketplace.canva.com/NqqlA/MAFmARNqqlA/1/s2/canva-indian-food-MAFmARNqqlA.jpg"
                             alt=""
                         />

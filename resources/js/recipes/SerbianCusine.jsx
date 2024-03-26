@@ -35,7 +35,7 @@ function SerbianCusine() {
         <Header/>
             {active == true ? <Popupwindow /> : ""}
             {userActive == false ? <UserStatusPoppupWindow /> : ""}
-            <div className="ugcontainer" style={{opacity: active== true || userActive == false || burgericon== true ? 0.3 : '',backgroundColor: active== true || userActive == false ? "darkgrey" : ''}}>
+            <div className="ugcontainer" style={{opacity: active== true || userActive == false || burgericon== true ? 0.3 : '',backgroundColor: active== true || userActive == false ? "black" : ''}}>
                 <div className="ugimg_box">
                     <img
                         className="uyghur_img"
