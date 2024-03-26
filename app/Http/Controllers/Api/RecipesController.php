@@ -42,7 +42,7 @@ class RecipesController extends Controller
         $search = $request->query('search');
 
         $recipes = Recipe::where('instruction', 'like', "%{$search}%")
-            
+            ->with('ingredients')
             ->get();
 
         return $recipes;

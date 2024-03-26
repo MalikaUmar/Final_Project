@@ -13,7 +13,6 @@ function Favourites() {
     const { user } = useContext(UserContext);
 
     console.log(favourites);
-   
 
     const displayFavourites = async () => {
         const response = await fetch(`/api/showFavourites/${user.id}`);
@@ -37,7 +36,7 @@ function Favourites() {
 
     return (
         <>
-        <Header/>
+            <Header />
             {user ? (
                 <div className="favourites-container">
                     <div className="favourites-container_heading">
@@ -49,9 +48,7 @@ function Favourites() {
                     </div>
 
                     <div className="favourites-container_list">
-                        {
-                             favourites.length > 0 ?
-
+                        {favourites.length > 0 ? (
                             favourites.map((item) => {
                                 return (
                                     <>
@@ -78,22 +75,26 @@ function Favourites() {
                                     </>
                                 );
                             })
-
-                            :
+                        ) : (
                             <div className="ifthereIs-noRecipes">
-                              <h1>There is no saved Recipes in your Favourites </h1>
-                              <Link className="ifthereIs-noRecipes_links" to={'/'}>Add you recipes</Link>
+                                <h1>
+                                    There is no saved Recipes in your Favourites{" "}
+                                </h1>
+                                <Link
+                                    className="ifthereIs-noRecipes_links"
+                                    to={"/"}
+                                >
+                                    Add you recipes
+                                </Link>
                             </div>
-                        }
-
+                        )}
                     </div>
                 </div>
-
             ) : (
-
                 <div className="favouritsSecond-container">
                     <div className="favouritsSecond-container_image">
-                        <img className="favouritsSecond-container_image_image"
+                        <img
+                            className="favouritsSecond-container_image_image"
                             src="https://marketplace.canva.com/NqqlA/MAFmARNqqlA/1/s2/canva-indian-food-MAFmARNqqlA.jpg"
                             alt=""
                         />

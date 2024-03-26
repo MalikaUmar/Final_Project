@@ -13,7 +13,15 @@ import Header from "./Header";
 export default function UyghurCuisine() {
     const [uyRecipes, setUyRecipes] = useState([]);
     const { user } = useContext(UserContext);
-    const {additemsToFavourites,active,setActive,userActive,setUserActive, setBurgericon,burgericon} = useContext(FavouriteContext);
+    const {
+        additemsToFavourites,
+        active,
+        setActive,
+        userActive,
+        setUserActive,
+        setBurgericon,
+        burgericon,
+    } = useContext(FavouriteContext);
 
     const loadRecipes = async () => {
         const response = await fetch("/api/uyghur-cuisine");
@@ -28,7 +36,7 @@ export default function UyghurCuisine() {
 
     return (
         <>
-        <Header/>
+            <Header />
             {active == true ? <Popupwindow /> : ""}
 
             {userActive == false ? <UserStatusPoppupWindow /> : ""}

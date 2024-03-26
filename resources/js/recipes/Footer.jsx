@@ -1,8 +1,5 @@
-import { Link } from "react-router-dom"
-import "./Footer.scss"
-
-
-
+import { Link } from "react-router-dom";
+import "./Footer.scss";
 
 function Footer() {
   return (
@@ -27,11 +24,9 @@ function Footer() {
                    <img className="foot-social_links-link" src="/img/youtube.svg" alt="" />
                  
                 </div>
-
             </div>
         </div>
-    </div>
-  )
+    );
 }
 
-export default Footer
+export default Footer;

@@ -1,4 +1,4 @@
-import Header from "./Header"
+import Header from "./Header";
 import "./Home.scss";
 import "./UyghurCuisine.scss";
 // import "./IndianCusine.scss";
@@ -21,13 +21,20 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 
 
 
-
 function Home() {
 
 
     const { user } = useContext(UserContext);
-    const {additemsToFavourites,active,setActive,userActive,setUserActive, setBurgericon,burgericon} = useContext(FavouriteContext);
-    const[trendingCusine,setTrendingCusine] = useState([])
+    const {
+        additemsToFavourites,
+        active,
+        setActive,
+        userActive,
+        setUserActive,
+        setBurgericon,
+        burgericon,
+    } = useContext(FavouriteContext);
+    const [trendingCusine, setTrendingCusine] = useState([]);
 
     const displayTrendingCusines = async () => {
         const response = await fetch("/api/trending-cusine");
@@ -38,8 +45,8 @@ function Home() {
 
     useEffect(() => {
         displayTrendingCusines();
-        setUserActive(true)
-        setActive(false)
+        setUserActive(true);
+        setActive(false);
     }, []);
 
 
@@ -51,9 +58,9 @@ function Home() {
     <>
     <Header/>
 
-    {active == true ? <Popupwindow /> : ""}
+            {active == true ? <Popupwindow /> : ""}
 
-   {userActive == false ? <UserStatusPoppupWindow /> : ""}  
+            {userActive == false ? <UserStatusPoppupWindow /> : ""}
 
     <div className="home-container" style={{opacity: active== true || userActive == false || burgericon== true ? 0.3 : '',backgroundColor: active== true || userActive == false ? "black" : ''}}>
 
@@ -68,12 +75,18 @@ function Home() {
                 </div>
                 </Link>
 
-                <Link to={"/serbian"}>
-                <div className="home-container_cusins">
-                   <img className="home-container_cusins-img" src="https://marketplace.canva.com/xGduU/MADyRBxGduU/1/s/canva-food-in-a-bowl-MADyRBxGduU.jpg" alt="" />
-                   <p className="home-container_cusins-name">SERBIAN</p>
-                </div>
-                </Link>
+                        <Link to={"/serbian"}>
+                            <div className="home-container_cusins">
+                                <img
+                                    className="home-container_cusins-img"
+                                    src="https://marketplace.canva.com/xGduU/MADyRBxGduU/1/s/canva-food-in-a-bowl-MADyRBxGduU.jpg"
+                                    alt=""
+                                />
+                                <p className="home-container_cusins-name">
+                                    SERBIAN
+                                </p>
+                            </div>
+                        </Link>
 
                 <Link to={"/uyghur-cuisine"}>
                 <div className="home-container_cusins">
@@ -154,4 +167,4 @@ function Home() {
   )
 }
 
-export default Home
+export default Home;

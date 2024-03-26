@@ -3,8 +3,6 @@ import "./InsertNewRecipe.scss";
 import "./IndianCusine";
 export default function InsertNewRecipe() {
     const [data, setData] = useState([]);
-    // add categories state
-    const [categories, setCategories] = useState([]);
     const [recipe, setRecipe] = useState({
         title: '',
         description: '',
@@ -12,8 +10,7 @@ export default function InsertNewRecipe() {
         preparation_time: '',
         instruction: '',
         difficulty_level: '',
-        image: '',
-        category_id: ''
+        image: ''
     });
 
     const handleRecipeChange = (event) => {
@@ -29,26 +26,14 @@ export default function InsertNewRecipe() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            let response = await axios.post('/api/recipe/add', recipe)
+            let response = await axios.post('/api/recipe/add', setRecipe)
 
             alert('A recipe was submitted');
         } catch (error) {
             console.log(error)
         }
-    };
-    // fetch categories function
-    const getCategories = async () => {
-        const response = await fetch("/api/recipe/categories");
-        const data = await response.json();
-        console.log(data);
-        setCategories(data);
-    };
+    }
 
-    useEffect(() => {
-        getCategories();
-    }, []);
-
-    // this function added to use effect
 
 
     return (
@@ -62,7 +47,7 @@ export default function InsertNewRecipe() {
                     alt=""
                 />
             </div>
-            <h2 className="container-fieldsList_heading">We are so exited to have your recipe on our website</h2>
+            <h2 className="container-fieldsList_heading">We are so excited to have your recipe on our website</h2>
             <p> Here is the form that you can use to add your favorite meal. Please fill out all the fields.</p>
 
 
@@ -73,21 +58,6 @@ export default function InsertNewRecipe() {
                         <input className="fields-to-fill" type="text" name="title" value={recipe.title} onChange={handleRecipeChange} />
 
                     </label>
-
-                    {/* Select input with options from fetched categories */}
-
-                    <label className="fields">
-                        Select a cuisine:
-                        <select name="category_id" value={recipe.category_id} onChange={handleRecipeChange}>
-                            <option value="">Select</option>
-                            {
-                                categories.map(category => {
-                                    return <option value={category.id}>{category.name}</option>
-                                })
-                            }
-                        </select>
-                    </label>
-
 
                     <label className="fields">
                         Description:
@@ -101,7 +71,10 @@ export default function InsertNewRecipe() {
                         Preparation time:
                         <input className="fields-to-fill" type="text" name="preparation_time" value={recipe.preparation_time} onChange={handleRecipeChange} />
                     </label>
-
+                    <label className="fields">
+                        Ingridients:
+                        <textarea rows="5" cols="50" className="fields-to-fill" type="text" name="ingredients" value={recipe.ingridients} onChange={handleRecipeChange} />
+                    </label>
                     <label className="fields">
                         Instruction:
                         <textarea rows="5" cols="50" className="fields-to-fill" type="text" name="instruction" value={recipe.instruction} onChange={handleRecipeChange} />

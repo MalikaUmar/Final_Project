@@ -1,0 +1,53 @@
+.Insert-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.main-heading {
+    display: flex;
+    text-align: center;
+}
+
+.image-container {
+    width: 100%;
+    margin-top: 50px;
+}
+
+.category-image {
+
+    height: 400px;
+}
+
+.container-fieldsList_heading {
+    margin-top: 40px;
+    display: flex;
+    text-align: center;
+    width: 100%;
+}
+
+s .container-form {
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 2%;
+
+}
+
+.fields {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 20%;
+    border: 0.1px solid gray;
+    margin-bottom: 10px;
+}
+
+.fields-to-fill {
+    display: flex;
+    height: 50%;
+}
