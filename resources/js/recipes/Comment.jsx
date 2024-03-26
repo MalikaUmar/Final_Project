@@ -34,9 +34,10 @@ export default function Comment({ recipe_id, rating }) {
 
     const submitComment = async (event) => {
         event.preventDefault();
+        console.log(rating);
 
         const response = await axios.post(
-            "/api/comments/" + recipe_id,
+            "/api/comments_post/" + recipe_id,
             JSON.stringify({ comment, rating })
         );
 
@@ -60,6 +61,7 @@ export default function Comment({ recipe_id, rating }) {
 
     return (
         <>
+            {console.log(rating)}
             {userActive == false ? <UserStatusPoppupWindow /> : ""}
             <div id="commentSection">
                 <textarea

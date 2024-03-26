@@ -44,6 +44,7 @@ export default function RecipeDetail() {
 
     return (
         <>
+            {console.log(rating)}
             <Header />
             {active == true ? <Popupwindow /> : ""}
 
@@ -137,7 +138,7 @@ export default function RecipeDetail() {
                         </div>
                     </div>
 
-                    <Rating setRating={setRating} />
+                    <Rating setRating={setRating} rating={rating} />
 
                     <Comment recipe_id={id} rating={rating} />
                 </div>
