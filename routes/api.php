@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\IndianCusineController;
 use App\Http\Controllers\Api\RatingController;
+use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\FavouriteController;
 
 /*
@@ -37,6 +38,6 @@ Route::post('/comments/{recipe_id}',[CommentController::class, 'storeForRecipe']
 Route::get('/addToFavourites/{recipe_id}/{user_id}',[FavouriteController::class,'index']);
 Route::get('/showFavourites/{user_id}',[FavouriteController::class,'show']);
 Route::get('/removeFavourites/{user_id}/{recipe_id}',[FavouriteController::class,'remove']);
-
-
 Route::get('/recipe/search', [RecipesController::class, 'search']);
+Route::get('/recipe/categories', [CategoryController::class, 'index']);
+Route::post('/recipe/add', [RecipesController::class, 'store']);

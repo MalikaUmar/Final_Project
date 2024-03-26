@@ -13,6 +13,7 @@ import { useEffect } from "react";
 import Favourites from "./Favourites";
 import Homepage from "./Homepage";
 import InsertNewRecipe from "./InsertNewRecipe";
+import Search from "./Search";
 
 function App() {
     const [user, setUser] = useState(null);
@@ -76,6 +77,7 @@ function App() {
                                 element={<Favourites />}
                             />
                             <Route path="/add-recipe" element={<InsertNewRecipe />} />
+                            <Route path="/search" element={<Search />} />
                         </Routes>
                     </BrowserRouter>
                 </FavouriteContext.Provider>
