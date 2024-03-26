@@ -11,6 +11,8 @@ use App\Http\Controllers\Api\SerbianCusineController;
 use App\Http\Controllers\Api\SearchFromIngredientsController;
 use App\Http\Controllers\Api\FavouriteController;
 use App\Http\Controllers\Api\RecipeIngredientsController;
+use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\IngredientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,3 +50,7 @@ Route::get('/search-meal',[SearchFromIngredientsController::class,'index']);
 Route::get('/recipes/by-ingredients', [RecipesController::class, 'findByIngredients']);
 Route::get('/recipes/search', [RecipesController::class, 'search']);
 Route::get('/ingredients-measures', [RecipeIngredientsController::class,'index']);
+Route::get('/recipe/categories', [CategoryController::class, 'index']);
+Route::post('/recipe/add', [RecipesController::class, 'store']);
+Route::get('/recipe/ingredients', [IngredientController::class, 'index']);
+

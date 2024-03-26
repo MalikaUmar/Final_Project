@@ -22,6 +22,7 @@ import Footer from "./Footer";
 
 
 
+
 // import SearchFromIgredinents from "./SearchFromIgredinents";
 
 function App() {
@@ -90,6 +91,8 @@ function App() {
                             <Route path="/favourites" element={<Favourites />} />
                             {/* <Route path="/search" element={<SearchFromIgredinents />}  /> */}
                             <Route path="/serbian" element={<SerbianCusine />} />
+                            <Route path="/search" element={<Search />} />
+                            <Route path="/add-recipe" element={<InsertNewRecipe />} />
 
                         </Routes>
                     </BrowserRouter>
