@@ -10,6 +10,7 @@ import UserContext from "./UserContext";
 import FavouriteContext from "./FavouriteContext";
 import Popupwindow from "./Popupwindow";
 import UserStatusPoppupWindow from "./UserStatusPoppupWindow";
+import Header from "./Header";
 
 export default function RecipeDetail() {
     const [detailPage, setDetailPage] = useState([]);
@@ -44,6 +45,7 @@ export default function RecipeDetail() {
             {active == true ? <Popupwindow /> : ""}
 
             {userActive == false ? <UserStatusPoppupWindow /> : ""}
+            <Header />
             <div className="detail_container">
                 <div className="detail_page">
                     <h1 className="title">{detailPage.recipe?.title}</h1>

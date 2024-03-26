@@ -1,5 +1,4 @@
-
-.favourites-container{
+.favourites-container {
     margin-inline: auto;
     margin-top: 50px;
     width: 95%;
@@ -10,7 +9,8 @@
     align-items: center;
     background-color: white;
 }
-.favourites-container_heading{
+
+.favourites-container_heading {
     // position: relative;
     width: 100%;
     height: 150px;
@@ -24,7 +24,8 @@
     color: #fb641b;
     text-align: center;
 }
-.favourites-container_list{
+
+.favourites-container_list {
     display: flex;
     flex-wrap: wrap;
     // margin-left: 120px;
@@ -34,20 +35,24 @@
     margin-top: 80px;
     gap: 50px;
 }
-.cards{
+
+.cards {
     width: 270px;
     height: 350px;
-    border: 0.1px solid gray;   
+    border: 0.1px solid gray;
     // position: relative;
 }
-.cards_imageContainer{
+
+.cards_imageContainer {
     height: 60%;
 }
-.cards_imageContainer-image{
+
+.cards_imageContainer-image {
     width: 100%;
     height: 100%;
 }
-.cards_content{
+
+.cards_content {
     height: 40%;
     padding-left: 20px;
     display: flex;
@@ -55,7 +60,8 @@
     justify-content: center;
     gap: 10px;
 }
-.card-remove{
+
+.card-remove {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -68,47 +74,53 @@
     border: 2px solid #fb641b;
 
 }
-.user-info{
+
+.user-info {
     position: absolute;
     left: 20px;
     font-size: 40px;
     color: black;
 }
-.user-name{
+
+.user-name {
     font-size: 15px;
     color: black;
 }
 
 
-.favouritsSecond-container{
+.favouritsSecond-container {
     margin: auto;
     margin-top: 50px;
     width: 50%;
     height: 450px;
-    display: flex;   
+    display: flex;
     box-shadow: 0 0 3px 3px grey;
 }
-.favouritsSecond-container_image{
+
+.favouritsSecond-container_image {
     width: 50%;
 }
-.favouritsSecond-container_image_image{
+
+.favouritsSecond-container_image_image {
     width: 100%;
     height: 100%;
 }
-.favouritsSecond-container_content{
+
+.favouritsSecond-container_content {
     width: 50%;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   gap: 30px;
-   border: 0.1px solid gray;
-   text-align: center;
-   color: #fb641b;
-  background-color: white;
-   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    border: 0.1px solid gray;
+    text-align: center;
+    color: #fb641b;
+    background-color: white;
+
 }
-.favouritsSecond-container_link{
+
+.favouritsSecond-container_link {
     width: 60%;
     height: 30px;
     font-size: 20px;
@@ -117,9 +129,10 @@
     // background-color: #2874f0;
     background-color: rgb(28, 24, 20);
     text-decoration: none;
-    
+
 }
-.ifthereIs-noRecipes{
+
+.ifthereIs-noRecipes {
     margin-top: 10px;
     // margin-right: 105px;
     width: 1200px;
@@ -134,35 +147,37 @@
     // background-image: url(https://marketplace.canva.com/85mio/MADyQ985mio/1/s2/canva-man-cooking-food-MADyQ985mio.jpg);
     // background-size: cover;
     color: black;
-   
+
 }
-.ifthereIs-noRecipes_links{
+
+.ifthereIs-noRecipes_links {
     font-size: 15px;
     text-decoration: none;
     color: #2874f0;
 }
 
 @media only screen and (max-width: 900px) {
-    .favouritsSecond-container{
-       flex-direction: column;
+    .favouritsSecond-container {
+        flex-direction: column;
     }
-    
-    .favouritsSecond-container_content{
-       width: 100%;
-       height: 50%;
-       
+
+    .favouritsSecond-container_content {
+        width: 100%;
+        height: 50%;
+
     }
-    .favouritsSecond-container_image{
+
+    .favouritsSecond-container_image {
         width: 100%;
         height: 50%;
     }
-   
-    
+
+
 }
+
 @media only screen and (max-width: 600px) {
-    .favouritsSecond-container{
+    .favouritsSecond-container {
         width: 70%;
-     }
+    }
 
 }
-
