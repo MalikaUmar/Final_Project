@@ -12,6 +12,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Favourites from "./Favourites";
 import Homepage from "./Homepage";
+import InsertNewRecipe from "./InsertNewRecipe";
+import Search from "./Search";
 import SerbianCusine from "./SerbianCusine";
 import Home from "./Home";
 import Footer from "./Footer";
@@ -26,7 +28,7 @@ function App() {
     const [user, setUser] = useState(null);
     const [active, setActive] = useState(false); // state to display popwindow when adding recipes to favourites
     const [userActive, setUserActive] = useState(true);
-    const [burgericon,setBurgericon] = useState(false);
+    const [burgericon, setBurgericon] = useState(false);
 
     const getUser = async () => {
         const response = await fetch("/api/user", {
@@ -37,20 +39,20 @@ function App() {
 
         if (response.status == 200) {
             const data = await response.json();
-            setUser(data)   
+            setUser(data)
         } else {
             setUser(null)
         }
     }
 
 
-    const additemsToFavourites= async(recipe_id)=>{
+    const additemsToFavourites = async (recipe_id) => {
         const response = await fetch(`/api/addToFavourites/${recipe_id}/${user.id}`);
         const data = await response.json();
-        console.log(data); 
+        console.log(data);
     }
-     
-    
+
+
 
     useEffect(() => {
         getUser();
@@ -58,10 +60,10 @@ function App() {
 
     return (
         <>
-        
-   
 
-        
+
+
+
             <UserContext.Provider value={{ user, getUser }}>
                 <FavouriteContext.Provider
                     value={{
@@ -77,25 +79,25 @@ function App() {
                     <BrowserRouter>
                         <ScrollToTop />
                         <Routes>
-                            
+
                             {/* <Route path="/" element={<Homepage />} /> */}
                             <Route path="/" element={<Home />} />
                             <Route path="/register" element={<Register />} />
                             <Route path="/login" element={<Login />} />
                             <Route path="/indian" element={<IndianCusine />} />
-                            <Route  path="/uyghur-cuisine" element={<UyghurCuisine />} />
-                            <Route path="/cuisine/:id"  element={<RecipeDetail />} />
-                            <Route path="/favourites" element={<Favourites />}  />
+                            <Route path="/uyghur-cuisine" element={<UyghurCuisine />} />
+                            <Route path="/cuisine/:id" element={<RecipeDetail />} />
+                            <Route path="/favourites" element={<Favourites />} />
                             {/* <Route path="/search" element={<SearchFromIgredinents />}  /> */}
-                            <Route path="/serbian" element={<SerbianCusine />}  />
-                                 
+                            <Route path="/serbian" element={<SerbianCusine />} />
+
                         </Routes>
                     </BrowserRouter>
                 </FavouriteContext.Provider>
             </UserContext.Provider>
-            <Footer/>
+            <Footer />
 
-            
+
 
         </>
     );

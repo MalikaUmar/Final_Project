@@ -18,3 +18,4 @@ class Ingredient extends Model
                     
     }
 
+}
