@@ -2,11 +2,26 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import "./Comment.scss";
 import CommentRating from "./CommentRating";
+import { useContext } from "react";
+import UserContext from "./UserContext";
+import FavouriteContext from "./FavouriteContext";
+// import Popupwindow from "./Popupwindow";
+import UserStatusPoppupWindow from "./UserStatusPoppupWindow";
+import axios from "axios";
 
 export default function Comment({ recipe_id, rating }) {
     const { id } = useParams();
     const [comment, setComment] = useState("");
     const [displayComment, setDisplayComment] = useState([]);
+
+    const { user } = useContext(UserContext);
+    const {
+        additemsToFavourites,
+        active,
+        setActive,
+        userActive,
+        setUserActive,
+    } = useContext(FavouriteContext);
 
     const getCommentTime = (datetime) => {
         const date = new Date(datetime);
@@ -26,21 +41,12 @@ export default function Comment({ recipe_id, rating }) {
     const submitComment = async (event) => {
         event.preventDefault();
 
-        const response = await fetch("/api/comments/" + recipe_id, {
-            method: "post",
-            body: JSON.stringify({ comment, rating }),
-            headers: {
-                Accept: "application/json",
-                "Content-type": "application/json",
-                "X-CSRF-TOKEN": document
-                    .querySelector('meta[name="csrf-token"]')
-                    .getAttribute("content"),
-            },
-        });
+        const response = await axios.post(
+            "/api/comments/" + recipe_id,
+            JSON.stringify({ comment, rating })
+        );
 
-        const data = await response.json();
-
-        if (data.status === "success") {
+        if (response.status === 200) {
             // alert("submit successed 🎉");
             setComment("");
             displayData();
@@ -60,6 +66,7 @@ export default function Comment({ recipe_id, rating }) {
 
     return (
         <>
+            {userActive == false ? <UserStatusPoppupWindow /> : ""}
             <div id="commentSection">
                 <textarea
                     id="commentInput"
@@ -68,12 +75,16 @@ export default function Comment({ recipe_id, rating }) {
                     onInput={handleCommentChange}
                 ></textarea>
                 <div className="submit-container">
-                    <button id="submitComment" onClick={submitComment}>
+                    <button
+                        id="submitComment"
+                        onClick={(e) => {
+                            user ? submitComment(e) : setUserActive(false);
+                        }}
+                    >
                         Submit
                     </button>
                 </div>
             </div>
-
             <h3 className="review">Review</h3>
             <div id="comments">
                 <div>
