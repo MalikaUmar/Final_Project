@@ -1,11 +1,17 @@
 import { useEffect, useState } from "react";
 import "./InsertNewRecipe.scss";
-import "./IndianCusine";
+// import "./IndianCusine";
 import Select from 'react-select';
 import React from 'react';
 import Header from "./Header";
+import UserContext from "./UserContext";
+import { useContext} from "react";
+import { Link } from "react-router-dom";
+
+
 
 export default function InsertNewRecipe() {
+    const { user } = useContext(UserContext);
     const [data, setData] = useState([]);
     // add categories state
     const [categories, setCategories] = useState([]);
@@ -150,6 +156,7 @@ export default function InsertNewRecipe() {
     return (
         <>
         <Header/>
+        {user ? 
         <div className="Insert-container">
             {console.log(recipe)}
             <div className="main-heading">
@@ -253,6 +260,13 @@ export default function InsertNewRecipe() {
                 </form>
             </div>
         </div>
+        :
+        
+        <div className="insertrecipes2nd-container">
+            <p>Login or Signup to Add Recipes</p>
+            <Link className="insertrecipes2nd-container-loginLink" to={"/login"}>Login here</Link>
+        </div>
+        }
         </>
     );
 }
