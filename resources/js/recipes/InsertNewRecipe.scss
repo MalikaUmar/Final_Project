@@ -9,6 +9,7 @@
 .main-heading {
     display: flex;
     text-align: center;
+    color: #fb641b;
 }
 
 .image-container {
@@ -23,7 +24,7 @@
 
 .container-fieldsList_heading {
     margin-top: 40px;
-    display: flex;
+    // display: flex;
     text-align: center;
     width: 100%;
 }
@@ -33,8 +34,10 @@
     justify-content: center;
     gap: 10%;
     width: 100%;
-    max-width: 600px;
+    // max-width: 600px;
     margin-top: 2%;
+    
+    
 
 }
 
@@ -42,12 +45,56 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
-    height: 20%;
-    border: 0.1px solid gray;
+    height: 10%;
+    // border: 0.1px solid gray;
     margin-bottom: 10px;
+    font-size: 15px;
 }
 
 .fields-to-fill {
-    display: flex;
-    height: 50%;
+    
+    height: 30px;
+    width: 100%;
+    margin-inline: auto;
+    
 }
+
+.formAdd-Recipes{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 50%;
+    border: 0.1px solid gray;
+    padding: 25px;
+    // background-color: aliceblue;
+}
+.AddRecipes-button{
+    background-color: #fb641b;
+    height: 40px;
+    width: 20%;
+    margin-left: 10px;
+}
+.submit-button{
+    background-color: #fb641b;
+    height: 40px;
+    width: 60%;
+    margin-inline: auto;
+    margin-bottom: 10px;
+}
+// .addIngredientContainer{
+
+// }
+.fields-to-fill_select{
+    height: 30px;
+
+}
+
+@media only screen and (max-width: 700px) {
+
+    .formAdd-Recipes{
+        width: 80%;
+    }
+   
+
+    
+  }

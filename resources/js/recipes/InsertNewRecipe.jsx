@@ -3,6 +3,7 @@ import "./InsertNewRecipe.scss";
 import "./IndianCusine";
 import Select from 'react-select';
 import React from 'react';
+import Header from "./Header";
 
 export default function InsertNewRecipe() {
     const [data, setData] = useState([]);
@@ -147,23 +148,26 @@ export default function InsertNewRecipe() {
 
 
     return (
+        <>
+        <Header/>
         <div className="Insert-container">
             {console.log(recipe)}
             <div className="main-heading">
-                <h1>Add a Recipe</h1> </div>
-            <div className="image-container">
+                <h1>Add a Recipe</h1> 
+            </div>
+            {/* <div className="image-container">
                 <img
                     className="category-image"
                     src="https://marketplace.canva.com/NqqlA/MAFmARNqqlA/1/s2/canva-indian-food-MAFmARNqqlA.jpg"
                     alt=""
                 />
-            </div>
+            </div> */}
             <h2 className="container-fieldsList_heading">We are so exited to have your recipe on our website</h2>
             <p> Here is the form that you can use to add your favorite meal. Please fill out all the fields.</p>
 
 
             <div className="container-form">
-                <form action='' method='post' onSubmit={handleSubmit}>
+                <form action='' method='post' onSubmit={handleSubmit} className="formAdd-Recipes">
                     <label className="fields">
                         Title:
                         <input className="fields-to-fill" type="text" name="title" value={recipe.title} onChange={handleRecipeChange} />
@@ -174,7 +178,7 @@ export default function InsertNewRecipe() {
 
                     <label className="fields">
                         Select a cuisine:
-                        <select name="category_id" value={recipe.category_id} onChange={handleRecipeChange}>
+                        <select className="fields-to-fill" name="category_id" value={recipe.category_id} onChange={handleRecipeChange}>
                             <option value="">Select</option>
                             {
                                 categories.map(category => {
@@ -184,13 +188,16 @@ export default function InsertNewRecipe() {
                         </select>
                     </label>
 
+
+                    <div className="addIngredientContainer">
+
                     <label className="fields">
                         Add an ingredient:
                         {
                             selectedIngredients.data.map((selectedIngredient, key) => {
 
                                 return < div key={key}>
-                                    <select name="ingredient_id" value={selectedIngredient.ingredient_id} onChange={(e) => handleSelectedIngredientChange(e, key)}>
+                                    <select className="fields-to-fill_select" name="ingredient_id" value={selectedIngredient.ingredient_id} onChange={(e) => handleSelectedIngredientChange(e, key)}>
                                         <option value="">Select</option>
                                         {
                                             ingredients.map((ingredient, ingredient_key) => {
@@ -198,12 +205,12 @@ export default function InsertNewRecipe() {
                                             })
                                         }
                                     </select>
-                                    <input type="text" name="ingredient_measure" value={selectedIngredient.ingredient_measure} onChange={(e) => handleSelectedIngredientChange(e, key)} />
+                                    <input className="fields-to-fill_select" type="text" name="ingredient_measure" value={selectedIngredient.ingredient_measure} onChange={(e) => handleSelectedIngredientChange(e, key)} placeholder="measure" />
                                 </div>
 
                             })
                         }
-                        <button onClick={(event) => {
+                        <button className="AddRecipes-button" onClick={(event) => {
                             event.preventDefault()
                             setSelectedIngredients({
                                 data: [...selectedIngredients.data, {
@@ -213,6 +220,7 @@ export default function InsertNewRecipe() {
                             })
                         }}>Add another</button>
                     </label>
+                    </div>
 
 
                     <label className="fields">
@@ -245,5 +253,6 @@ export default function InsertNewRecipe() {
                 </form>
             </div>
         </div>
+        </>
     );
 }

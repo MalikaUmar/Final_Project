@@ -14,9 +14,10 @@ import FavouriteContext from "./FavouriteContext";
 import { useState } from "react";
 import { useEffect } from "react";
 
-
 import Home from "./Home";
 import Footer from "./Footer";
+import InsertNewRecipe from "./InsertNewRecipe";
+import Search from "./Search";
 
 
 
@@ -93,11 +94,11 @@ function App() {
                             <Route path="/search" element={<SearchFromIngredients />} />
                             <Route path="/serbian" element={<SerbianCusine />} />
                             <Route path="/add-recipe" element={<InsertNewRecipe />} />
-                            <Route path="/simpleSearch" element={<Search />} />
-                            <Route
+                            <Route path="/simpleSearch/:id" element={<Search />} />
+                            {/* <Route
                                 path="/search"
                                 element={<SearchFromIngredients />}
-                            />
+                            /> */}
 
                         </Routes>
                     </BrowserRouter>

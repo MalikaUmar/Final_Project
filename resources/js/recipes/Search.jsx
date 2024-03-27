@@ -1,55 +1,118 @@
 import { useEffect, useState } from "react";
-import "./InsertNewRecipe.scss";
-import "./IndianCusine";
+import { useParams } from "react-router";
+import "./UyghurCuisine.scss";
+import "./Search.scss";
+import FavouriteContext from "./FavouriteContext";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useContext } from "react";
+import UserContext from "./UserContext";
+import { Link } from "react-router-dom";
+import Header from "./Header";
+
+
+
 
 
 export default function Search() {
     const [recipes, setRecipes] = useState([]);
-    // const [ingredient, setIngredient] = useState([]);
-    const [searchItem, setSearchItem] = useState('');
+    const { user } = useContext(UserContext);
+    const {
+        additemsToFavourites,
+        active,
+        setActive,
+        userActive,
+        setUserActive,
+        setBurgericon,
+        burgericon,
+    } = useContext(FavouriteContext);
 
-    const handleChange = async (event) => {
-        setSearchItem(event.target.value);
-    }
-
+    const { id } = useParams();
+    console.log(id);
+    
+    
     const fetchResults = async () => {
-        if (searchItem && searchItem != '') {
-            const response = await fetch('/api/recipes/search?search=' + searchItem)
+        
+            const response = await fetch('/api/recipes/search?search=' +id)
             const data = await response.json();
             console.log(data)
             setRecipes(data)
 
-        }
+        
     }
 
+    useEffect(()=>{
+        if(id){
+            fetchResults(); 
+        }
+
+    },[id])
+
     return (
-        <div className="search">
-            <input
+        <>
+        <Header/>
+    
+        <div className="search-container">
+            {/* <input
                 type="text"
                 name="search"
                 placeholder="Search"
                 value={searchItem}
                 onChange={handleChange}
             />
-            <button onClick={fetchResults}>Search</button>
+            <button onClick={fetchResults}>Search</button> */}
+      
 
-
-            <div className="searchResults">
-                {
-                    recipes.map((recipe) => {
-                        return recipes ?
-                            <>
-                                <br></br><p><strong />{recipe.title}</p>
-                                <p> <img src={recipe.image} />  </p>
-                                <p> {recipe.description}</p> <p>{recipe.instruction}</p>
-                            </>
-                            : 'Sorry, we could not find anything'
-                    })
-                }
-
-            </div>
+      <div className="ugmenu_container">
+                    {recipes.map((uyRecipe) => {
+                        
+                            return (
+                                <>
+                                    <div className="ugmenu_item">
+                                        <div
+                                            className="ugheart-iconDiv"
+                                            onClick={() => {
+                                                additemsToFavourites(
+                                                    uyRecipe.id
+                                                ),
+                                                    user
+                                                        ? setActive(true)
+                                                        : setUserActive(false);
+                                            }}
+                                        >
+                                            <FontAwesomeIcon
+                                                icon={faHeart}
+                                                className="ugheart-icon"
+                                            />
+                                        </div>
+                                        <Link to={`/cuisine/${uyRecipe.id}`}>
+                                            <img
+                                                src={uyRecipe.image}
+                                                className="ugmenu_img"
+                                            />
+                                        </Link>
+                                        <div className="ugmenu_content">
+                                            <p className="category">
+                                                {uyRecipe.difficulty_level}
+                                            </p>
+                                            <h2 className="ugmenu_title">
+                                                {uyRecipe.title}
+                                            </h2>
+                                            <p className="ugcooking_time">
+                                                {uyRecipe.cooking_time}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </>
+                            );
+                        
+                    })}
+                </div>
 
         </div>
+        </>
+      
+        
     )
 
 }

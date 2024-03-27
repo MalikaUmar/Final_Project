@@ -5,12 +5,12 @@
 //     align-items: center;
 // }
 
-img {
-    width: 270px;
-    height: 350px;
-    border: 0.1px solid gray;
-    position: relative;
-}
+// img {
+//     width: 270px;
+//     height: 350px;
+//     border: 0.1px solid gray;
+//     position: relative;
+// }
 
 .heart-iconDiv {
     right: 5px;
@@ -28,4 +28,9 @@ img {
 
 .heart-icon {
     color: white;
+}
+.search-container{
+    margin-top: 100px;
+    width: 80%;
+    margin-inline: auto;
 }

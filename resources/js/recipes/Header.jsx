@@ -11,6 +11,9 @@ import FavouriteContext from "./FavouriteContext";
 import BurgerIconWindow from "./BurgerIconWindow";
 
 function Header() {
+  const [searchItem, setSearchItem] = useState('');
+
+
   const[dropdown,setDropdown] = useState(false)
   const { user, getUser } = useContext(UserContext);
   const {additemsToFavourites,active,setActive,userActive,setUserActive, setBurgericon,burgericon} = useContext(FavouriteContext);
@@ -27,6 +30,17 @@ function Header() {
           console.log(error);
         }
     }
+
+
+
+
+
+    
+
+    const handleChange = async (event) => {
+        setSearchItem(event.target.value);
+    }
+
 
  
   
@@ -51,14 +65,17 @@ function Header() {
         <div className="navbar-content">
             <h3>DELICIOUS</h3>
             <div className="navbar-search_container">
-              <input type="text" className='navbar_search' placeholder='search for recipes'/>
-              <FontAwesomeIcon icon={faMagnifyingGlass} className="search-icon"/>
+              <input type="text" className='navbar_search' placeholder='search for recipes' onChange={handleChange}/>
+
+              <Link to={`/simpleSearch/${searchItem}`} className="search-iconLink">
+                <FontAwesomeIcon icon={faMagnifyingGlass} className="search-icon" />
+               </Link>
             </div>
         </div>
     
     <div className="header-links">
         <Link className="header-link" to="/">Home</Link>|
-        <Link className="header-link" to="/">Add your recipe</Link>|
+        <Link className="header-link" to="/add-recipe">Add your recipe</Link>|
         <Link className="header-link" to="/favourites">Favourite</Link>|
 
         {
