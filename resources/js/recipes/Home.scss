@@ -9,49 +9,57 @@
     margin-top: 50px;
     text-align: center;
 }
-.home-container_head-title{
+
+.home-container_head-title {
     border-bottom: 0.1px solid grey;
     height: 100px;
     width: 100%;
     
     
 }
-.home-container_cusins-list{
+
+.home-container_cusins-list {
     display: flex;
     gap: 80px;
-   
+
 }
-.home-container_cusins{
+
+.home-container_cusins {
     width: 200px;
     height: 200px;
     border-radius: 50%;
     text-align: center;
     position: relative;
-    cursor: pointer;   
-    
+    cursor: pointer;
+
 }
-.home-container_cusins:hover{
+
+.home-container_cusins:hover {
     opacity: 0.5;
 }
-.home-container_cusins-img{
+
+.home-container_cusins-img {
     width: 200px;
     height: 200px;
     border-radius: 50%;
 }
-.home-container_cusins-name{
+
+.home-container_cusins-name {
     position: absolute;
     left: 50px;
     top: 60px;
     z-index: 1;
     color: white;
-    font-size: 25px;      
+    font-size: 25px;
 }
-.home-container-content{
+
+.home-container-content {
     text-align: center;
     border-top: 0.1px solid grey;
     margin-top: 70px;
 }
-.home-container_searchForMeal{
+
+.home-container_searchForMeal {
     width: 60%;
     height: 200px;
     border: 2px solid grey;
@@ -69,27 +77,30 @@
     background-color: rgb(28, 24, 20);   
 
 }
-.home-container-content-head{
+
+.home-container-content-head {
     border-top: 0.1px solid grey;
     margin-top: 50px;
     padding-top: 50px;
     padding-bottom: 50px;
-    
+
 }
-.navbar-mealSearch_container{
+
+.navbar-mealSearch_container {
     width: 80%;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     // justify-content: center;
-   }
-   
-  .navbar_search{
+}
+
+.navbar_search {
     width: 100%;
     height: 35px;
-  }
-   .search-icon{
+}
+
+.search-icon {
     position: absolute;
     right: 5px;
     cursor: pointer; 
@@ -111,24 +122,27 @@
    }
 
 @media only screen and (max-width: 760px) {
-    .home-container_cusins-list{
+    .home-container_cusins-list {
         gap: 40px;
-       
+
     }
-    .home-container_cusins{
-        width: 120px;
-        height: 120px;    
-    }
-    .home-container_cusins-img{
+
+    .home-container_cusins {
         width: 120px;
         height: 120px;
-       
     }
-    .home-container_cusins-name{
+
+    .home-container_cusins-img {
+        width: 120px;
+        height: 120px;
+
+    }
+
+    .home-container_cusins-name {
         position: absolute;
         left: 20px;
         top: 40px;
-        font-size: 18px;     
+        font-size: 18px;
     }
    .home-container_searchForMeal{
     width: 90%;
