@@ -21,7 +21,7 @@ function BurgerIconWindow({logout,setBurgericon}) {
             <div className="burgerIcon-link" onClick={()=>{setBurgericon(false)}}>Help</div>
             {
                 user ?
-                <div className="burgerIcon-link" onClick={()=>{logout(),setBurgericon(false)}}>Logout</div>  
+                <div className="burgerIcon-link" onClick={(event)=>{logout(event);setBurgericon(false)}}>Logout</div>  
                 :
                 <div className="burgerIcon-link" onClick={()=>{setBurgericon(false)}}><Link className="burgerIcon-link-link" to={"/login"}>Login</Link></div>
             }

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Noto+Serif+Display:wght@200;400;700&display=swap');
+
 .home-container_head{
     display: flex;
     flex-direction: column;
@@ -11,6 +13,7 @@
     border-bottom: 0.1px solid grey;
     height: 100px;
     width: 100%;
+    
     
 }
 .home-container_cusins-list{
@@ -60,9 +63,10 @@
     justify-content: center;
     align-items: center;
     text-align: left;
-    // padding-left: 20px;
-    gap: 30px;
     
+    // padding-left: 20px;
+    gap: 20px;
+    background-color: rgb(28, 24, 20);   
 
 }
 .home-container-content-head{
@@ -93,13 +97,17 @@
    }
    .home-container_searchForMeal_head{
     color: #fb641b; 
+    width: 400px;
+    text-align: center;
     
    }
    .home-container_searchForMeal-link{
-    text-decoration: none;
+    // text-decoration: none;
+    color: white;
    }
    .home-container_searchForMeal-link:hover{
     opacity: 0.5;
+    color: blue;
    }
 
 @media only screen and (max-width: 760px) {
@@ -125,6 +133,10 @@
    .home-container_searchForMeal{
     width: 90%;
     text-align: center;
+   }
+   .home-container_searchForMeal-link{
+    // text-decoration: none;
+    font-size: 12px;
    }
   }
   
