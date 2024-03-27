@@ -14,7 +14,7 @@ export default function Search() {
 
     const fetchResults = async () => {
         if (searchItem && searchItem != '') {
-            const response = await fetch('/api/recipe/search?search=' + searchItem)
+            const response = await fetch('/api/recipes/search?search=' + searchItem)
             const data = await response.json();
             console.log(data)
             setRecipes(data)

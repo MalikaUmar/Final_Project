@@ -81,5 +81,37 @@ class RecipesController extends Controller
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
+    public function store(Request $request)
+    {
+        $image_name = $request->file('image')[0]->move(
+            public_path('uploads/uploaded_files'), 
+            $request->file('image')[0]->getClientOriginalName()
+        ); 
 
+        $recipe = new Recipe();
+        $recipe->title = $request->input('title');
+        $recipe->description = $request->input('description');
+        $recipe->instruction = $request->input('instruction');
+        $recipe->category_id = $request->input('category_id');
+        $recipe->cooking_time = $request->input('cooking_time');
+        $recipe->preparation_time= $request->input('preparation_time');
+        $recipe->difficulty_level = $request->input('difficulty_level');
+        $recipe->image = '/uploads/uploaded_files/' . $request->file('image')[0]->getClientOriginalName();
+        $recipe->save();
+
+       $ingredients = $request->input('ingredients');
+       foreach ($ingredients as $ingredient) {
+        $recipe->ingredients()->attach([$ingredient['ingredient_id'] => ['measure' => $ingredient['ingredient_measure']]]);
+       }
+
+       // handling image storage
+       
+
+        return [
+            'status' => 'success',
+            'recipe' => $recipe,
+            'ingredient'=>$ingredient
+        ];
+    }
 }
+
