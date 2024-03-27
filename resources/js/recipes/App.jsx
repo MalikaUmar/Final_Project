@@ -87,12 +87,13 @@ function App() {
                             <Route path="/register" element={<Register />} />
                             <Route path="/login" element={<Login />} />
                             <Route path="/indian" element={<IndianCusine />} />
-                            <Route  path="/uyghur-cuisine" element={<UyghurCuisine />} />
-                            <Route path="/cuisine/:id"  element={<RecipeDetail />} />
-                            <Route path="/favourites" element={<Favourites />}  />
-                            <Route path="/search" element={<SearchFromIngredients />}  />
-                            <Route path="/serbian" element={<SerbianCusine />}  />
-                                 
+                            <Route path="/uyghur-cuisine" element={<UyghurCuisine />} />
+                            <Route path="/cuisine/:id" element={<RecipeDetail />} />
+                            <Route path="/favourites" element={<Favourites />} />
+                            <Route path="/search" element={<SearchFromIngredients />} />
+                            <Route path="/serbian" element={<SerbianCusine />} />
+                            <Route path="/add-recipe" element={<InsertNewRecipe />} />
+                            <Route path="/simpleSearch" element={<Search />} />
                             <Route
                                 path="/search"
                                 element={<SearchFromIngredients />}

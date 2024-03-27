@@ -1,10 +1,24 @@
 import { useEffect, useState } from "react";
 import "./InsertNewRecipe.scss";
 import "./IndianCusine";
+import Select from 'react-select';
+import React from 'react';
+
 export default function InsertNewRecipe() {
     const [data, setData] = useState([]);
     // add categories state
     const [categories, setCategories] = useState([]);
+    const [images, setImages] = useState([]);
+    const [ingredients, setIngredients] = useState([]);
+    const [selectedIngredients, setSelectedIngredients] = useState({
+        data: [
+            {
+                ingredient_id: 0,
+                ingredient_measure: '',
+            }
+        ]
+    })
+
     const [recipe, setRecipe] = useState({
         title: '',
         description: '',
@@ -12,10 +26,28 @@ export default function InsertNewRecipe() {
         preparation_time: '',
         instruction: '',
         difficulty_level: '',
-        image: '',
-        category_id: ''
+        category_id: '',
+        ingredients: [],
+        image: null
     });
 
+    const handleImageInput = async (event) => {
+        let images = event.target.files
+        setRecipe(previous_recipe => {
+            return ({
+                ...previous_recipe,
+                image: images
+            });
+        });
+    };
+
+
+    useEffect(() => {
+        setImages();
+    }, []);
+
+
+    //get ingridient table 
     const handleRecipeChange = (event) => {
 
         setRecipe(previous_recipe => {
@@ -26,10 +58,55 @@ export default function InsertNewRecipe() {
         });
     }
 
+    // const handleIngredientChange = (event) => {
+
+    //     setIngredient(previous_ingredient => {
+    //         return ({
+    //             ...previous_ingredient,
+    //             [event.target.name]: event.target.value
+    //         });
+    //     });
+    // }
+
+    // const handleSelectChange = (value, { action, option }) => {
+    //     if (action === 'select-option') {
+    //         setRecipe(previous_ingredient => {
+    //             return ({
+    //                 ...previous_ingredient,
+    //                 ingredients: value
+    //             });
+    //         });
+    //     }
+    // }
+    const handleSelectedIngredientChange = (event, index) => {
+        let previouslySelected = selectedIngredients.data;
+        if (previouslySelected.hasOwnProperty(index)) {
+            previouslySelected[index][event.target.name] = event.target.value
+        } else {
+            let newIngredient = {
+                id: index,
+                measure: ''
+            }
+
+            previouslySelected = [
+                ...previouslySelected,
+                newIngredient
+            ]
+        }
+
+        setSelectedIngredients({ data: previouslySelected });
+    }
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            let response = await axios.post('/api/recipe/add', recipe)
+            const config = {
+                headers: {
+                    'content-type': 'multipart/form-data'
+                }
+            }
+            let response = await axios.post('/api/recipe/add', recipe, config)
 
             alert('A recipe was submitted');
         } catch (error) {
@@ -44,15 +121,34 @@ export default function InsertNewRecipe() {
         setCategories(data);
     };
 
+    const getIngredients = async () => {
+        const response = await fetch("/api/recipe/ingredients");
+        const data = await response.json();
+        console.log(data);
+        setIngredients(data);
+
+    };
+
     useEffect(() => {
         getCategories();
+        getIngredients();
     }, []);
+
+    useEffect(() => {
+        setRecipe(previous_recipe => {
+            return ({
+                ...previous_recipe,
+                ingredients: selectedIngredients.data
+            });
+        });
+    }, [selectedIngredients]);
 
     // this function added to use effect
 
 
     return (
         <div className="Insert-container">
+            {console.log(recipe)}
             <div className="main-heading">
                 <h1>Add a Recipe</h1> </div>
             <div className="image-container">
@@ -88,11 +184,42 @@ export default function InsertNewRecipe() {
                         </select>
                     </label>
 
+                    <label className="fields">
+                        Add an ingredient:
+                        {
+                            selectedIngredients.data.map((selectedIngredient, key) => {
+
+                                return < div key={key}>
+                                    <select name="ingredient_id" value={selectedIngredient.ingredient_id} onChange={(e) => handleSelectedIngredientChange(e, key)}>
+                                        <option value="">Select</option>
+                                        {
+                                            ingredients.map((ingredient, ingredient_key) => {
+                                                return <option key={ingredient_key} value={ingredient.id}>{ingredient.name}</option>
+                                            })
+                                        }
+                                    </select>
+                                    <input type="text" name="ingredient_measure" value={selectedIngredient.ingredient_measure} onChange={(e) => handleSelectedIngredientChange(e, key)} />
+                                </div>
+
+                            })
+                        }
+                        <button onClick={(event) => {
+                            event.preventDefault()
+                            setSelectedIngredients({
+                                data: [...selectedIngredients.data, {
+                                    ingredient_id: 0,
+                                    ingredient_measure: ''
+                                }]
+                            })
+                        }}>Add another</button>
+                    </label>
+
 
                     <label className="fields">
                         Description:
                         <textarea rows="5" cols="50" className="fields-to-fill" type="text" name="description" value={recipe.description} onChange={handleRecipeChange} />
                     </label>
+
                     <label className="fields">
                         Cooking time:
                         <input className="fields-to-fill" type="text" name="cooking_time" value={recipe.cooking_time} onChange={handleRecipeChange} />
@@ -112,7 +239,7 @@ export default function InsertNewRecipe() {
                     </label>
                     <label className="fields">
                         Image:
-                        <input className="fields-to-fill" type="file" name="image" onChange={handleRecipeChange} />
+                        <input className="fields-to-fill" type="file" name="image" onChange={handleImageInput} />
                     </label>
                     <input className="submit-button" type="submit" value="Submit" />
                 </form>
