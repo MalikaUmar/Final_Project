@@ -40,10 +40,11 @@ function Favourites() {
             {user ? (
                 <div className="favourites-container">
                     <div className="favourites-container_heading">
-                       
                         <div className="favourites-container_heading-title">
                             <h1>All Saved Items</h1>
-                            <p className="favourites-container_heading-tailor">All your Favourite Content In One Place</p>
+                            <p className="favourites-container_heading-tailor">
+                                All your Favourite Content In One Place
+                            </p>
                         </div>
                     </div>
 
@@ -53,23 +54,41 @@ function Favourites() {
                                 return (
                                     <>
                                         <div className="card-favorites">
-                                            <div className="card-remove" onClick={() => {
-                                                    removeRecipe(item.id);
-                                                }}>
-                                                
-                                                <FontAwesomeIcon className="card-remove_minusIcon" icon={faMinus}/>
- 
+                                            <div
+                                                className="card-remove"
+                                                onClick={() => {
+                                                    if (
+                                                        window.confirm(
+                                                            "Do you want to delete?"
+                                                        )
+                                                    ) {
+                                                        removeRecipe(item.id);
+                                                    }
+                                                }}
+                                            >
+                                                <FontAwesomeIcon
+                                                    className="card-remove_minusIcon"
+                                                    icon={faMinus}
+                                                />
                                             </div>
-                                               <div className="favouritesContainer-imageContainer">
-                                           
-                                                <img className="ugmenu_img" src={item.image} alt="" />
+                                            <div className="favouritesContainer-imageContainer">
+                                                <img
+                                                    className="ugmenu_img"
+                                                    src={item.image}
+                                                    alt=""
+                                                />
+                                            </div>
 
-                                                </div>
-                                            
                                             <div className="ugmenu_content">
-                                                <p className="category">{item.title}</p>
-                                                <h2 className="ugmenu_title">{item.title}</h2>
-                                                <p className="ugcooking_time">{item.cooking_time}</p>
+                                                <p className="category">
+                                                    {item.title}
+                                                </p>
+                                                <h2 className="ugmenu_title">
+                                                    {item.title}
+                                                </h2>
+                                                <p className="ugcooking_time">
+                                                    {item.cooking_time}
+                                                </p>
                                             </div>
                                         </div>
                                     </>
