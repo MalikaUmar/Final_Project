@@ -103,7 +103,7 @@ function Favourites() {
                                     className="ifthereIs-noRecipes_links"
                                     to={"/"}
                                 >
-                                    Add you recipes
+                                    Add your favourites
                                 </Link>
                             </div>
                         )}
