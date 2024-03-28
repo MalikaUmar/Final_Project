@@ -124,7 +124,7 @@ function Home() {
                             >
                                 {" "}
                                 Click here for instant meal ideas and let's
-                                create something incredible today !
+                                create something incredible today!"
                             </Link>
                         </p>
                     </div>
@@ -137,29 +137,21 @@ function Home() {
                             return (
                                 <>
                                     <div className="ugmenu_item">
-                                        <Link
-                                            to={`/cuisine/${item.id}`}
-                                            className="link_to"
+                                        <div
+                                            className="heart-iconDiv"
+                                            onClick={() => {
+                                                additemsToFavourites(item.id),
+                                                    user
+                                                        ? setActive(true)
+                                                        : setUserActive(false);
+                                            }}
                                         >
-                                            <div
-                                                className="heart-iconDiv"
-                                                onClick={() => {
-                                                    additemsToFavourites(
-                                                        item.id
-                                                    ),
-                                                        user
-                                                            ? setActive(true)
-                                                            : setUserActive(
-                                                                  false
-                                                              );
-                                                }}
-                                            >
-                                                <FontAwesomeIcon
-                                                    icon={faHeart}
-                                                    className="heart-icon"
-                                                />
-                                            </div>
-
+                                            <FontAwesomeIcon
+                                                icon={faHeart}
+                                                className="heart-icon"
+                                            />
+                                        </div>
+                                        <Link to={`/cuisine/${item.id}`}>
                                             <div className="cards_imageContainer">
                                                 <img
                                                     src={item.image}
@@ -167,14 +159,14 @@ function Home() {
                                                     className="ugmenu_img"
                                                 />
                                             </div>
-                                            <div className="ugmenu_content">
-                                                <p>{item.title}</p>
-                                                <h2 className="ugmenu_title">
-                                                    {item.title}
-                                                </h2>
-                                                <p>{item.preparation_time}</p>
-                                            </div>
                                         </Link>
+                                        <div className="ugmenu_content">
+                                            <p>{item.title}</p>
+                                            <h2 className="ugmenu_title">
+                                                {item.title}
+                                            </h2>
+                                            <p>{item.preparation_time}</p>
+                                        </div>
                                     </div>
                                 </>
                             );
