@@ -41,7 +41,19 @@ export default function UyghurCuisine() {
 
             {userActive == false ? <UserStatusPoppupWindow /> : ""}
 
-            <div className="ugcontainer" style={{opacity: active== true || userActive == false || burgericon== true ? 0.3 : '',backgroundColor: active== true || userActive == false ? "black" : ''}}>
+            <div
+                className="ugcontainer"
+                style={{
+                    opacity:
+                        active == true ||
+                        userActive == false ||
+                        burgericon == true
+                            ? 0.3
+                            : "",
+                    backgroundColor:
+                        active == true || userActive == false ? "black" : "",
+                }}
+            >
                 <div className="ugimg_box">
                     <img
                         src="/img/uyghurcuisine-bg.jpeg"
@@ -59,39 +71,44 @@ export default function UyghurCuisine() {
                             return (
                                 <>
                                     <div className="ugmenu_item">
-                                        <div
-                                            className="ugheart-iconDiv"
-                                            onClick={() => {
-                                                additemsToFavourites(
-                                                    uyRecipe.id
-                                                ),
-                                                    user
-                                                        ? setActive(true)
-                                                        : setUserActive(false);
-                                            }}
+                                        <Link
+                                            to={`/cuisine/${uyRecipe.id}`}
+                                            className="link_to"
                                         >
-                                            <FontAwesomeIcon
-                                                icon={faHeart}
-                                                className="ugheart-icon"
-                                            />
-                                        </div>
-                                        <Link to={`/cuisine/${uyRecipe.id}`}>
+                                            <div
+                                                className="ugheart-iconDiv"
+                                                onClick={() => {
+                                                    additemsToFavourites(
+                                                        uyRecipe.id
+                                                    ),
+                                                        user
+                                                            ? setActive(true)
+                                                            : setUserActive(
+                                                                  false
+                                                              );
+                                                }}
+                                            >
+                                                <FontAwesomeIcon
+                                                    icon={faHeart}
+                                                    className="ugheart-icon"
+                                                />
+                                            </div>
                                             <img
                                                 src={uyRecipe.image}
                                                 className="ugmenu_img"
                                             />
+                                            <div className="ugmenu_content">
+                                                <p className="category">
+                                                    {uyRecipe.difficulty_level}
+                                                </p>
+                                                <h2 className="ugmenu_title">
+                                                    {uyRecipe.title}
+                                                </h2>
+                                                <p className="ugcooking_time">
+                                                    {uyRecipe.cooking_time}
+                                                </p>
+                                            </div>
                                         </Link>
-                                        <div className="ugmenu_content">
-                                            <p className="category">
-                                                {uyRecipe.difficulty_level}
-                                            </p>
-                                            <h2 className="ugmenu_title">
-                                                {uyRecipe.title}
-                                            </h2>
-                                            <p className="ugcooking_time">
-                                                {uyRecipe.cooking_time}
-                                            </p>
-                                        </div>
                                     </div>
                                 </>
                             );

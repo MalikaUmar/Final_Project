@@ -18,12 +18,7 @@ import Select from "react-select";
 import { library } from "@fortawesome/fontawesome-svg-core";
 // import "./SearchFromIngredients.scss";
 
-
-
-
 function Home() {
-
-
     const { user } = useContext(UserContext);
     const {
         additemsToFavourites,
@@ -49,31 +44,44 @@ function Home() {
         setActive(false);
     }, []);
 
-
-
-
-
-
-  return (
-    <>
-    <Header/>
+    return (
+        <>
+            <Header />
 
             {active == true ? <Popupwindow /> : ""}
 
             {userActive == false ? <UserStatusPoppupWindow /> : ""}
 
-    <div className="home-container" style={{opacity: active== true || userActive == false || burgericon== true ? 0.3 : '',backgroundColor: active== true || userActive == false ? "black" : ''}}>
-
-        <div className="home-container_head">
-            <h1 className="home-container_head-title">What's Your Favourite Cusine</h1>
-            <div className="home-container_cusins-list">
-
-                <Link to={"/indian"}>
-                <div className="home-container_cusins">
-                   <img className="home-container_cusins-img" src="https://marketplace.canva.com/MADQ5c-RCws/1/screen_2x/canva-indian-buffet-of-spiced-dish-MADQ5c-RCws.jpg" alt="" />
-                   <p className="home-container_cusins-name">INDIAN</p>
-                </div>
-                </Link>
+            <div
+                className="home-container"
+                style={{
+                    opacity:
+                        active == true ||
+                        userActive == false ||
+                        burgericon == true
+                            ? 0.3
+                            : "",
+                    backgroundColor:
+                        active == true || userActive == false ? "black" : "",
+                }}
+            >
+                <div className="home-container_head">
+                    <h1 className="home-container_head-title">
+                        What's Your Favourite Cusine
+                    </h1>
+                    <div className="home-container_cusins-list">
+                        <Link to={"/indian"}>
+                            <div className="home-container_cusins">
+                                <img
+                                    className="home-container_cusins-img"
+                                    src="https://marketplace.canva.com/MADQ5c-RCws/1/screen_2x/canva-indian-buffet-of-spiced-dish-MADQ5c-RCws.jpg"
+                                    alt=""
+                                />
+                                <p className="home-container_cusins-name">
+                                    INDIAN
+                                </p>
+                            </div>
+                        </Link>
 
                         <Link to={"/serbian"}>
                             <div className="home-container_cusins">
@@ -88,84 +96,94 @@ function Home() {
                             </div>
                         </Link>
 
-                <Link to={"/uyghur-cuisine"}>
-                <div className="home-container_cusins">
-                   <img className="home-container_cusins-img" src="https://marketplace.canva.com/IKfVw/MADyQyIKfVw/1/s2/canva-person-cooking-noodles-MADyQyIKfVw.jpg" alt="" />
-                   <p className="home-container_cusins-name">UYGHUR</p>
+                        <Link to={"/uyghur-cuisine"}>
+                            <div className="home-container_cusins">
+                                <img
+                                    className="home-container_cusins-img"
+                                    src="https://marketplace.canva.com/IKfVw/MADyQyIKfVw/1/s2/canva-person-cooking-noodles-MADyQyIKfVw.jpg"
+                                    alt=""
+                                />
+                                <p className="home-container_cusins-name">
+                                    UYGHUR
+                                </p>
+                            </div>
+                        </Link>
+                    </div>
                 </div>
-                </Link>
+
+                <div className="home-container-content">
+                    <div className="home-container_searchForMeal">
+                        <h3 className="home-container_searchForMeal_head">
+                            Ready to turn your ingredients into a masterpiece?
+                        </h3>
+
+                        <p>
+                            <Link
+                                className="home-container_searchForMeal-link"
+                                to={"/search"}
+                            >
+                                {" "}
+                                Click here for instant meal ideas and let's
+                                create something incredible today !
+                            </Link>
+                        </p>
+                    </div>
+                    <h1 className="home-container-content-head">
+                        Trending Recipes
+                    </h1>
+
+                    <div className="ugmenu_container">
+                        {trendingCusine.map((item) => {
+                            return (
+                                <>
+                                    <div className="ugmenu_item">
+                                        <Link
+                                            to={`/cuisine/${item.id}`}
+                                            className="link_to"
+                                        >
+                                            <div
+                                                className="heart-iconDiv"
+                                                onClick={() => {
+                                                    additemsToFavourites(
+                                                        item.id
+                                                    ),
+                                                        user
+                                                            ? setActive(true)
+                                                            : setUserActive(
+                                                                  false
+                                                              );
+                                                }}
+                                            >
+                                                <FontAwesomeIcon
+                                                    icon={faHeart}
+                                                    className="heart-icon"
+                                                />
+                                            </div>
+
+                                            <div className="cards_imageContainer">
+                                                <img
+                                                    src={item.image}
+                                                    alt=""
+                                                    className="ugmenu_img"
+                                                />
+                                            </div>
+                                            <div className="ugmenu_content">
+                                                <p>{item.title}</p>
+                                                <h2 className="ugmenu_title">
+                                                    {item.title}
+                                                </h2>
+                                                <p>{item.preparation_time}</p>
+                                            </div>
+                                        </Link>
+                                    </div>
+                                </>
+                            );
+                        })}
+                    </div>
+                </div>
             </div>
-        </div>
-        
-       
-       <div className="home-container-content">
-
-             <div className="home-container_searchForMeal">
-                <h3 className="home-container_searchForMeal_head">Ready to turn your ingredients into a masterpiece?</h3>
-               
-
-               <p><Link className="home-container_searchForMeal-link" to={"/search"}> Click here for instant meal ideas and let's create something incredible today !</Link></p>
-
-            
-            </div>
-         <h1 className="home-container-content-head">Trending Recipes</h1>
-
-          <div className="ugmenu_container">
-
-         {  
-         trendingCusine.map(item=>{
-            return(
-            <>
-             
-             <div className="ugmenu_item">
-                                          <div
-                                              className="heart-iconDiv"
-                                              onClick={() => {
-                                                  additemsToFavourites(item.id),
-                                                      user
-                                                          ? setActive(true)
-                                                          : setUserActive(
-                                                                false
-                                                            );
-                                              }}
-                                          >
-                                              <FontAwesomeIcon
-                                                  icon={faHeart}
-                                                  className="heart-icon"
-                                              />
-                                          </div>
-                                          <Link to={`/cuisine/${item.id}`}>
-                                          <div className="cards_imageContainer">
-                                              <img
-                                                  src={item.image}
-                                                  alt=""
-                                                  className="ugmenu_img"
-                                              />
-                                          </div>
-                                          </Link>
-                                          <div className="ugmenu_content">
-                                              <p>{item.title}</p>
-                                              <h2 className="ugmenu_title">
-                                                  {item.title}
-                                              </h2>
-                                              <p>{item.preparation_time}</p>
-                                          </div>
-                                      </div>
-            </>
-            )
-         })
-        
-         }
-         </div>
-
-
-         </div>
-        
-        
-
-    </div>
-    </>
-  )
+        </>
+    );
 }
 
 export default Home;
