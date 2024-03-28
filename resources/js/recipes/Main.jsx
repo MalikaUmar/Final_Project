@@ -6,7 +6,7 @@ import InsertNewRecipe from "./InsertNewRecipe";
 
 function Main() {
     return (
-        <div >
+        <div>
             <App />
         </div>
 

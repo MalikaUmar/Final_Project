@@ -12,7 +12,7 @@ class FavouriteController extends Controller
     public function index($recipe_id,$user_id)
     {
         if(Favorite::where('user_id',$user_id)->where('recipe_id',$recipe_id)->first()){
-            return response()->json('item already saved to favourites');
+            return response()->json('Already saved !');
         }
 
       $favourites = new Favorite;
@@ -21,7 +21,7 @@ class FavouriteController extends Controller
       $favourites->user_id = $user_id;
       $favourites->save();
 
-      return response()->json('item saved to favourites');
+      return response()->json('Saved !');
 
        
     }

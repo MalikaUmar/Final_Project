@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Noto+Serif+Display:wght@200;400;700&display=swap');
 
+body{
+    width: 100vw;
+    overflow-x: hidden;
+}
+
 .home-container_head{
     display: flex;
     flex-direction: column;

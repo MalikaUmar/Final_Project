@@ -21,37 +21,24 @@ function Register(props) {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
-        const response = await fetch('/register', {
-            "method": 'POST',
-            "body": JSON.stringify(values),
-            "headers": {
-                'Accept': 'application/json',
-                'Content-type': 'application/json',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                
-            }
-        })
- 
-       
-        const response_data = await response.json();
-        // console.log(response_data);
-        getUser();
-        if(Math.floor(response.status / 100) == 2){
-          navigate('/')
-        }
- 
         
-        if (Math.floor(response.status / 100) !== 2) {
-    
-            switch (response.status) {
+       
+        try {
+            
+            const response = await axios.post('/register', values);
+            const response_data = response.data;
+            getUser();
+            navigate('/')
+        } catch (error) {
+        
+            switch (error.response.status) {
                 case 422:
-                    // handle validation errors here
-                    console.log('VALIDATION FAILED:', response_data.errors);
-                    setErrors(response_data.errors)
+                    
+                    console.log('VALIDATION FAILED:', error.response.data.errors);
+                    setErrors(error.response.data.errors)
                     break;
-                default:
-                    console.log('UNKNOWN ERROR', response_data);
+                case 500:
+                    console.log('UNKNOWN ERROR', error.response.data);
                     break;
             }
         }
