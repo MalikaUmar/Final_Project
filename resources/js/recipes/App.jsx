@@ -102,12 +102,14 @@ function App() {
                                 path="/search"
                                 element={<SearchFromIngredients />}
                             /> */}
-
+                          
                         </Routes>
+                        <Footer />
                     </BrowserRouter>
+                    
                 </FavouriteContext.Provider>
             </UserContext.Provider>
-            <Footer />
+            
 
 
 

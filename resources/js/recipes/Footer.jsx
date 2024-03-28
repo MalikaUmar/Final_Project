@@ -7,10 +7,10 @@ function Footer() {
     <div className="footer-container">
         <h3>DELICIOUS</h3>
         <div className="footer-content">
-            <p>HOME</p>
-            <p>FAVOURITES</p>
-            <p>ADD RECIPE</p>
-            <p>PROFILE</p>
+            <Link className="footer-link-link" to={"/"}>Home</Link>
+            <Link className="footer-link-link" to={"/favourites"}>Favourites</Link>
+            <Link className="footer-link-link" to={"/add-recipe"}>Add a Recipe</Link>
+            <Link className="footer-link-link" to={"/"}>Profile</Link>
         </div>
         <div className="footer-foot">
             <div className="foot-left">

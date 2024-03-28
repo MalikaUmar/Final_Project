@@ -39,3 +39,16 @@
     border-radius: 50%;
     background-color: darkgray;
 }
+.footer-link-link{
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+.footer-link-link:hover{
+    opacity: 0.5;
+}
+.foot-left{
+    display: flex;
+    align-self: flex-end;
+}
+  
