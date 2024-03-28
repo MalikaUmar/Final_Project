@@ -123,7 +123,7 @@ export default function RecipeDetail() {
                             </div>
                         </div>
                         <hr />
-                        <h3>Instruction</h3>
+                        <h3 className="instruction_title">Instruction</h3>
                         <p className="instruction">
                             {detailPage.recipe?.instruction}
                         </p>
