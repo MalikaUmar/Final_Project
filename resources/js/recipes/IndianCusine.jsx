@@ -82,7 +82,7 @@ function IndianCusine() {
                                               </Link>
                                           </div>
                                           <div className="ugmenu_content">
-                                              <p>{item.title}</p>
+                                              
                                               <h2 className="ugmenu_title">
                                                   {item.title}
                                               </h2>

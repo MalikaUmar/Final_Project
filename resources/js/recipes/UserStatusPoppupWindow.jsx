@@ -14,7 +14,7 @@ function UserStatusPoppupWindow() {
          <h2 className="userStatus-popup_window-heading">Delicious</h2>
 
          <div className="userStatus-popup_window-section-2">
-          <h3>Login or Signup to comment or Save Recipes</h3>
+          <h3 className="userStatus-popup_window-section-2-title">Login or Signup to comment or Save Recipes</h3>
           <div className="userStatus-popup_window-links">
           <p><Link className="userStatus-popup_window-link" to={'/login'}>Login</Link> </p>
           <p><Link className="userStatus-popup_window-link" to={'/register'}>Signup</Link> </p>

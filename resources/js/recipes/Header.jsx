@@ -76,6 +76,10 @@ function Header() {
     <div className="header-links">
         <Link className="header-link" to="/">Home</Link>|
         <Link className="header-link" to="/add-recipe">Add your recipe</Link>|
+                                                          
+                                                          
+                                                                
+                                                            
         <Link className="header-link" to="/favourites">Favourite</Link>|
 
         {

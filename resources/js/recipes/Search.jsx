@@ -9,6 +9,8 @@ import { useContext } from "react";
 import UserContext from "./UserContext";
 import { Link } from "react-router-dom";
 import Header from "./Header";
+import UserStatusPoppupWindow from "./UserStatusPoppupWindow";
+import Popupwindow from "./Popupwindow";
 
 
 
@@ -51,8 +53,11 @@ export default function Search() {
     return (
         <>
         <Header/>
+        {active == true ? <Popupwindow /> : ""}
+
+      {userActive == false ? <UserStatusPoppupWindow /> : ""}
     
-        <div className="search-container">
+        <div className="search-container" style={{opacity: active== true || userActive == false || burgericon== true ? 0.3 : '',backgroundColor: active== true || userActive == false ? "black" : ''}}>
             {/* <input
                 type="text"
                 name="search"

@@ -104,7 +104,7 @@ function Home() {
                 <h3 className="home-container_searchForMeal_head">Ready to turn your ingredients into a masterpiece?</h3>
                
 
-               <p><Link className="home-container_searchForMeal-link" to={"/search"}> Click here for instant meal ideas and let's create something incredible today!"</Link></p>
+               <p><Link className="home-container_searchForMeal-link" to={"/search"}> Click here for instant meal ideas and let's create something incredible today !</Link></p>
 
             
             </div>
