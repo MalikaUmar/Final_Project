@@ -32,6 +32,7 @@ function App() {
     const [active, setActive] = useState(false); // state to display popwindow when adding recipes to favourites
     const [userActive, setUserActive] = useState(true);
     const [burgericon, setBurgericon] = useState(false);
+    const [saved,setSaved] = useState('')
 
     const getUser = async () => {
         const response = await fetch("/api/user", {
@@ -52,6 +53,7 @@ function App() {
     const additemsToFavourites = async (recipe_id) => {
         const response = await fetch(`/api/addToFavourites/${recipe_id}/${user.id}`);
         const data = await response.json();
+        setSaved(data)
         console.log(data);
     }
 
@@ -76,7 +78,8 @@ function App() {
                         userActive,
                         setUserActive,
                         setBurgericon,
-                        burgericon
+                        burgericon,
+                        saved
                     }}
                 >
                     <BrowserRouter>

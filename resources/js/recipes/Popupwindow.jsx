@@ -10,7 +10,7 @@ import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 
 function Popupwindow() {
-    const { active,setActive } = useContext(FavouriteContext)
+    const { active,setActive,saved } = useContext(FavouriteContext)
   return (
   
     <div className="popup-window">
@@ -21,7 +21,7 @@ function Popupwindow() {
          <div className="circle">
           <FontAwesomeIcon icon={faCheck} />
          </div>
-        <h3>Saved!</h3>
+        <h3>{saved}</h3>
         <p><Link to={'/favourites'}>View All Saved Items</Link> </p>
     </div>
    
